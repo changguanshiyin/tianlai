@@ -1,0 +1,94 @@
+var MvinfoCommand = {};
+var MvinfoMediator = {};
+var MvinfoProxy = {};
+//notification = {"消息名","对象"};所有的command文件都有一个execute的执行方法。
+MvinfoCommand.execute = function(notification,obj)
+{
+	switch(notification)
+	{
+		case "load_init_data":
+			MvinfoProxy.loadinitdata();
+			break;
+		case "get_gift_list":
+			MvinfoProxy.loadgiftlist();
+			break;
+		case "pinglung_huifu":
+			MvinfoProxy.loadHuifu(obj);
+			break;
+		case "send_flower":
+			MvinfoProxy.sendflower(obj);
+			break;
+		case "send_gift_touser":
+			MvinfoProxy.sendGiftToUser(obj);
+			break;
+		case "page_tap":
+			MvinfoProxy.pageTap(obj);
+			MvinfoMediator.pagetabhandle();
+			break;
+		case "mvinfo_tjpl":
+			MvinfoProxy.mvinfoTjpl(obj);
+			break;
+		case "tuijian_send":
+			MvinfoProxy.sendTuijian();
+			break;
+		case "send_private_touser":
+			//私信
+			MvinfoProxy.sendPrivate(obj);
+			break;
+		case "send_guanzhu_touser":
+			//私信
+			MvinfoProxy.sendgunzhu(obj);
+			break;
+		case "cancle_guanzhu_touser":
+			//私信
+			MvinfoProxy.canclegunzhu(obj);
+			break;
+		case "is_guanzhu_touser":
+			//私信
+			MvinfoProxy.isguanzhu(obj);
+			break;
+	}
+};
+MvinfoCommand.init = function()
+{
+	//首页  view
+	facade.register("init",MvinfoMediator);
+	facade.register("init_user_data",MvinfoMediator);
+
+	facade.register("get_gift_ok", MvinfoMediator);
+	facade.register("get_huifu_ok", MvinfoMediator);
+	facade.register("send_flower_ok", MvinfoMediator);
+	facade.register("send_gift_ok", MvinfoMediator);
+	facade.register("alert_txt", MvinfoMediator);
+	facade.register("pinglunover", MvinfoMediator);
+	facade.register("loginsuccess",MvinfoMediator);
+	facade.register("is_guanzhu",MvinfoMediator);
+	facade.register("user_logout",MvinfoMediator);
+	
+	
+	facade.register("get_gift_list",MvinfoCommand);
+	facade.register("load_init_data", MvinfoCommand);
+	
+	facade.register("init_pinglun_ok", MvinfoMediator);
+	facade.register("pinglung_huifu", MvinfoCommand);
+	facade.register("send_flower", MvinfoCommand);
+	facade.register("send_gift_touser", MvinfoCommand);
+	
+	//分页
+	facade.register("page_tap", MvinfoCommand);
+	//提交评论
+	facade.register("mvinfo_tjpl", MvinfoCommand);
+	facade.register("tuijian_send", MvinfoCommand);
+	
+	//发私信
+	facade.register("send_private_touser",MvinfoCommand);
+	//关注
+	facade.register("send_guanzhu_touser",MvinfoCommand);
+	//取消关注
+	facade.register("cancle_guanzhu_touser",MvinfoCommand);
+	//判断是否关注
+	facade.register("is_guanzhu_touser",MvinfoCommand);
+	
+	
+};
+

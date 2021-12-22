@@ -1,0 +1,87 @@
+var OtherHomeCommand = {};
+var OtherHomeMediator = {};
+var OtherHomeProxy = {};
+//notification = {"消息名","对象"};所有的command文件都有一个execute的执行方法。
+OtherHomeCommand.execute = function(notification,obj)
+{
+	switch(notification)
+	{
+		case "load_init_data":
+			OtherHomeProxy.loadinitdata();
+			break;
+		case "tab_work_mv":
+			OtherHomeProxy.loaddata();
+			break;
+		case "top_change":
+//			alert("___"+OtherHomeVO.currentNav);
+			OtherHomeProxy.loaddata();
+			break;
+		case "tab_work_gift":
+			OtherHomeProxy.loaddata();
+			break;
+		case "page_tap":
+			$("#pagetap").hide();
+			OtherHomeVO.pagenum = obj.page;
+			OtherHomeProxy.loaddata();
+			break;
+		case "send_gift_touser":
+			OtherHomeProxy.sendGiftToUser(obj);
+			break;
+		case "send_private_touser":
+			//私信
+			OtherHomeProxy.sendPrivate(obj);
+			break;
+		case "send_guanzhu_touser":
+			//私信
+			OtherHomeProxy.sendgunzhu(obj);
+			break;
+		case "cancle_guanzhu_touser":
+			//私信
+			OtherHomeProxy.canclegunzhu(obj);
+			break;
+		case "is_guanzhu_touser":
+			
+			OtherHomeProxy.isguanzhu(obj);
+			break;
+			
+	}
+};
+OtherHomeCommand.init = function()
+{
+	//首页  view
+	facade.register("init",OtherHomeMediator);
+	facade.register("init_user_data",OtherHomeMediator);
+	facade.register("init_data_ok", OtherHomeMediator);
+	facade.register("load_user_mv_data", OtherHomeMediator);
+	facade.register("load_user_hydt_data", OtherHomeMediator);
+	facade.register("load_fans_data", OtherHomeMediator);
+	facade.register("loginsuccess",OtherHomeMediator);
+	//退出
+	facade.register("user_logout",OtherHomeMediator);
+	facade.register("load_guanzhu_data", OtherHomeMediator);
+	
+	facade.register("load_gift_data", OtherHomeMediator);
+	facade.register("load_shopgift_data", OtherHomeMediator);
+	facade.register("alert_txt", OtherHomeMediator);
+	
+//	
+	facade.register("load_init_data",OtherHomeCommand);
+	facade.register("tab_work_mv",OtherHomeCommand);
+	facade.register("top_change",OtherHomeCommand);
+	facade.register("tab_work_gift",OtherHomeCommand);
+	facade.register("page_tap",OtherHomeCommand);
+	facade.register("send_gift_touser",OtherHomeCommand);
+	//发私信
+	facade.register("send_private_touser",OtherHomeCommand);
+	//关注
+	facade.register("send_guanzhu_touser",OtherHomeCommand);
+	//取消关注
+	facade.register("cancle_guanzhu_touser",OtherHomeCommand);
+	
+	facade.register("is_guanzhu",OtherHomeMediator);
+	
+	facade.register("is_guanzhu_touser",OtherHomeCommand);
+	
+	
+};
+

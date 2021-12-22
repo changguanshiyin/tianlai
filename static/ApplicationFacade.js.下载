@@ -1,0 +1,287 @@
+var debug = 1;
+
+var root = rooturl+"sns/js/";
+var headfile={};
+headfile.jquery = root+"jslib/jquery-1.7.1.min.js";
+headfile.qrcode = root+"jslib/jquery.qrcode.min.js";
+headfile.URLLoader = root+"URLLoader.js";
+headfile.homejs = rooturl+"sns/js/home/Home.js";
+headfile.config = rooturl+"sns/js/config.js";
+headfile.utils = root+"utils.js";
+
+var urlconfig={};
+//好友页面url 参数auserid=(好友id)
+urlconfig.friendpage=rooturl+"homep/otherHome.kg";
+//ugc播放页面 参数id=(ugc的id)
+urlconfig.ugcpage = rooturl+"ugcp/info.kg";
+//自己的页面
+urlconfig.myselfpage = rooturl+"homep/home.kg";
+//活动比赛页面
+urlconfig.activitypage = rooturl+"activityweb/activitylist.kg";
+//活动详情 act=10950
+urlconfig.activitinfoypage = rooturl+"activityweb/activityinfo.kg";
+
+urlconfig.searchpage = rooturl+"ugcp/search.kg";
+
+urlconfig.myinfo = rooturl+"homep/myinfo.kg";
+
+urlconfig.upload = rooturl+"ugcp/cloudFile.kg";
+
+var PromptTxt={};
+PromptTxt.idynamic="当前没有新动态！";
+PromptTxt.iAllWorks="主页里空空如也~~~快去客户端上传一首作品吧！";
+PromptTxt.iOtherWorks="您还没有上传过此类型的作品呢！";
+PromptTxt.ifans="您还没有粉丝呢，快去寻找志同道合的歌友吧！";
+PromptTxt.iAttention="您还没有关注别人哦！";
+PromptTxt.igifts="您还没有收到任何礼物哦！";
+PromptTxt.oAllWorks="Ta的主页空空如也~~~";
+PromptTxt.oOtherWorks="Ta还没有上传过此类型的作品呢！";
+PromptTxt.ofans="Ta还没有粉丝，快来关注Ta做第一个粉丝吧！";
+PromptTxt.oAttention="Ta还没有关注别人哦！";
+PromptTxt.ogifts="Ta还没有收到任何礼物哦！你会是第一个送Ta礼物的人吗？";
+PromptTxt.letter="现在没有任何私信哦！";
+PromptTxt.usernotice="暂时没有新的通知！";
+PromptTxt.sysnotice="暂时没有新的系统消息！";
+PromptTxt.sendgift="";
+PromptTxt.sendgiftsucc="礼物已赠送！";
+PromptTxt.searchmv="抱歉，没有找到相关歌曲！";
+PromptTxt.searchrace="抱歉，没有找到相关比赛！";
+PromptTxt.searchuser="抱歉，没有找到相关用户！";
+PromptTxt.Comment="快来抢沙发吧！";
+PromptTxt.blackComment="由于对方的隐私设置，您不能发送私信。";
+PromptTxt.blacksendflower="黑名单关系，无法与对方互动";
+PromptTxt.blackAttention="由于对方的隐私设置，您不能关注他";
+PromptTxt.shoucangTip = "我还没有收藏的比赛!";
+PromptTxt.jxzTip = "目前没有进行中的比赛！";
+PromptTxt.jksTip = "目前没有将要开始的比赛！";
+PromptTxt.yjsTip = "目前没有已结束的比赛！";
+PromptTxt.mvinfoNomvTxt = "还没有人参加比赛哦，快来上传你的作品吧！";
+
+
+var facade = {};
+
+facade.notifications = {};
+
+facade.onload = function(initfun)
+{
+	window.onload = function()
+	{
+		initfun();
+	};
+};
+facade.config = function()
+{
+	
+};
+//page 跳转的页面 exp:/tlcysns/home/home.kg
+//arg 需要传的参数 exp:{"arg":3};
+//method exp:get or post
+//target exp:_blank
+facade.gotoURL = function(page,arg,method,target)
+{
+		if(target==null)
+			target ="_blank";
+		var src="";
+		var myForm = document.createElement("form"); 
+		if(arg==-1)
+		{
+			myForm.method="POST" ; 
+		}else
+		{
+			myForm.method="GET" ; 
+		}
+		
+		myForm.action = page ; 
+		myForm.target = target;
+		if(arg)
+		{
+			for(var i in arg)
+			{
+				var myInput = document.createElement("input") ; 
+				myInput.setAttribute("name", i) ; 
+				myInput.setAttribute("value", arg[i]); 
+				myForm.appendChild(myInput) ; 
+			}
+		}
+		
+		document.body.appendChild(myForm) ; 
+		myForm.submit() ; 
+		document.body.removeChild(myForm) ; 
+};
+
+//让元素居中显示；
+facade.center = function(obj) {
+    
+    var screenWidth = $(window).width(), screenHeight = $(window).height();  //当前浏览器窗口的 宽高
+    var scrolltop = $(document).scrollTop();//获取当前窗口距离页面顶部高度
+
+    var objLeft = (screenWidth - obj.width())/2 ;
+    var objTop = (screenHeight - obj.height())/2 + scrolltop;
+
+    obj.css({left: objLeft + 'px', top: objTop + 'px'});
+    //浏览器窗口大小改变时
+    $(window).resize(function() {
+        screenWidth = $(window).width();
+        screenHeight = $(window).height();
+        scrolltop = $(document).scrollTop();
+      
+        objLeft = (screenWidth - obj.width())/2 ;
+        objTop = (screenHeight - obj.height())/2 + scrolltop;
+      
+        obj.css({left: objLeft + 'px', top: objTop + 'px'});
+      
+    });
+    //浏览器有滚动条时的操作、
+    $(window).scroll(function() {
+        screenWidth = $(window).width();
+        screenHeight = $(window).height();
+        scrolltop = $(document).scrollTop();
+      
+        objLeft = (screenWidth - obj.width())/2 ;
+        objTop = (screenHeight - obj.height())/2 + scrolltop;
+      
+        obj.css({left: objLeft + 'px', top: objTop + 'px'});
+    });
+  
+};
+//返回的len 为中文数量 release还可输入多少文字  跟maxlen比较
+facade.checkInputTxt = function(obj, maxlen)
+{
+	     var v = obj.val();
+	     if(maxlen)
+	    	 maxlen=2*maxlen;
+	     var charlen = 0, maxlen = !maxlen ? 200 : maxlen, curlen = maxlen, len = v.length; 
+	     for(var i = 0; i < v.length; i++) {
+	         if(v.charCodeAt(i) < 0 || v.charCodeAt(i) > 255) {
+	              curlen -= 1;
+	         }
+	     }
+	     if(curlen >= len) {
+	    	var num = Math.floor((curlen-len)/2);
+	    	if(num<=0)
+	    		return {"len":maxlen-curlen,"release":0};
+	    	else
+	    		return {"len":maxlen-curlen,"release":Math.floor((curlen-len)/2)};;
+	     }else{
+	         return  {"len":maxlen-curlen,"release":0};
+	     }
+	return {"len":maxlen-curlen,"release":0};
+};
+
+/*
+ * notify 消息名 string
+ * obj 要注册的对象 object
+ */
+facade.register = function(notify,obj)
+{
+	var notifyobj = this.notifications;
+	if(notifyobj.hasOwnProperty(notify))
+	{
+		var flag = 1;
+		for(var i = 0;i<notifyobj[notify].length;i++)
+		{
+			if(notifyobj[notify][i] == obj)
+			{
+				flag = 0;
+				break;
+			}
+		}
+		if(flag)
+			notifyobj[notify].push(obj);
+	}else
+	{
+		notifyobj[notify] = [obj]; 
+	}
+};
+
+facade.sendNotification = function(notify,obj)
+{
+	var notifyobj = this.notifications;
+	if(notifyobj.hasOwnProperty(notify))
+	{
+		for(var i = 0;i<notifyobj[notify].length;i++)
+		{
+			notifyobj[notify][i]["execute"](notify,obj);
+		}
+	}
+};
+
+facade.removeNotification = function(notify,obj)
+{
+	var notifyobj = this.notifications;
+	if(notifyobj.hasOwnProperty(notify))
+	{
+		for(var i = 0;i<notifyobj[notify].length;i++)
+		{
+			if(notifyobj[notify][i] == obj)
+			{
+				(notifyobj[notify]).splice(i,1);
+			}
+		}
+		if(notifyobj[notify].length == 0 )
+		{
+			delete notifyobj[notify];
+		}
+	}
+};
+facade.getHtmlElement = function(element)
+{
+	return $(element);
+};
+
+var getArgs=(function(){
+    var sc=document.getElementsByTagName('script');
+    if(sc[sc.length-1].src.indexOf("?")==-1)return -1;
+    var paramsArr=sc[sc.length-1].src.split('?')[1].split('&');
+    var args={},param,name,value;
+    for(var ii=0,len=paramsArr.length;ii<len;ii++){
+            param=paramsArr[ii].split('=');
+            name=param[0],value=param[1];
+            if(typeof args[name]=="undefined"){ //参数尚不存在
+                args[name]=value;
+            }else if(typeof args[name]=="string"){ //参数已经存在则保存为数组
+                args[name]=[args[name]];
+                args[name].push(value);
+            }else{  //已经是数组的
+                args[name].push(value);
+            }
+    }
+    return function(){return args;}; //以json格式返回获取的所有参数
+})();
+function include(src)
+{
+//	alert("src="+src+"        "+headfile[src])
+	document.write("<script language='javascript' src='"+headfile[src]+"'><\/script>");
+}
+function includeMVC(name)
+{
+	document.write("<script language='javascript' src='"+root+"controller/"+name+"Command.js"+"' charset=\"utf-8\"><\/script>");
+	document.write("<script language='javascript' src='"+root+"view/"+name+"Mediator.js"+"'  charset=\"utf-8\"><\/script>");
+	document.write("<script language='javascript' src='"+root+"model/"+name+"Proxy.js"+"'  charset=\"utf-8\"><\/script>");
+}
+function popup(txt)
+{
+	if(debug)
+		alert(txt);
+}
+//###############################################执行#################################################
+
+include("jquery");
+
+if(getArgs!=-1 && getArgs()["include"])
+{
+	includeMVC(getArgs()["include"]);
+}
+function Void(){
+	
+}
+function setKeyValue(dstobj,srcobj)
+{
+	for(var i in srcobj)
+	{
+		dstobj[i] = srcobj[i];
+	}
+}
+
+
+

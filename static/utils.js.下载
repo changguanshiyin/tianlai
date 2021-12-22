@@ -1,0 +1,150 @@
+//var utils={};
+//fg标识位   区别一个页面有多个分页条区分不同的分页条
+utils = function(pagenum,fg,objname)
+{
+	this.pages = pagenum;//总页数
+	this.currentpage = 1;//当前选中页数
+	this.maxnum = 10;//最多能显示多少页
+	this.recid = 1;//记录上一个选中的id
+	this.flag=fg;
+	this.objname = objname;
+};
+utils.prototype.setPages = function(num)
+{
+	this.pages = num;
+	this.recid = 1;
+};
+utils.prototype.setCurrentPage = function(num)
+{
+	this.currentpage = num;
+};
+
+utils.prototype.fun_pageclick = function(id)
+{
+	$("#"+this.flag+"pagelink"+this.recid).removeClass("select");
+	this.currentpage = $("#"+this.flag+"pagelink"+id).html();
+    var prenum = $("#"+this.flag+"pagelink1").html();
+    var lastnum = $("#"+this.flag+"pagelink10").html();
+    var selectnum =  $("#"+this.flag+"pagelink"+id).html();
+    if(this.currentpage == prenum)
+    {
+    	var prePrenum = Number(prenum)-4;
+    	if(prePrenum<=1)prePrenum=1;
+    	for(var i=0;i<this.maxnum;i++)
+    	{
+    		$("#"+this.flag+"pagelink"+(i+1)).html(Number(prePrenum)+i);
+    	}
+    	prenum = prePrenum;
+    	lastnum = Number(prenum)+9;
+    }else  if(this.currentpage == lastnum)
+    {
+    	var lastLastnum = Number(lastnum)+4;
+    	
+    	if(lastLastnum>=this.pages)lastLastnum=this.pages;
+    	
+    	for(var i=this.maxnum;i>0;i--)
+    	{
+    		$("#"+this.flag+"pagelink"+(i)).html(lastLastnum-(10-i));
+    	}
+    	lastnum = lastLastnum;
+    	prenum = Number(lastnum)-9;
+    }
+//    if(prenum==1)
+//    	$("#"+this.flag+"propagebtn").hide();
+//    else
+//    	$("#"+this.flag+"propagebtn").show();
+//    if(lastnum>=this.pages)
+//    	$("#"+this.flag+"nextpagebtn").hide();
+//    else
+//    	$("#"+this.flag+"nextpagebtn").show();
+    this.recid = (selectnum-prenum+1);
+    $("#"+this.flag+"pagelink"+( this.recid)).addClass("select");
+    
+    facade.sendNotification("page_tap", {"obj":this.objname,"page":$("#"+this.flag+"pagelink"+this.recid).html()});
+};
+utils.prototype.fun_pagepro = function()
+{
+	var prenum = $("#"+this.flag+"pagelink1").html();
+	var prePrenum = Number(prenum)-10;
+	
+	if(prePrenum<=1)prePrenum=1;
+	for(var i=0;i<this.maxnum;i++)
+	{
+		$("#"+this.flag+"pagelink"+(i+1)).html(Number(prePrenum)+i);
+		var classstr = $("#"+this.flag+"pagelink"+(i+1)).attr("class");
+		if(classstr && classstr.indexOf("select")!=-1)
+		{
+			$("#"+this.flag+"pagelink"+(i+1)).removeClass("select");
+		}
+	}
+	
+	this.recid = 1;
+	$("#"+this.flag+"pagelink"+this.recid).addClass("select");
+	
+//	if($("#"+this.flag+"pagelink1").html()==1)
+//	    	$("#"+this.flag+"propagebtn").hide();
+//    else
+//    	$("#"+this.flag+"propagebtn").show();
+//    if($("#"+this.flag+"pagelink10").html()>=this.pages)
+//    	$("#"+this.flag+"nextpagebtn").hide();
+//    else
+//    	$("#"+this.flag+"nextpagebtn").show();
+    
+    facade.sendNotification("page_tap", {"obj":this.objname,"page":$("#"+this.flag+"pagelink"+this.recid).html()});
+};
+utils.prototype.fun_pagenext = function()
+{
+	var lastnum = $("#"+this.flag+"pagelink10").html();
+	var lastLastnum = Number(lastnum)+10;
+	if(lastLastnum>=this.pages)lastLastnum=this.pages;
+	for(var i=this.maxnum;i>0;i--)
+	{
+		$("#"+this.flag+"pagelink"+(i)).html(lastLastnum-(10-i));
+		
+		var classstr = $("#"+this.flag+"pagelink"+i).attr("class");
+		if(classstr && classstr.indexOf("select")!=-1)
+		{
+			$("#"+this.flag+"pagelink"+i).removeClass("select");
+		}
+		
+	}
+//	$("#"+this.flag+"pagelink"+this.recid).removeClass("select");
+	this.recid = 1;
+	$("#"+this.flag+"pagelink"+this.recid).addClass("select");
+	
+//	if($("#"+this.flag+"pagelink1").html()==1)
+//    	$("#"+this.flag+"propagebtn").hide();
+//	else
+//		$("#"+this.flag+"propagebtn").show();
+//	if($("#"+this.flag+"pagelink10").html()>=this.pages)
+//		$("#"+this.flag+"nextpagebtn").hide();
+//	else
+//		$("#"+this.flag+"nextpagebtn").show();
+	
+	facade.sendNotification("page_tap", {"obj":this.objname,"page":$("#"+this.flag+"pagelink"+this.recid).html()});
+};
+utils.prototype.pagetab= function()
+{
+	if(this.pages<=1)return "";
+	var pages = this.pages;
+	pagesdiv="";
+	if(this.pages>10)
+		pagesdiv+='<a id="'+this.flag+'propagebtn" class="next" onclick="'+this.objname+'.fun_pagepro()">&lt;</a>'; 
+    var num = pages;
+    if(num>=this.maxnum)num=this.maxnum;
+    
+    for(var o=0;o<num;o++){
+    	if(o==this.currentpage-1)
+    	{
+    		
+    		 pagesdiv+=('<a  id="'+this.flag+'pagelink'+(o+1)+'" class="select" onclick="'+this.objname+'.fun_pageclick('+(o+1)+')">'+(o+1)+'</a>');
+    	}else
+    	{
+    		 pagesdiv+=('<a  id="'+this.flag+'pagelink'+(o+1)+'" onclick="'+this.objname+'.fun_pageclick('+(o+1)+')">'+(o+1)+'</a>');
+    	}
+    }
+    if(this.pages>10)
+    	pagesdiv+='<a id="'+this.flag+'nextpagebtn" class="next" onclick="'+this.objname+'.fun_pagenext()">&gt;</a>';
+	
+	return pagesdiv;
+};

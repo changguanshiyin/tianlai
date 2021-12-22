@@ -1,0 +1,138 @@
+*{font-family: "Microsoft YaHei" ! important;}
+        body{background:#F6F6F6}
+        .mv{width:1000px;margin:0 auto;}
+  .flash_div{width:700px;height:547px;}
+  .send_div{width:700px;height:480px;}
+  .send_div .hua_div{height:250px;background:#fff;margin-top:20px;border:1px #ccc solid;}
+  .send_div .hua_div .huabtn{width:700px;height:64px;}
+  .send_div .hua_div .huabtn .sys a{width:148px;height:63px;display:block;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/pic.png);background-repeat:no-repeat;}
+  .send_div .hua_div .hua_btnselect{width:150px;height:63px;float:left;cursor: pointer;}
+  .send_div .hua_div .hua_btn{cursor: pointer;width:150px;height:63px;float:left;background:#F6F6F6;border-bottom:1px #ccc solid;border-right:1px #ccc solid;}
+  .send_div .hua_div .gift_btn{cursor: pointer;width:150px;height:63px;float:left;background:#F6F6F6;border-bottom:1px #ccc solid;border-left:1px #ccc solid;}
+  .send_div .hua_div .gift_btnselect{cursor: pointer;width:150px;height:63px;float:left;background:#fff;}
+  .send_div .hua_div .recommend_btn{cursor: pointer;width:150px;height:63px;float:left;background:#F6F6F6;border-bottom:1px #ccc solid;border-left:1px #ccc solid;}
+  .send_div .hua_div .recommend_btnselect{cursor: pointer;width:150px;height:63px;float:left;background:#fff;}
+  .send_div .hua_div .share_btn{cursor: pointer;width:245px;height:63px;float:left;border-bottom:1px #ccc solid;background:#F6F6F6;border-left:1px #ccc solid;}
+  .send_div .hua_div .hua_btn a,.send_div .hua_div .hua_btnselect a{background-position:0px 6px;}
+  .send_div .hua_div .gift_btn a,.send_div .hua_div .gift_btnselect a{background-position:-148px 6px;}
+  .send_div .hua_div .recommend_btn a{background-position:-296px 6px;}
+  .hua_class{margin-top:10px;}
+  .hua_class div a{width:112px;height:160px;display:block;float:left;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/hua1.jpg);background-repeat:no-repeat;margin-left: 4px;}
+  .hua_class .hua1 a{cursor:pointer;background-position:-19px -10px;}
+  .hua_class .hua2 a{cursor:pointer;background-position:-135px -10px;}
+  .hua_class .hua3 a{cursor:pointer;background-position:-250px -10px;}
+  .hua_class .hua4 a{cursor:pointer;background-position:-366px -10px;}
+  .hua_class .hua5 a{cursor:pointer;background-position:-481px -10px;}
+  .hua_class .hua6 a{cursor:pointer;background-position:-597px -10px;}
+  .hua_class .hua1 a.hover{background-position:-19px -177px;}
+  .hua_class .hua2 a.hover{background-position:-135px -177px;}
+  .hua_class .hua3 a.hover{background-position:-250px -177px;}
+  .hua_class .hua4 a.hover{background-position:-366px -177px;}
+  .hua_class .hua5 a.hover{background-position:-481px -177px;}
+  .hua_class .hua6 a.hover{background-position:-597px -177px;}
+  ul li{display:inline;}
+  .gift_class{width:700px;overflow: hidden;margin-top:10px;}
+                        .gift_class .divline{width:100%;height:145px;positon:relative;overflow:hidden;white-space:nowrap;display:inline;}
+                        .gift_class .divline .body{width:112px;height:145px;float:left;margin-left:4px;white-space:nowrap;}
+                        .gift_class .divline .body .up{width:112px;height:112px;position: relative;}
+                        .gift_class .divline .body .up .imgdiv,.gift_class .divline .body .up img{cursor:pointer;width:112px;height:112px;}
+                        .gift_class .divline .body .up .txtdiv{position: absolute;bottom: 0px;}
+                        .gift_class .divline .body .up .txtdiv .txt1{width:85px;float:left;line-height:25px;text-align:right}
+                        .gift_class .divline .body .up .txtdiv .txt2{width:25px;height:25px;float:right;background-image: url(http://t6.tianlaikge.com/web/img/sns/mv/pic.png);background-repeat:no-repeat;background-position:-454px -18px;}
+                        .gift_class .divline .body .bottom{width:112px;text-align:center;line-height:30px;}
+                        .gift_class .pagebtn{width:64px;height:30px;float:right;margin-right:3px;}
+                        .gift_class .pagebtn div{width:30px;height:30px;background-image: url(http://t6.tianlaikge.com/web/img/sns/mv/pic.png);background-repeat:no-repeat;}
+                        .gift_class .pagebtn .prebtn{cursor:pointer;float:left;background-position: -23px -87px;}
+                        .gift_class .pagebtn .nextbtn{cursor:pointer;float:right;background-position: -90px -87px;}
+                        .gift_class .pagebtn .prebtn:hover{float:left;background-position: -58px -87px;}
+                        .gift_class .pagebtn .nextbtn:hover{float:right;background-position: -125px -87px;}
+
+                        .logined{width:299px;_width:290px;height:300px;float:right;text-align:center}
+       .logined .heigh{height:15px;_height:8px;width:200px;}
+       .logined .user{width:270px;height:90px;margin:0 auto;}
+       .logined .user .img{width:120px;height:90px;float:left;}
+       .logined .user .img img{width:120px;height:90px;cursor:pointer;}
+       .logined .user .txt{width:145px;float:right;text-align:left;}
+       .logined .user .txt p{font-size: 15px; margin:0;cursor: pointer;}
+       .logined .user .txt p a{font-size: 15px;}
+       .logined .user .txt .username{width:145px;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;color:#2DB2EA;font-weight: bold;}
+       .logined .user .txt .username span{margin-top: 8px;}
+       .logined .user .txt .userlv{width:145px;}
+       .logined .user .txt p{width:55px;float:left;margin:0;line-height:27px;}
+       .xing{width:27px;height:27px;display:block;float:left;background-image:url(http://t6.tianlaikge.com/web/img/sns/home/xing.png);}
+       .logined .tablef{width:270px;margin:0 auto;margin-top: 8px;_margin-top:0;}
+       .logined .mvnum td{width:90px;}
+       .logined .mvnum .td1{width:90px;border-right:1px #ccc solid;}
+       .logined .loginedpic{width:30px;height:26px;margin:0 auto;background-image:url(http://t6.tianlaikge.com/web/img/sns/home/logined.png);}
+       .logined .loginedpic123{width:28px;height:32px;margin:0 auto;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/mvinfopic.png);}
+       .logined .tablef1{text-align:left}
+       .logined .snsnum tr{height: 35px;_height:30px;}
+       .logined .snsnum td{height: 35px;text-align:center}
+       .logined .snsnum .td1{width:40px;}
+       .logined .snsnum .td2{width:50px;}
+       .logined .snsnum .td3{width:90px;}
+       .friend_view{width: 150px;float: right;margin-top: 5px;}
+       .friend_view a{width:70px;height:30px;display:block;float:left;margin-left: 5px;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/mvinfoaddbtn3.png);background-repeat:no-repeat;cursor:pointer;}
+       .friend_view .add{background-position: -163px -3px;}
+       .friend_view .added{background-position: -83px -3px;}
+       .friend_view .added:hover{background-position: -3px -3px;}
+       .friend_view .message{background-position: -243px -3px;}
+                  
+       .loginedpic1{background-position: -3px 0px;}
+       .loginedpic2{background-position: -31px 0px;}
+       .loginedpic3{background-position: -58px 0px;}
+       .loginedpic4{background-position: 0px -30px;}
+       .loginedpic5{background-position: -34px -30px;}
+       .loginedpic6{background-position: -66px -30px;}
+       .loginedpic7{background-position: -99px -30px;}
+                  
+       
+       .logined .line{height: 10px;background: none;border-bottom: 1px #CCC solid;width: 250px;margin-top: -5px;_margin-top: -15px;margin:0 auto;overflow:hidden;}
+
+                   .comment_div{width:700px;height:200px;margin-top:20px;}
+                   .comment_div .title{width:700px;height:25px;}
+                   .comment_div .title .title1{width:68px;height:25px;float:left;border-bottom:1px #2DB2EA solid;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/pic.png);background-repeat:no-repeat;background-position: -281px -55px;}
+                   .comment_div .title .title2{width:630px;height:25px;float:left;border-bottom:1px #ccc solid;}
+                   .comment_div .commentarea{width:700px;height:105px;margin-top:15px;}
+                   .comment_div .commentarea textarea{width:698px;height:100px;overflow: auto;border: 1px #ccc solid;resize: none;font-size: 16px;}
+                   .comment_div .commentbtndiv{width:700px;height:50px;margin-top:5px;}
+                   .comment_div .commentbtndiv .commentbtn{float:right;width:80px;height:30px;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/pic.png);background-repeat:no-repeat;background-position: -350px -60px;cursor:pointer;}
+                   .comment_div .commentbtndiv .commentnum{float:right;margin-right:25px;margin-top: 7px;}
+                   
+                   .showcomment_div .title{width:700px;height:25px;}
+              .showcomment_div .title .div1{width:68px;height:25px;float:left;border-bottom:1px #2DB2EA solid;background-image:url(http://t6.tianlaikge.com/web/img/sns/mv/pic.png);background-repeat:no-repeat;background-position: -281px -76px}
+              .showcomment_div .title .div2{width:630px;height:25px;float:left;border-bottom:1px #ccc solid;color:#2DB2EA;text-align:left;line-height: 25px;}
+              .showcomment_div .commentdiv{width:700px;margin-top:5px;}
+              .showcomment_div .commentdiv .commentone{width:700px;min-height:110px;border-bottom:1px #ccc solid;overflow:hidden;}
+              .showcomment_div .commentdiv .commentone .commentimg{width:100px;height:90px;float:left;}
+              .showcomment_div .commentdiv .commentone .commentimg img{width:80px;height:60px;margin:10px}
+              .showcomment_div .commentdiv .commentone .commenttxt{width:550px;float:left;}
+              .showcomment_div .commentdiv .commentone .commenttxt .name_time{margin-top:10px;font-size:13px;}
+              .showcomment_div .commentdiv .commentone .commenttxt .name_time img{width:90px;}
+              .showcomment_div .commentdiv .commentone .commenttxt .name_time .nickname{color:#377197}
+              .showcomment_div .commentdiv .commentone .commenttxt .name_time .time{color:#aaa}
+              .showcomment_div .commentdiv .commentone .commentback{width:40px;float:left;cursor:pointer;}
+              .showcomment_div .commentdiv .commentone .commentback a{margin-top:10px;font-size:12px;display:block;}
+              .showcomment_div .commentdiv .commentone .commentback a:hover{color: #2DB2EA;}
+              .showcomment_div .commentdiv .commentone .huifu{width:650px;;float:right;overflow: hidden;}
+              .showcomment_div .commentdiv .commentone .huifu .huifuone{overflow: hidden; _overflow:visible;min-height:75px;_height:75px;}
+              .showcomment_div .commentdiv .commentone .huifu .commenttxt{width:500px;float:left;overflow: hidden;position: relative;}
+              .showcomment_div .commentdiv .commentone .huifu .commenttxt img{width:90px;}
+              
+              
+              .showcomment_div .backdiv .one{width:600px;min-height:110px;overflow:hidden;}
+                                   .showcomment_div .backdiv .one .commentimg{width:90px;height:70px;float:left;}
+                                   .showcomment_div .backdiv .one .commentimg img{width:80px;height:60px;margin:5px}
+                                   .showcomment_div .backdiv .one .commenttxt{width:460px;float:left;}
+                                   .showcomment_div .backdiv .one .name_time{margin-top:5px;}
+                                   .showcomment_div .backdiv .one .name_time span.nick{color:#377197;font-size: 14px;}
+                                   .showcomment_div .backdiv .one .name_time span.time{color:#aaa;font-size: 14px;}
+                                   .showcomment_div .backdiv .one .commentback{width:30px;float:left;}
+                                   .showcomment_div .backdiv .one .commentback div{margin-top:10px;font-size: 14px;}
+                                   
+                                   .tablef table.snsnum tr{cursor:pointer;}
+                                   
+                                   
+                                   .zhankai{width:40px;display:block;font-size:12px;float:right;cursor:pointer;}
+                                   .zhankai:hover{color: #2DB2EA;}
+                                   #h5_mp3 img{position:absolute;display:none}

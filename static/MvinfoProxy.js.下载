@@ -1,0 +1,221 @@
+headfile.MvinfoVO = root+"model/vo/MvinfoVO.js";
+include("URLLoader");
+include("MvinfoVO");
+MvinfoProxy.urlloader;
+
+MvinfoProxy.giftlist = "giftp/getProperties.kg";
+MvinfoProxy.pinglunurl = "userp/commentlist.kg";
+MvinfoProxy.sendflowerurl = "maibap/sendflower.kg";
+MvinfoProxy.sendgift = "giftp/send.kg";
+//推荐
+MvinfoProxy.tuijianurl = "ugcp/recommendMv.kg";
+
+//提交评论接口
+MvinfoProxy.submitPlurl = "userp/addComment.kg";
+
+
+//发私信
+MvinfoProxy.privateurl = "letter/addLeaveWord.kg";
+//加关注
+MvinfoProxy.sendguanzhuurl = "userp/addattention.kg";
+//取消关注
+MvinfoProxy.cancleguanzhuurl = "attentionp/deleteattention.kg";
+
+MvinfoProxy.relationurl = "homep/relation.kg";
+
+MvinfoProxy.loadinitdata = function()
+{
+	this.urlloader = new URLLoader();
+	this.load_list();
+};
+MvinfoProxy.load_list = function()
+{
+	this.urlloader.addEventListener(this.loadOK);
+	if(MvinfoVO.resourceid==0)
+		this.urlloader.variable = "type=1"+"&page="+MvinfoVO.pagenum+"&sourceId="+MvinfoVO.user.source_mvid+"&commentType="+1;
+	else
+		this.urlloader.variable = "type=1"+"&page="+MvinfoVO.pagenum+"&sourceId="+MvinfoVO.user.source_mvid+"&commentType="+1+"&id="+MvinfoVO.content_to_comment;
+	this.urlloader.load(rooturl+this.pinglunurl,"post");
+//	alert(rooturl+this.pinglunurl+"?"+this.urlloader.variable);
+};
+MvinfoProxy.loadOK = function(event)
+{
+	if(event.data  && event.data["result"]!=1)
+	{
+		facade.sendNotification("top_alert", event.data);
+		return;
+	}
+	MvinfoVO.pinglunjson = event.data;
+	facade.sendNotification("init_pinglun_ok", event.data);
+};
+
+MvinfoProxy.loadgiftlist = function()
+{
+	this.urlloader.addEventListener(this.giftok);
+	this.urlloader.variable = "type=1";
+	this.urlloader.load(rooturl+this.giftlist,"post");
+};
+MvinfoProxy.giftok = function(event)
+{
+	if(event.data  && event.data["result"]!=1)
+	{
+		facade.sendNotification("top_alert", event.data);
+		return;
+	}
+	MvinfoVO.giftjson = event.data;
+	facade.sendNotification("get_gift_ok", event.data);
+};
+
+MvinfoProxy.loadHuifu = function(obj)
+{
+	this.urlloader.addEventListener(this.loadhuifuok);
+	this.urlloader.variable = "type=2"+"&page="+MvinfoVO.huifupagenum+"&sourceId="+obj.parentid+"&commentType="+1;
+	this.urlloader.load(rooturl+this.pinglunurl,"post");
+//	alert(rooturl+this.pinglunurl+"?"+this.urlloader.variable);
+};
+MvinfoProxy.loadhuifuok = function(event)
+{
+	if(event.data["result"]==1)
+		facade.sendNotification("get_huifu_ok", event.data);
+	else
+		facade.sendNotification("alert_txt", event.data);
+};
+
+MvinfoProxy.sendflower = function(obj)
+{
+	this.urlloader.addEventListener(this.sendflowerok);
+	if(obj.text.indexOf("来对TA说点什么吧")!=-1 || obj.text=="")
+	{
+		this.urlloader.variable = "toid="+MvinfoVO.user.source_userid+"&mvid="+MvinfoVO.user.source_mvid+"&num="+obj.num+"&in_pub="+obj.inpub;
+	}else
+	{
+		this.urlloader.variable = "toid="+MvinfoVO.user.source_userid+"&mvid="+MvinfoVO.user.source_mvid+"&num="+obj.num+"&txt="+obj.text+"&in_pub="+obj.inpub;
+	}
+	
+	this.urlloader.load(rooturl+this.sendflowerurl,"post");
+};
+MvinfoProxy.sendflowerok = function(event)
+{
+	if(event.data  && event.data["result"]!=1)
+	{
+		facade.sendNotification("top_alert", event.data);
+		return;
+	}
+	facade.sendNotification("send_flower_ok", event.data);
+};
+
+//赠送礼物
+MvinfoProxy.sendGiftToUser = function(obj)
+{
+	this.urlloader.addEventListener(this.sendgiftToUserOk);
+//	this.urlloader.variable = "toid="+MvinfoVO.user.source_userid+"&mvid="+MvinfoVO.mvid+"&num=1"+"&text="+obj.text+"&in_pub=1"+"&giftid="+obj.giftid;
+	this.urlloader.variable = "toid="+MvinfoVO.user.source_userid+"&num=1"+"&text="+obj.text+"&in_pub=1"+"&giftid="+obj.giftid;
+	this.urlloader.load(rooturl+this.sendgift,"post");
+};
+
+MvinfoProxy.sendgiftToUserOk = function(event)
+{
+	facade.sendNotification("alert_txt", event.data);
+};
+//分页
+MvinfoProxy.pageTap = function(obj)
+{
+	if(obj.obj=="MvinfoMediator.tabpage")
+	{
+		MvinfoVO.pagenum = obj.page;
+		MvinfoVO.zhankaiid = null;
+		this.load_list();
+	}else
+	{
+		MvinfoVO.huifupagenum = obj.page;
+		this.loadHuifu({"parentid":MvinfoVO.jsonobj[MvinfoVO.zhankaiid]["id"]});
+		
+	}
+};
+
+MvinfoProxy.sendTuijian = function()
+{
+	this.urlloader.addEventListener(this.sendTuijianOk);
+	this.urlloader.variable = "objid="+MvinfoVO.mvid;
+	this.urlloader.load(rooturl+this.tuijianurl,"post");
+};
+
+MvinfoProxy.sendTuijianOk = function(event)
+{
+	facade.sendNotification("alert_txt", event.data);
+};
+
+//提交评论
+MvinfoProxy.mvinfoTjpl = function()
+{
+	this.urlloader.addEventListener(this.pinglunok);
+	this.urlloader.variable = "commentType=1"+"&sourceId="+MvinfoVO.sourceId+"&type="+MvinfoVO.type+"&content="+MvinfoVO.content+"&contentType="+MvinfoVO.contentType;
+	this.urlloader.load(rooturl+this.submitPlurl,"post");
+//	alert(rooturl+this.submitPlurl+"?"+this.urlloader.variable);
+};
+
+MvinfoProxy.pinglunok = function(event)
+{
+	facade.sendNotification("pinglunover", event.data);
+};
+
+
+//发送私信礼物
+MvinfoProxy.sendPrivate = function(obj)
+{
+	this.urlloader.addEventListener(this.sendPrivateOk);
+	this.urlloader.variable = "isPrivate=1"+"&receiverId="+obj.userid+"&content="+obj.content;
+	this.urlloader.load(rooturl+this.privateurl,"post");
+};
+
+MvinfoProxy.sendPrivateOk = function(event)
+{
+	facade.sendNotification("alert_txt", event.data);
+};
+
+//加关注
+MvinfoProxy.sendgunzhu = function(obj)
+{
+	this.urlloader.addEventListener(this.sendgunzhuok);
+	this.urlloader.variable = "auid="+obj.userid;
+	this.urlloader.load(rooturl+this.sendguanzhuurl,"post");
+};
+
+MvinfoProxy.sendgunzhuok = function(event)
+{
+	if(event.data["result"]==1)
+	{
+		MvinfoVO.isguanzhu = 1;
+	}
+	facade.sendNotification("alert_txt", event.data);
+};
+//取消关注
+MvinfoProxy.canclegunzhu = function(obj)
+{
+	this.urlloader.addEventListener(this.canclegunzhuok);
+	this.urlloader.variable = "auid="+obj.userid;
+	this.urlloader.load(rooturl+this.cancleguanzhuurl,"post");
+};
+
+MvinfoProxy.canclegunzhuok = function(event)
+{
+	if(event.data["result"]==1)
+	{
+		MvinfoVO.isguanzhu = 0;
+	}
+	facade.sendNotification("alert_txt", event.data);
+};
+
+//判断是是否存在关注关系。2 关注 非2没有关注
+
+MvinfoProxy.isguanzhu = function(obj)
+{
+	this.urlloader.addEventListener(this.isguanzhuok);
+	this.urlloader.variable = "auserid="+obj.userid;
+	this.urlloader.load(rooturl+this.relationurl,"post");
+};
+
+MvinfoProxy.isguanzhuok = function(event)
+{
+	facade.sendNotification("is_guanzhu", event.data);
+};

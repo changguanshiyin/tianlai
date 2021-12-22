@@ -1,0 +1,982 @@
+include("utils");
+MvinfoMediator.init = function()
+{
+};
+MvinfoMediator.tabpage;
+MvinfoMediator.huifutabpage;
+MvinfoMediator.execute = function(notify,obj)
+{
+	switch(notify)
+	{
+		case "init_user_data":
+			this.initUser();
+			break;
+		case "init_data_ok":
+			break;
+		case "get_gift_ok":
+			this.layoutgift(obj["properties"]);
+			break;
+		case "init_pinglun_ok":
+			MvinfoVO.jsonobj = obj["commentList"];
+			this.layoutpinglun(obj["commentList"],obj["comment_num"]);
+			break;
+		case "get_huifu_ok":
+			MvinfoVO.hfObj = obj["commentList"];
+			this.layouthuifu(obj["commentList"]);
+			break;
+		case "send_flower_ok":
+			this.popuptip(obj["text"]);
+			break;
+		case "send_gift_ok":
+			this.sendgiftok(obj["text"]);
+			break;
+		case "alert_txt":
+			this.alertTxt(obj);
+			break;
+		case "pinglunover":
+			this.plover(obj);
+			break;
+		case "loginsuccess":
+			this.logined(obj);
+			break;
+		case "is_guanzhu":
+			this.isguanzhuAfterLogin(obj);
+			break;
+		case "user_logout":
+			this.userlogout();
+			break;
+	}
+};
+
+MvinfoMediator.userlogout = function()
+{
+	//用户退出
+	MvinfoVO.user.myself_userid = null;
+	MvinfoVO.status=0;
+	if(MvinfoVO.status==2 || MvinfoVO.status==6)
+	{
+		
+		$("#jia_guanzhu").hide();
+		$("#quxiao_guanzhu").show();
+		$("#send_sixin").show();
+	}else
+	{
+		$("#jia_guanzhu").show();
+		$("#quxiao_guanzhu").hide();
+		$("#send_sixin").show();
+	}
+};
+MvinfoMediator.isguanzhuAfterLogin = function(obj)
+{
+	
+	MvinfoVO.status = obj["statue"];
+//	if(MvinfoVO.user.userid == MvinfoVO.user.myself_userid)
+//	{
+//		$("#jia_guanzhu").hide();
+//		$("#quxiao_guanzhu").hide();
+//		$("#send_sixin").hide();
+//		
+//	}else
+//	{
+//		$("#jia_guanzhu").hide();
+//		$("#quxiao_guanzhu").show();
+//		$("#send_sixin").show();
+//	}
+//	
+//	
+//	
+		if(MvinfoVO.user.userid != MvinfoVO.user.myself_userid)
+		{
+			if(MvinfoVO.status==2 || MvinfoVO.status==6)
+			{
+				$("#jia_guanzhu").hide();
+				$("#quxiao_guanzhu").show();
+				$("#send_sixin").show();
+			}else
+			{
+				$("#jia_guanzhu").show();
+				$("#quxiao_guanzhu").hide();
+				$("#send_sixin").show();
+			}
+		}
+	
+};
+MvinfoMediator.logined = function(obj)
+{
+	
+	MvinfoVO.user.myself_userid = obj.userid;
+	
+	
+	if(MvinfoVO.user.userid == MvinfoVO.user.myself_userid)
+	{
+		$("#jia_guanzhu").hide();
+		$("#quxiao_guanzhu").hide();
+		$("#send_sixin").hide();
+	}
+	
+	facade.sendNotification("is_guanzhu_touser", {"userid":MvinfoVO.user.userid});
+};
+MvinfoMediator.initUser = function()
+{
+	this.tabpage = new utils(1, "pl_","MvinfoMediator.tabpage");
+	this.huifutabpage = new utils(1, "hf_","MvinfoMediator.huifutabpage");
+	//ssssssssssssssss
+	if(MvinfoVO.resourceid!=0)
+	{
+		$("#ping_lun_kuang").hide();
+		$("#send_div").attr("style","height:280px;");
+	}
+	var homemain='';
+	homemain+='<p class="username" >'+MvinfoVO.user.nickname+'</p>';
+	homemain+='<div class="userlv"><p>LV '+MvinfoVO.user.level+'</p><span class="xing xing'+MvinfoVO.user.sex+MvinfoVO.user.constellations+'"></span></div>';
+	$("#head_myself img").attr("src",MvinfoVO.user.headpic);
+	
+	$("#head_myself").click(function(){
+		facade.gotoURL(urlconfig.friendpage, {"auserid":MvinfoVO.user.userid}, "GET");
+	});
+	
+	$("#shou_ting").html(MvinfoVO.user.play_num);
+	$("#xian_hua").html(MvinfoVO.user.flower_num);
+	$("#ping_lun").html(MvinfoVO.user.comment_num);
+	
+	$("#guan_zhu").html(MvinfoVO.user.attention);
+	$("#fen_si").html(MvinfoVO.user.fan);
+	$("#li_wu").html(MvinfoVO.user.gift);
+	$("#zuo_pin").html(MvinfoVO.user.mvnum);
+	
+	$("#user_name_myself").html(homemain);
+	$("#user_name_myself p").click(function(){
+		facade.gotoURL(urlconfig.friendpage, {"auserid":MvinfoVO.user.userid}, "GET");
+	});
+	for(var i=0;i<2;i++)
+	{
+		$("#huabtntab_"+i).click(function(){
+			var classstr = $("#huabtntab_"+MvinfoVO.huabtntabid).attr("class").split("_")[0];
+			$("#huabtntab_"+MvinfoVO.huabtntabid).removeClass(classstr+"_btnselect");
+			$("#huabtntab_"+MvinfoVO.huabtntabid).addClass(classstr+"_btn");
+			
+			var thisid = $(this).attr("id").split("_")[1];
+			MvinfoVO.huabtntabid = thisid;
+			var selectclassstr = $(this).attr("class").split("_")[0];
+			$(this).removeClass(selectclassstr+"_btn");
+			$(this).addClass(selectclassstr+"_btnselect");
+			
+			if(thisid ==0)
+			{
+				$("#send_xianhua").show();
+				$("#send_liwu").hide();
+			}else if(thisid ==1)
+			{
+				$("#send_xianhua").hide();
+				$("#send_liwu").show();
+			}
+			if(thisid==1)
+			{
+				if(MvinfoVO.giftjson==null)
+				{
+					facade.sendNotification("get_gift_list");
+				}
+			}
+		});
+	};
+	for(i=0;i<6;i++)
+	{
+		$("#hua_"+i).hover(function(){
+			var id = $(this).attr("id").split("_")[1];
+			$("#hua_"+id+" a").addClass("hover");
+		},function(){
+			var id = $(this).attr("id").split("_")[1];
+			$("#hua_"+id+" a").removeClass("hover");
+		});
+		$("#hua_"+i).click(function(){
+			
+			if(MvinfoVO.user.myself_userid==null)
+			{
+				TopMediator.gotologin();
+				return;
+			}else
+			{
+				if(MvinfoVO.status == 8)
+				{
+					//黑名单关系
+					MvinfoMediator.alertTxt({"result":1,"text":PromptTxt.blacksendflower});
+					return;
+				}
+			}
+			var id=$(this).attr("id").split("_")[1];
+			MvinfoVO.flowerid = id;
+			TopMediator.setCover($("#floweralert"));
+			$("#flowereare").val(MvinfoVO.TXT0);
+			$("#flower_limit_txt").html("还可输入140个汉字");
+			$("#flower_limit_txt").show();
+			$("#flower_nonull").hide();
+			$("#checkbox_flower").removeAttr("checked");
+			$("#floweralert").show();
+		});
+	};
+	$("#flowersend_btn").click(function(){
+		
+//		if($("#flowereare").val()=="来对TA说点什么吧"|| $("#flowereare").val()=="")
+//		{
+//			$("#flower_limit_txt").hide();
+//			$("#flower_nonull").show();
+//			$("#flowereare").val("");
+////			return
+//		}
+		
+		var num=0;
+		if(MvinfoVO.flowerid==0)
+		{
+			num = 1;
+		}else if(MvinfoVO.flowerid==1)
+		{
+			num = 10;
+		}else if(MvinfoVO.flowerid==2)
+		{
+			num = 51;
+		}else if(MvinfoVO.flowerid==3)
+		{
+			num = 100;
+		}else if(MvinfoVO.flowerid==4)
+		{
+			num = 365;
+		}else if(MvinfoVO.flowerid==5)
+		{
+			num = 999;
+		}
+		var txt = $("#flowereare").attr("value");
+		
+		var pub = $("#checkbox_flower").attr("checked");
+		if(pub=="checked")
+		{
+			pub = 0;
+		}else
+		{
+			pub=1;
+		}
+		facade.sendNotification("send_flower", {"num":num,"text":txt,"inpub":pub});
+		$("#cover").hide();
+		$("#floweralert").hide();
+	});
+	$("#sendflower_close").click(function(){
+		$("#cover").hide();
+		$("#floweralert").hide();
+	});
+	$("#huabtntab_2").click(function(){
+		if(!MvinfoVO.user.myself_userid)
+		{
+			TopMediator.gotologin();
+			return;
+		}
+		//推荐
+		facade.sendNotification("tuijian_send");
+	});
+	$("#currentalert_close").click(function(){
+		$("#cover").hide();
+		$("#currentalert").hide();
+//		if(MvinfoVO.zhankaiid==null)
+//		{
+//			$("html,body").animate({scrollTop: $("#comment_div").offset().top}, 500);
+//		}else
+//		{
+//			$("html,body").animate({scrollTop: $("#commentone_"+MvinfoVO.zhankaiid).offset().top}, 500);
+//		}
+	});
+	
+	//关闭礼物弹出框
+	$("#shopclose").click(function(){
+		$("#shopgiftbigimg img").attr("src","");
+		$("#cover").hide();
+		$("#shopgift").hide();
+	});
+	
+	//关闭评论框
+	
+	$("#txtalert_close").click(function(){
+		$("#cover").hide();
+		$("#txtalert").hide();
+	});
+	//评论或者回复点击完成提交
+	$("#txt_alert_submit").click(function(){
+		if($("#txteare").val()=="说点什么吧")
+		{
+			$("#txteare").val("");
+		}
+		if($.trim($("#txteare").val())=="")
+		{
+			$("#limit_txt").hide();
+			$("#nonull").show();
+			return;
+		}else
+		{
+			$("#limit_txt").show();
+			$("#nonull").hide();
+		}
+		if(MvinfoVO.isPrivate==1)
+		{
+			$("#txtalert").hide();
+			facade.sendNotification("send_private_touser", {"userid":MvinfoVO.user.userid,"content":$("#txteare").val()});
+			MvinfoVO.isPrivate=-1;
+		}else
+		{
+//			$("#cover").hide();
+			$("#txtalert").hide();
+			MvinfoVO.content = $("#txteare").val();
+			facade.sendNotification("mvinfo_tjpl");
+		}
+		
+	});
+	
+	//分享
+	
+	//提交评论--------------------------------------------------------
+	$("#submit_pl_btn").click(function(){
+		if(!MvinfoVO.user.myself_userid)
+		{
+			TopMediator.gotologin();
+			return;
+		}
+		if($.trim($("#pl_textarea").val())=="")
+		{
+			$("#checklen").hide();
+			$("#pl_nonull").show();
+			return;
+		}
+		MvinfoVO.type = 1;
+		MvinfoVO.sourceId = MvinfoVO.mvid;
+		MvinfoVO.content = $("#pl_textarea").val();
+		facade.sendNotification("mvinfo_tjpl");
+	});
+	$("#pl_textarea").keyup(function(){
+		
+		
+		if($.trim($("#pl_textarea").val())=="")
+		{
+			$("#checklen").hide();
+			$("#pl_nonull").show();
+		}else
+		{
+			$("#checklen").show();
+			$("#pl_nonull").hide();
+		}
+		
+		var numobj = facade.checkInputTxt($(this), 140);
+		if(numobj.release<=0)
+		{
+			numobj.release = 0;
+		}
+		$("#checklen strong").html(numobj.release);
+		if(numobj.release==0)
+		{
+			$("#pl_textarea").val($("#pl_textarea").val().substring(0,280-numobj.len));
+		}
+		
+	});
+	$("#pl_textarea").blur(function(){
+		if($.trim($(this).val())=="")
+		{
+			$("#checklen").show();
+			$("#pl_nonull").hide();
+			$("#pl_textarea").val("");
+			$("#checklen strong").html(140);
+		}
+		
+//		$("#checklen strong").html(140);
+//		if($(this).val().trim()=="")
+//			$("#pl_textarea").val(MvinfoVO.TXT1);
+	});
+//	$("#pl_textarea").focus(function(){
+//		if($(this).val()==MvinfoVO.TXT1)
+//		{
+//			$(this).val("");
+//		}
+//
+//	});
+	
+	$("#txt_alert_title").html("回复");
+	
+	$("#send_sixin").click(function(){
+		//发私信；
+		if(MvinfoVO.user.myself_userid)
+		{
+			//用户登录了
+			MvinfoVO.isPrivate=1;
+			TopMediator.setCover($("#txtalert"));
+			$("#txt_alert_title").html("发私信");
+			$("#txteare").val(MvinfoVO.TXT4);
+			TopMediator.limitTxtNum = 300;
+			TopMediator.initTxtalert();
+			$("#txtalert").show();
+		}else
+		{
+			//用户没有登录
+//			TopMediator.setCover($("#currentalert"));
+//			$("#currentalert").show();
+//			$("#currentmsg").html(MvinfoVO.TXT3);
+			TopMediator.gotologin();
+			MvinfoVO.step = 0;//发私信弹框
+		}
+	});
+	//作品，粉丝，关注，收到的礼物，赠送礼物
+	var arr=[2,1,3,0];
+	$("#table_id tr").each(function(i){
+		$(this).click(function(){
+			facade.gotoURL(urlconfig.friendpage, {"auserid":MvinfoVO.user.userid,"nav":arr[i]}, "GET");
+		});
+	});
+	if(MvinfoVO.status==2 || MvinfoVO.status==6)
+	{
+		if(MvinfoVO.user.userid == MvinfoVO.user.myself_userid)
+		{
+			$("#jia_guanzhu").hide();
+			$("#quxiao_guanzhu").hide();
+			$("#send_sixin").hide();
+			
+		}else
+		{
+			$("#jia_guanzhu").hide();
+			$("#quxiao_guanzhu").show();
+			$("#send_sixin").show();
+		}
+	}else
+	{
+		if(MvinfoVO.user.userid == MvinfoVO.user.myself_userid)
+		{
+			$("#jia_guanzhu").hide();
+			$("#quxiao_guanzhu").hide();
+			$("#send_sixin").hide();
+		}else
+		{
+			$("#jia_guanzhu").show();
+			$("#quxiao_guanzhu").hide();
+			$("#send_sixin").show();
+		}
+	}
+//	$("#send_sixin").show();
+	$("#jia_guanzhu").click(function(){
+		//加关注
+		
+		
+		if(!MvinfoVO.user.myself_userid)
+		{
+			TopMediator.gotologin();
+			return;
+		}
+		if(MvinfoVO.status!=2 || MvinfoVO.status!=6)
+		{
+			//如果不是游客
+			facade.sendNotification("send_guanzhu_touser", {"userid":MvinfoVO.user.userid});
+		}else
+		{
+			//如果是游客提示登录
+//			TopMediator.gotologin();
+//			TopMediator.setCover($("#currentalert"));
+//			$("#currentalert").show();
+//			$("#currentmsg").html(MvinfoVO.TXT3);
+			MvinfoVO.step = 1;//发私信弹框
+		}
+	});
+	$("#quxiao_guanzhu").click(function(){
+		if(!MvinfoVO.user.myself_userid)
+		{
+			TopMediator.gotologin();
+			return;
+		}
+		//取消关注
+		if(MvinfoVO.status==2 || MvinfoVO.status==6)
+		{
+			//如果不是游客
+			facade.sendNotification("cancle_guanzhu_touser", {"userid":MvinfoVO.user.userid});
+		}else
+		{
+			//如果是游客提示登录
+			TopMediator.setCover($("#currentalert"));
+			$("#currentalert").show();
+			$("#currentmsg").html(OtherHomeVO.TXT3);
+			MvinfoVO.step = 1;//发私信弹框
+		}
+	});
+	TopMediator.initAlertInput($("#flowereare"),$("#flower_limit_txt"),$("#flower_nonull"));
+};
+
+MvinfoMediator.layoutgift = function(obj)
+{
+	var num = MvinfoVO.giftjson["properties"].length;
+	if(num>6)num=6;
+	for(var i=0;i<num;i++)
+	{
+		$("#gift_"+i+"_0 img").attr("src",obj[(MvinfoVO.giftpage-1)*6+i]["img"]);
+		$("#gift_"+i+"_1").html(obj[(MvinfoVO.giftpage-1)*6+i]["price"]);
+		$("#gift_"+i+"_2").html(obj[(MvinfoVO.giftpage-1)*6+i]["name"]);
+		
+		$("#gift_"+i+"_0").click(function(){
+			
+			if(!MvinfoVO.user.myself_userid)
+			{
+				TopMediator.gotologin();
+				return;
+			}
+			
+			var gid = $(this).attr("id").split("_")[1];
+			var num = (MvinfoVO.giftpage-1)*6;
+			if(num+6>MvinfoVO.giftjson["properties"].length)
+			{
+				num = MvinfoVO.giftjson["properties"].length-6;
+			}
+			MvinfoVO.giftid = Number(num)+Number(gid);
+			TopMediator.setCover($("#shopgift"));
+			
+			$("#shopgiftname").html("");
+			$("#shopprice").html("");
+			$("#shopgiftbigimg img").attr("src",MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["url"]);
+			$("#shopgiftbigimg img").attr("alt",MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["name"]);
+			$("#shopgiftbigimg img").attr("title",MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["name"]);
+			$("#shopgift").show();
+			$("#shopgiftname").html(MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["name"]);
+			$("#shopprice").html(MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["price"]);
+			
+		});
+	}
+	$("#gift_send_btn").click(function(){
+		facade.sendNotification("send_gift_touser", {"text":MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["name"],"giftid":MvinfoVO.giftjson["properties"][MvinfoVO.giftid]["id"]});
+		$("#cover").hide();
+		$("#shopgift").hide();
+	});
+	$("#gift_pre").click(function(){
+		MvinfoVO.giftpage--;
+		if(MvinfoVO.giftpage<=1)MvinfoVO.giftpage=1;
+		
+		var len = MvinfoVO.giftjson["properties"].length;
+		var num = len-(MvinfoVO.giftpage-1)*6;
+		
+		for( i=0;i<num;i++)
+		{
+			$("#gift_"+i+"_0 img").attr("src","");
+			$("#gift_"+i+"_0 img").attr("src",obj[(MvinfoVO.giftpage-1)*6+i]["img"]);
+			$("#gift_"+i+"_1").html(obj[(MvinfoVO.giftpage-1)*6+i]["price"]);
+			$("#gift_"+i+"_2").html(obj[(MvinfoVO.giftpage-1)*6+i]["name"]);
+		}
+	});
+	$("#gift_next").click(function(){
+		var len = MvinfoVO.giftjson["properties"].length;
+		var lenpage = Math.ceil((len)/6);
+		if(MvinfoVO.giftpage>=lenpage)
+		{
+			MvinfoVO.giftpage=lenpage;
+			return;
+		}
+		MvinfoVO.giftpage++;
+		var num = (MvinfoVO.giftpage-1)*6;
+		if(num+6>len)
+		{
+			num = len-6;
+		}
+		for( i=0;i<6;i++)
+		{
+			$("#gift_"+i+"_0 img").attr("src","");
+			$("#gift_"+i+"_0 img").attr("src",obj[num+i]["img"]);
+			$("#gift_"+i+"_1").html(obj[num+i]["price"]);
+			$("#gift_"+i+"_2").html(obj[num+i]["name"]);
+		}
+	});
+};
+MvinfoMediator.layoutpinglun = function(obj,plnum)
+{
+	MvinfoVO.plnum = plnum;
+	MvinfoVO.user.pageNum = Math.ceil(plnum/30);
+	var htmlstr = this.getpinglunhtml(obj);
+	$("#pinglunnum").html("("+MvinfoVO.plnum+")");
+	$("#comment_div").html(htmlstr);
+	if(MvinfoVO.intPLOpen==1)
+	{
+		this.tabpage.setPages(MvinfoVO.user.pageNum);
+		this.tabpage.setCurrentPage(MvinfoVO.pagenum);
+		$("#pagetap").html(this.tabpage.pagetab());
+		MvinfoVO.intPLOpen = 0;
+	}
+	
+	for(var i=0;i<obj.length;i++)
+	{
+		if(obj[i]["replyNum"]!=0)
+		{
+			$("#zhankai_pl_"+i).click(function(){
+				var id=$(this).attr("id").split("_")[2];
+				if(id==MvinfoVO.zhankaiid)
+				{
+					$("#zhankai_pl_"+id).html("展开");
+					$("#hui_fu"+MvinfoVO.zhankaiid).hide();
+					$("#hui_fu"+MvinfoVO.zhankaiid).html("");
+					if($("#hfpagetap"+MvinfoVO.zhankaiid))
+					{
+						$("#hfpagetap"+MvinfoVO.zhankaiid).html("");
+					}
+					
+					MvinfoVO.zhankaiid = null;
+					MvinfoVO.isHfOpen = 0;
+				}else
+				{
+					if(MvinfoVO.zhankaiid!=null)
+					{
+//						$("#hui_fu"+MvinfoVO.zhankaiid).hide();
+						$("#hui_fu"+MvinfoVO.zhankaiid).html("");
+						$("#zhankai_pl_"+MvinfoVO.zhankaiid).html("展开");
+						if($("#hfpagetap"+MvinfoVO.zhankaiid))
+						{
+							$("#hfpagetap"+MvinfoVO.zhankaiid).html("");
+						}
+					}
+					MvinfoVO.zhankaiid = id;
+					MvinfoVO.huifupagenum = 1;
+					
+					$("#zhankai_pl_"+id).html("收回");
+					$("#hui_fu"+MvinfoVO.zhankaiid).show();
+					MvinfoVO.intHfOpen = 1;
+					facade.sendNotification("pinglung_huifu", {"parentid":obj[id]["id"]});
+				}
+			});
+		}
+		$("#mvplhf_"+i).click(function(){
+			if(!MvinfoVO.user.myself_userid)
+			{
+				TopMediator.gotologin();
+				return;
+			}
+			TopMediator.setCover($("#txtalert"));
+			$("#txteare").val(MvinfoVO.TXT1);
+			$("#txt_alert_title").html(MvinfoVO.TXT2);
+			TopMediator.initTxtalert();
+			$("#txtalert").show();
+			var pid=$(this).attr("id").split("_")[1];
+			MvinfoVO.type = 2;
+			MvinfoVO.sourceId = MvinfoVO.jsonobj[pid]["id"];
+		});
+	}
+};
+MvinfoMediator.getpinglunhtml = function(obj)
+{
+	var htmlstr="";
+	if(obj && obj.length==0)
+	{
+		htmlstr = '<div class="rankresulttxt">'+PromptTxt.Comment+'</div>';
+		return htmlstr;
+	}
+	for(var i=0;i<obj.length;i++)
+	{
+		htmlstr+='<div class="commentone" id="commentone_'+i+'">';
+		htmlstr+='	<div class="pinglun" style="width:100%;overflow: hidden;">';
+		htmlstr+='    	<div class="commentimg" >';
+		if(MvinfoVO.user.myself_userid == obj[i]["userid"])
+		{
+			htmlstr+='<a href="'+urlconfig.myselfpage+'">';
+		}else
+		{
+			htmlstr+='<a href="'+urlconfig.friendpage+'?auserid='+obj[i]["userid"]+'">';
+		}
+		htmlstr+='         	<img  src="'+obj[i]["headimg"]+'"/>';
+		htmlstr+='</a>';
+		htmlstr+='          </div>';
+		htmlstr+='     	<div class="commenttxt" >';
+		htmlstr+='         	<div class="name_time" >';
+		if(MvinfoVO.user.myself_userid == obj[i]["userid"])
+		{
+			htmlstr+='<a href="'+urlconfig.myselfpage+'">';
+		}else
+		{
+			htmlstr+='<a href="'+urlconfig.friendpage+'?auserid='+obj[i]["userid"]+'">';
+		}
+		htmlstr+='				<span class="nickname" >'+obj[i]["nickName"]+'</span>';
+		htmlstr+='</a>';
+		htmlstr+='&nbsp;&nbsp;&nbsp;&nbsp;<span class="time" >'+obj[i]["time"]+'</span></div>';
+		
+		htmlstr+='          	<div class="name_time" style="word-break: break-all;">';
+		
+		if(obj[i]["contentType"]==2)
+		{
+			var imgstr = obj[i]["content"].split("||")[0];
+			htmlstr+='<img src="'+imgstr+'"/>';
+		}else if(obj[i]["contentType"]==5)
+		{
+			htmlstr+='<img src="'+obj[i]["content"]+'"/>';
+		}else
+		{
+			htmlstr+=obj[i]["content"];
+		}
+		htmlstr+='              </div>';
+		htmlstr+='               <div style="height:13px;"></div>';
+		if(obj[i]["replyNum"]!=0)
+		{
+			if(MvinfoVO.zhankaiid==i)
+			{
+				htmlstr+='          	<a class="zhankai" style="float:right;cursor:pointer;" id="zhankai_pl_'+i+'">收回</a>';
+			}else
+			{
+				htmlstr+='          	<a class="zhankai" style="float:right;cursor:pointer;" id="zhankai_pl_'+i+'">展开</a>';
+			}
+		}else
+		{
+			htmlstr+='          	<div style="float:right;cursor:pointer;" id="zhankai_pl_'+i+'"></div>';
+		}
+		htmlstr+='           </div>';
+		htmlstr+='      	<div class="commentback" >';
+		htmlstr+='           	<a id="mvplhf_'+i+'">回复('+obj[i]["replyNum"]+')</a>';
+		htmlstr+='            </div>';
+		htmlstr+='       </div>';
+		if(obj[i]["replyNum"]!=0)
+		{
+			htmlstr+=' <div class="huifu" >';
+			htmlstr+=' <div class="huifu" id="hui_fu'+i+'">';
+			
+			htmlstr+=' </div>';
+			htmlstr+=' <div class="pagetap" id="hfpagetap'+i+'"></div>';
+			htmlstr+=' </div>';
+		}
+		htmlstr+='  </div>';
+	}
+	return htmlstr;
+};
+MvinfoMediator.layouthuifu = function(obj)
+{
+	var htmlstr = this.gethuifuhtml(obj);
+	$("#hui_fu"+MvinfoVO.zhankaiid).html(htmlstr);
+	
+	if(MvinfoVO.intHfOpen==1)
+	{
+		MvinfoMediator.huifutabpage.setPages(MvinfoVO.jsonobj[MvinfoVO.zhankaiid]["pageNum"]);
+		MvinfoMediator.huifutabpage.setCurrentPage(MvinfoVO.huifupagenum);
+		$("#hfpagetap"+MvinfoVO.zhankaiid).html(MvinfoMediator.huifutabpage.pagetab());
+		MvinfoVO.intHfOpen = 0;
+	}
+	for(var i=0;i<obj.length;i++)
+	{
+		$("#mvhfhf_"+i).click(function(){
+			if(!MvinfoVO.user.myself_userid)
+			{
+				TopMediator.gotologin();
+				return;
+			}
+			TopMediator.setCover($("#txtalert"));
+			$("#txteare").val(MvinfoVO.TXT1);
+			$("#txt_alert_title").html(MvinfoVO.TXT2);
+			TopMediator.initTxtalert();
+			$("#txtalert").show();
+			var pid=$(this).attr("id").split("_")[1];
+			MvinfoVO.type = 3;
+			MvinfoVO.sourceId = MvinfoVO.hfObj[pid]["id"];
+		});
+	}
+	
+};
+MvinfoMediator.gethuifuhtml = function(obj)
+{
+	var htmlstr="";
+	for(var i=0;i<obj.length;i++)
+	{
+		htmlstr+='<div class="huifuone">';
+		htmlstr+=' <div class="commentimg" >';
+		if(MvinfoVO.user.myself_userid == obj[i]["userid"])
+		{
+			htmlstr+='<a href="'+urlconfig.myselfpage+'">';
+		}else
+		{
+			htmlstr+='<a href="'+urlconfig.friendpage+'?auserid='+obj[i]["userid"]+'">';
+		}
+		htmlstr+='     <img  src="'+obj[i]["headimg"]+'"/>';
+		htmlstr+='</a>';
+		htmlstr+='</div>';
+		htmlstr+='<div class="commenttxt" >';
+		htmlstr+='    <div class="name_time" >';
+		if(MvinfoVO.user.myself_userid == obj[i]["userid"])
+		{
+			htmlstr+='<a href="'+urlconfig.myselfpage+'">';
+		}else
+		{
+			htmlstr+='<a href="'+urlconfig.friendpage+'?auserid='+obj[i]["userid"]+'">';
+		}
+		htmlstr+='		<span class="nickname" >'+obj[i]["nickName"]+'</span>';
+		htmlstr+='</a>';
+		htmlstr+='&nbsp;&nbsp;&nbsp;&nbsp;<span class="time" >'+obj[i]["time"]+'</span></div>';
+		htmlstr+='    <div class="name_time" style="word-break: break-all;">';
+		if(obj[i]["contentType"]==2)
+		{
+			var imgstr = obj[i]["content"].split("||")[0];
+			htmlstr+='<img src="'+imgstr+'"/>';
+		}else if(obj[i]["contentType"]==5)
+		{
+			htmlstr+='<img src="'+obj[i]["content"]+'"/>';
+		}else
+		{
+			htmlstr+=obj[i]["content"];
+		}
+		htmlstr+='     </div>';
+		htmlstr+='   <div style="height:13px;"></div>';
+		htmlstr+='</div>';
+		htmlstr+=' <div class="commentback" >';
+		htmlstr+='      <a id="mvhfhf_'+i+'">回复</a>';
+		htmlstr+=' </div>';
+		htmlstr+='</div>';
+	}
+	
+	return htmlstr;
+};
+MvinfoMediator.popuptip = function(obj)
+{
+	TopMediator.setCover($("#currentalert"));
+	$("#currentalert").show();
+	$("#currentmsg").html(obj);
+};
+MvinfoMediator.alertTxt = function(obj)
+{
+	TopMediator.setCover($("#currentalert"));
+	$("#currentalert").show();
+	$("#currentmsg").html(obj["text"]);
+	
+	if(obj["result"]==1)
+	{
+		if(MvinfoVO.isguanzhu == 1)
+		{
+			$("#jia_guanzhu").hide();
+			$("#quxiao_guanzhu").show();
+			MvinfoVO.status = 2;
+		}else if(MvinfoVO.isguanzhu == 0)
+		{
+			$("#jia_guanzhu").show();
+			$("#quxiao_guanzhu").hide();
+			MvinfoVO.status = 0;
+		}
+	}
+	
+};
+//评论结束
+MvinfoMediator.plover = function(obj)
+{
+	TopMediator.setCover($("#currentalert"));
+	$("#currentalert").show();
+	$("#currentmsg").html(obj["text"]);
+	
+	if(obj["result"]==1)
+	{
+		if(obj["type"] && obj["type"]==1)
+		{
+
+			$("#pl_textarea").val("");
+			$("#checklen").show();
+			$("#pl_nonull").hide();
+			$("#checklen strong").html(140);
+			facade.sendNotification("load_init_data");
+			MvinfoVO.intPLOpen = 1;
+			MvinfoVO.pagenum=1;
+			MvinfoVO.zhankaiid = null;
+//			if(obj[0]["replyNum"]!=0)
+//			{
+//				$("#zhankai_pl_"+i).click(function(){
+//					var id=$(this).attr("id").split("_")[2];
+//					if(id==MvinfoVO.zhankaiid)
+//					{
+//						$("#zhankai_pl_"+id).html("展开");
+//						$("#hui_fu"+MvinfoVO.zhankaiid).hide();
+//						$("#hui_fu"+MvinfoVO.zhankaiid).html();
+//						MvinfoVO.zhankaiid = null;
+//						MvinfoVO.isHfOpen = 0;
+//					}else
+//					{
+//						if(MvinfoVO.zhankaiid!=null)
+//						{
+//							$("#hui_fu"+MvinfoVO.zhankaiid).hide();
+//							$("#hui_fu"+MvinfoVO.zhankaiid).html();
+//							$("#zhankai_pl_"+id).html("展开");
+//						}
+//						MvinfoVO.zhankaiid = id;
+//						facade.sendNotification("pinglung_huifu", {"parentid":obj[id]["id"]});
+//						$("#zhankai_pl_"+id).html("收回");
+//						$("#hui_fu"+MvinfoVO.zhankaiid).show();
+//						MvinfoVO.intHfOpen = 1;
+//					}
+//				});
+//			}
+//			$("#mvplhf_"+(MvinfoVO.jsonobj.length-1)).click(function(){
+//				$("#txtalert").show();
+//				var pid=$(this).attr("id").split("_")[1];
+//				MvinfoVO.type = 2;
+//				MvinfoVO.sourceId = MvinfoVO.jsonobj[pid]["id"];
+//			});
+		}else if(obj["type"] && (obj["type"]==2 || obj["type"]==3))
+		{
+//			var htmlstr = this.appendhfhtml(obj["comment"]);
+//			MvinfoVO.hfObj.unshift(obj["comment"][0]);
+			MvinfoVO.zhankaiid = null;
+			facade.sendNotification("load_init_data");
+		}
+	}
+	
+};
+
+//追加一条新评论
+MvinfoMediator.appendHtml = function(obj)
+{
+	var htmlstr = "";
+	for(var i = 0;i<obj.length;i++)
+	{
+		htmlstr+='<div class="commentone" id="commentone_'+(Number(MvinfoVO.jsonobj.length)+i)+'">';
+		htmlstr+='<div class="pinglun" style="width:100%;overflow: hidden;">';
+		htmlstr+='<div class="commentimg" >';
+		htmlstr+='     <img  src="'+obj[i]["headimg"]+'"/>';
+		htmlstr+='  </div>';
+		htmlstr+='   <div class="commenttxt" >';
+		htmlstr+='    <div class="name_time" ><span class="nickname" >'+obj[i]["nickName"]+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time" >'+obj[i]["time"]+'</span></div>';
+		htmlstr+='        <div class="name_time" style="word-break: break-all;">';
+		htmlstr+=			obj[i]["content"];
+		htmlstr+='       </div>';
+		htmlstr+='       <div style="height:13px;"></div>';
+		if(obj[i]["replyNum"]!=0)
+		{
+			htmlstr+='          	<div style="float:right;" id="zhankai_pl_'+(Number(MvinfoVO.jsonobj.length)+i)+'">展开</div>';
+		}
+		htmlstr+='   </div>';
+		htmlstr+='   <div class="commentback" >';
+		htmlstr+='           	<div id="mvplhf_'+(Number(MvinfoVO.jsonobj.length)+i)+'">回复('+obj[i]["replyNum"]+')</div>';
+		htmlstr+='   </div>';
+		htmlstr+='</div>';
+		htmlstr+='</div>';
+	}
+	return htmlstr;
+};
+MvinfoMediator.appendhfhtml = function(obj)
+{
+	var htmlstr="";
+	for(var i=0;i<obj.length;i++)
+	{
+		htmlstr+='<div class="huifuone">';
+		htmlstr+=' <div class="commentimg" >';
+		htmlstr+='     <img  src="'+obj[i]["headimg"]+'"/>';
+		htmlstr+='</div>';
+		htmlstr+='<div class="commenttxt" >';
+		htmlstr+='    <div class="name_time" ><span class="nickname" >'+obj[i]["nickName"]+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time" >'+obj[i]["time"]+'</span></div>';
+		htmlstr+='    <div class="name_time" style="word-break: break-all;">';
+		if(obj[i]["contentType"]==2)
+		{
+			var imgstr = obj[i]["content"].split("||")[0];
+			htmlstr+='<img src="'+imgstr+'"/>';
+		}else if(obj[i]["contentType"]==5)
+		{
+			htmlstr+='<img src="'+obj[i]["content"]+'"/>';
+		}else
+		{
+			htmlstr+=obj[i]["content"];
+		}
+		htmlstr+='     </div>';
+		htmlstr+='   <div style="height:13px;"></div>';
+		htmlstr+='</div>';
+		htmlstr+=' <div class="commentback" >';
+		htmlstr+='      <div id="mvhfhf_'+(Number(MvinfoVO.jsonobj.length)+i)+'">回复</div>';
+		htmlstr+=' </div>';
+		htmlstr+='</div>';
+	}
+	
+	return htmlstr;
+};
+
+MvinfoMediator.pagetabhandle = function()
+{
+	$("#zhankai_pl_"+MvinfoVO.zhankaiid).html("展开");
+	
+};

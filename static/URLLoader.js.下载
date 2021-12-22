@@ -1,0 +1,53 @@
+
+URLLoader = function ()
+{
+	this.variable = "";
+};
+
+URLLoader.prototype.load = function(url,postorget)
+{
+//	popup("load:"+url);
+	$.ajax({
+	     url:url,
+		 type:postorget,
+		 data:this.variable,
+		 success:this.successfun,
+		 error:this.errorfun
+	});
+};
+URLLoader.prototype.successfun = function(msg)
+{
+	msg.replace(/\ /g,"").replace(/\s/g,"");
+	//alert(msg);
+	if(msg && msg!="")
+	{
+		msg = $.parseJSON(msg);
+	}
+	var eventobj={};
+	eventobj.flag = "success";
+	eventobj.data = msg;
+//	popup("msg_"+eventobj.data["result"]);
+	URLLoader.prototype.callback(eventobj);
+};
+
+URLLoader.prototype.errorfun = function(msg)
+{
+	msg.replace(/\ /g,"").replace(/\s/g,"");
+	if(msg && msg!="")
+	{
+		msg = $.parseJSON(msg);
+	}
+	var eventobj={};
+	eventobj.flag = "error";
+	eventobj.data = msg;
+	URLLoader.prototype.callback(eventobj);
+	
+};
+URLLoader.prototype.addEventListener = function(method)
+{
+	URLLoader.prototype.callback = method;
+};
+URLLoader.prototype.removeEventListener = function()
+{
+	
+};

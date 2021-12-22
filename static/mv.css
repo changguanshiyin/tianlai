@@ -1,0 +1,134 @@
+.musiceach{width:186px;height:160px;float:left;margin-left: 17px;/* margin-top: 15px; */}
+.dynamiceach{width:186px;height:141px;float:left;margin-left: 17px;margin-bottom: 17px;cursor: pointer;}
+.musiceach0{margin-left: 0px;cursor: pointer;}
+.musiceach .eachimg{width:186px;height:141px;position: relative;cursor: pointer;}
+.musiceach .eachimg .musicheadimg{width:186px;height:141px;}
+.musiceach .eachimg .musicname{width:186px;height:50px;background:url(static/als.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:-2px;}
+.musiceach .eachimg .musicname .mvname{height: 25px;/* color: #fff; */color:#fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 186px;font-size: 14px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+.musiceach .eachimg .musicname .username{float:left;height: 25px;color: #fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 140px;font-size: 12px;line-height: 25px;text-indent: 2px;}
+.musiceach .eachimg .musicname .useraction{float:left;;color: #fff;height: 25px;color: #fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 186px;font-size: 12px;line-height: 25px;text-indent: 2px;}
+.musiceach .eachimg .musicname .type{float:right;width:25px;height:25px;background-image:url(static/musicclass1.png);background-repeat:no-repeat;}
+
+.mvname .name{width:155px;float:left;height: 25px;/* color: #2DB2EA; */font-color:#fff;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 14px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+.mvname .dytype{width:30px;height:25px;float:right;background-image:url(static/dypic.png);background-repeat:no-repeat;}
+.mvname .dytype1{background-position: -220px 0px;}
+.mvname .dytype2{background-position: -220px -36px;}
+.mvname .dytype3{background-position: -53px 0px;}
+.mvname .dytype4{background-position: -304px 0px;}
+.mvname .dytype5{background-position: -50px -36px;}
+.mvname .dytype6{background-position: -265px 0px;}
+.mvname .dytype7{background-position: -138px 0px;}
+.mvname .dytype8{background-position: -264px -36px;}
+.mvname .dytype9{background-position: -307px 0px;}
+.mvname .dytype10{background-position: -97px 0px;}
+.mvname .dytype11{background-position: -346px 0px;}
+.mvname .dytype12{background-position: -180px -36px;}
+.mvname .dytype13{background-position: -93px -36px;}
+.mvname .dytype14{background-position: -137px -36px;}
+.mvname .dytype15{background-position: -12px 0px;}
+.mvname .dytype16{background-position: -137px -36px;}
+.mvname .dytype17{background-position: -179px 0px;}
+
+.musicnamed{width:186px;height:140px;background:url(static/albgall.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:-5px;}
+.musicnamed1{cursor:pointer;width:394px;height:296px;background:url(static/allbgallbig.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:-2px;}
+.musicnamed .playbtn{width:186px;height:70px;text-align:center}
+.musicnamed .playbtn img{width:54px;height:54px;margin-top:5px;}
+.musicnamed .mvname{height: 25px;/* color: #2DB2EA; */color:#fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 186px;font-size: 14px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+.musicnamed .username{float:left;height: 25px;color: #fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 140px;font-size: 12px;line-height: 25px;text-indent: 2px;}
+.musicnamed .useraction{float:left;height: 25px;color: #fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 186px;font-size: 12px;line-height: 25px;text-indent: 2px;}
+.musicnamed .type{float:right;width:25px;height:25px;background-image:url(static/musicclass1.png);background-repeat:no-repeat;}
+.mvtype0{background-position: 20px 0px;}
+.mvtype1{background-position: -54px -27px;}
+.mvtype2{background-position: -27px 0px;}
+.mvtype3{background-position: -54px 0px;}
+.mvtype5{background-position: -80px -27px;}
+.mvtype6{background-position: 0px 0px;}
+.mvtype7{background-position: -1px -27px;}
+.mvtype8{background-position: -28px -27px;}
+.musiceach .eachnum{margin-top: 5px;}
+.musiceach .eachnum .eachnumone{width:62px;height:25px;float:left;}
+.musiceach .eachnum .eachnumone .txt{width:46px;float:left;font-size: 12px;color:#fff}
+.musiceach .eachnum .eachnumone .pic{width:15px;height:15px;_height:15px;overflow: hidden;background-image:url(static/thp.png);background-repeat:no-repeat;float:left;}
+.eachnum .eachnumone .pic1{background-position: -1px -3px;}
+.eachnum .eachnumone .pic2{background-position: -18px -3px;}
+.eachnum .eachnumone .pic3{background-position: -38px -3px;}
+.emo{overflow: hidden;}
+.hotuser .usereach1{width:394px;height:297px;position: relative;float:left;}
+.hotuser .user1wi{width:394px;}
+.hotuser .user1he{height:297px;}
+.hotuser .user1albg{width:394px;height:50px;background:url(static/alb.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:-2px;}
+.hotuser .user2albg{width:186px;height:50px;background:url(static/als.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:-2px;}
+.hotuser .usereach2{cursor:pointer;width:186px;height:141px;position: relative;float:left;margin-left: 15px;_margin-left: 14px;margin-bottom: 15px;}
+.hotuser .user2he{width:186px;height:141px;}
+.hotuser .username{width:186px;height: 25px;/* color: #2DB2EA; */color:#fff;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 14px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+.hotuser .usereach .eachnum{/* margin-top: 5px; */}
+.hotuser .usereach .eachnum .eachnumone{width:62px;height:25px;float:left;}
+.hotuser .usereach .eachnum .eachnumone .txt{width:46px;float:left;font-size: 13px;color:#fff}
+.hotuser .usereach .eachnum .eachnumone .txtxing{width:46px;float:right;font-size: 13px;color:#fff;margin-top:-3px;}
+.hotuser .usereach .eachnum .eachnumone .pic{width:15px;height:15px;_height:15px;overflow: hidden;background-image:url(static/thp.png);background-repeat:no-repeat;float:left;}
+.hotuser .usereach .eachnum .eachnumone .pic1{background-position: -1px -3px;}
+.hotuser .usereach .eachnum .eachnumone .pic2{background-position: -18px -3px;}
+.hotuser .usereach .eachnum .eachnumone .pic3{background-position: -38px -3px;}
+.hotuser .usereach1 .eachnum .eachnumone .pic{margin-top: 3px;}
+.hotuser .usereach2 .eachnum .eachnumone .pic{margin-top: 0px;}
+.myattention .hotuser .musiceach0{margin-left: 0px;}
+.myfans .hotuser .musiceach0{margin-left: -15px;}
+
+.myfans .hotuser .musiceach0 .usereach2{_margin-left:0px;}
+.myfans .hotuser .usereach2{_margin-left:5px;_height:120px;}
+.myattention .hotuser .musiceach0{margin-left: -15px;}
+
+.myattention .hotuser .musiceach0 .usereach2{_margin-left:0px;}
+.myattention .hotuser .usereach2{_margin-left:5px;}
+
+
+.rankdiv .musiceach{width:238px;height:200px;float:left;margin-left:20px;_margin-left:12px;_height:190px;}
+/* .musiceach0{margin-left: 0px;} */
+.rankdiv  .eachimg{width:240px;height:180px;position: relative;cursor:pointer;}
+.rankdiv  .eachimg .musicheadimg{width:240px;height:180px;}
+.rankdiv  .eachimg .musicname{width:240px;height:50px;background:url(static/albg.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:0px;}
+.rankdiv  .eachimg .musicnameed{width:240px;height:180px;background:url(static/allbgrank.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:-13px;}
+.rankdiv .rank_user .eachimg .musicnameed{_bottom:-4px;}
+.rankdiv  .eachimg .musicname .mvname,.rankdiv  .eachimg .musicnameed .mvname{height: 25px;color: #ffffff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 240px;font-size: 14px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+.rankdiv  .eachimg .musicname .username,.rankdiv  .eachimg .musicnameed .username{float:left;height: 25px;color: #fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 210px;font-size: 12px;line-height: 25px;text-indent: 2px;font-weight: normal;}
+.rankdiv  .eachimg .musicname .useraction,.rankdiv  .eachimg .musicnameed .useraction{float:left;height: 25px;color: #fff;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 240px;font-size: 12px;line-height: 25px;text-indent: 2px;}
+.rankdiv  .eachimg .musicname .type,.rankdiv  .eachimg .musicnameed .type{float:right;width:25px;height:25px;background-image:url(static/musicclass1.png);background-repeat:no-repeat;}
+.rankdiv  .eachimg .musicnameed .playbtn{width:240px;height:108px;text-align:center}
+.rankdiv  .eachimg .musicnameed .playbtn img{margin-top: 25px;}
+/* .rankdiv  .eachnum{margin-top: 5px;} */
+.rankdiv  .eachnum .eachnumone{width:80px;height:25px;float:left;}
+.rankdiv  .eachnum .eachnumone .txt{width:60px;float:left;font-size: 13px;}
+.rankdiv  .eachnum .eachnumone .pic{width:15px;height:15px;background-image:url(static/thp.png);background-repeat:no-repeat;float:left;}
+.rankdiv  .eachnum .eachnumone .pic1{background-position: -1px -3px;}
+.rankdiv  .eachnum .eachnumone .pic2{background-position: -18px -3px;}
+.rankdiv  .eachnum .eachnumone .pic3{background-position: -38px -3px;}
+
+.rankdiv .usereach1{width:394px;height:297px;position: relative;float:left;}
+.rankdiv .user1wi{width:394px;}
+.rankdiv .user1he{height:297px;}
+.rankdiv .user1albg{width:394px;height:50px;background:url(static/alb.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:0px;}
+.rankdiv .user2albg{width:240px;height:50px;background:url(static/albg.png) 0 0 no-repeat;position: absolute;bottom: 0;_bottom:0px;}
+.rankdiv .usereach2{width:240px;height:180px;position: relative;float:left;margin-left: 20px;margin-bottom: 20px;_margin-left: 14px;_margin-bottom: 15px;}
+.rankdiv .user2he{width:240px;height:180px;}
+.rankdiv .username{height: 25px;color: #ffffff;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 15px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+.rankdiv .usernameren{height: 25px;color: #ffffff;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 15px;line-height: 25px;text-indent: 2px;font-weight: bold;}
+/* .rankdiv .usereach .eachnum{margin-top: 5px;} */
+.rankdiv .usereach .eachnum .eachnumone{width:79px;height:25px;float:left;}
+.rankdiv .usereach .eachnum .eachnumone .txt{width:60px;float:left;font-size: 13px;color:#fff}
+.rankdiv .usereach .eachnum .eachnumone .txtxing{width:46px;float:right;font-size: 13px;color:#fff;margin-top:-8px;}
+.rankdiv .usereach .eachnum .eachnumone .pic{width:15px;height:15px;background-image:url(static/thp.png);background-repeat:no-repeat;float:left;overflow: hidden;}
+.rankdiv .usereach .eachnum .eachnumone .pic1{background-position: -1px -3px;}
+.rankdiv .usereach .eachnum .eachnumone .pic2{background-position: -18px -3px;}
+.rankdiv .usereach .eachnum .eachnumone .pic3{background-position: -38px -3px;}
+.eachlvwidth{width:79px;height:25px;float:left;}
+
+.mygiftbody{overflow: hidden;}
+.gifticeach {width:186px;height:186px;margin-bottom: 20px;}
+.gifticeach .eachimg {width: 186px;height: 186px;position: relative;}
+.giftsmallimg{width:186px;height:186px;}
+.gifticeach .eachimg .qiaoqiao{width: 75px;float:left}
+.gifticeach .eachimg .datetime{width:100px;float:right;text-align:center;}
+
+
+.activityscorebg{width:45px;height:20px;position: absolute;top:0px;right:0px;background:#000;opacity:0.6; -moz-opacity:0.6;filter: alpha(opacity=60);}
+.activityscoretxt{width:45px;height:20px;position:relative;font-size:12px;margin:0;text-align:center;position: absolute;top:0px;right:0px;color:#fff}

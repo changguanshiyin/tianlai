@@ -1,0 +1,62 @@
+var OtherHomeVO = {};
+OtherHomeVO.user = {};
+OtherHomeVO.currentNav = 0;
+OtherHomeVO.mvNav = 0;
+OtherHomeVO.pagenum = 1;
+OtherHomeVO.orderType = 1;//0按价格排序 1按时间排序 用户礼物列表
+OtherHomeVO.jsonobj=null;
+
+OtherHomeVO.page_bool = 1;
+OtherHomeVO.allpage = 1;
+OtherHomeVO.giftid = 0;
+OtherHomeVO.type=0;
+//OtherHomeVO.friendUserid=0;
+OtherHomeVO.mvjson = null;
+OtherHomeVO.status = 0;
+
+OtherHomeVO.step=null;
+
+OtherHomeVO.isguanzhu = -1;
+
+OtherHomeVO.TXT0 = "您还没有登录，请登录";
+OtherHomeVO.TXT1 = "说点什么吧";
+OtherHomeVO.TXT2 = "收到的礼物";
+OtherHomeVO.TXT3 = "赠送礼物";
+OtherHomeVO.setUserDatas = function(obj)
+{
+//	{"userid":56259161,"nickname":"lee3",
+//		"headimage":"http://t5.tianlaikge.com/web/images/defaultf.jpg",
+//		"image":"http://t5.tianlaikge.com/web/images/defaultf.jpg",
+//		"sex":2,"constellations":"1","introduction":"Mdndj",
+//		"level":5,"birthday":"","attest":0,"attest_url":"","mv_num":0,
+//		"play_num":0,"follow":1,"fans_num":1,"private_num":0,"chorusmv_num":0,
+//		"chorusres_num":0,"singlemv_num":0,"forward_num":0,"gift_num":1,"flower_num":0,
+//		"comment_num":0,"result":1,"status":0,"req_type":0}
+	
+	this.user.frienduserid = obj.userid;
+	this.user.nickname = obj.nickname;
+	this.user.headpic = obj.headimage;
+	this.user.level = obj.level;
+	this.user.constellations = obj.constellations;
+	this.user.sex = obj.sex;
+	this.user.attention =obj.follow;//关注
+	this.user.fan = obj.fans_num;
+	this.user.gift = obj.gift_num;
+	this.user.mvnum = obj.mv_num;
+	this.user.play_num =  obj.play_num;
+	this.user.flower_num =  obj.flower_num;
+	this.user.comment_num =  obj.comment_num;
+	this.user.intro = obj.introduction;
+	
+//	this.user.privatenums = obj.privatenums;
+//	this.user.messnum = obj.messnum;
+//	this.user.dynamicNum = obj.dynamicNum;
+//	this.user.mvnums =  obj.mvnums;
+	this.user.singlemvnums =  obj.singlemv_num;
+	this.user.pubmvnums =  obj.chorusmv_num;
+	this.user.chorusresnums = obj.chorusres_num;
+	this.user.forwordtimes = obj.forward_num;
+	
+	this.user.status=obj.status;
+	
+};

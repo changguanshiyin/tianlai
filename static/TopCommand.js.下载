@@ -1,0 +1,44 @@
+var TopCommand = {};
+var TopMediator = {};
+var TopProxy = {};
+TopCommand.execute = function(notification,obj)
+{
+	switch(notification)
+	{
+		case "toplogin_user_data":
+			TopProxy.loginedStatus();
+			break;
+		case "topunlogin_user_data":
+			TopProxy.unloginStatus();
+			break;
+		case "loginsuccesslbuser":
+			TopProxy.loginsuccess();
+			break;
+		
+			
+			
+			
+	}
+};
+TopCommand.init = function()
+{
+	//首页  view
+	facade.register("toplogin_user_data",TopMediator);
+	facade.register("topunlogin_user_data",TopMediator);
+	facade.register("landing",TopMediator);
+	facade.register("loginsuccesslbuser",TopCommand);
+	facade.register("loginthirderr",TopMediator);
+	
+	facade.register("top_alert", TopMediator);
+	
+	
+	
+};
+
+TopCommand.initdata = function(str)
+{
+	$("#search_id input").val(decodeURIComponent(str));
+	
+	
+};
+

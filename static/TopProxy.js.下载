@@ -1,0 +1,7 @@
+include("URLLoader");
+TopProxy.urlloader;
+
+TopProxy.verifyurl = rooturl+"userp/verifyCode.action2";
+TopProxy.loginurl = rooturl+"userp/login.action2";
+TopProxy.logouturl = rooturl+"userp/logout.action2";
+

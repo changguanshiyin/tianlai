@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://www.tlkg.com/ugcp/info.kg?enid=2adea4e0c5cb833f -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="http://www.tlkg.com:80/">--><base href=".">
+    
+    <title>天籁K歌，开启我们的快乐之旅！</title>
+    <meta name="viewport" content="width=1050">
+    <meta content="telephone=no" name="format-detection">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta name="keywords" content="天籁K歌,天籁K歌下载,K歌软件下载,KTV,手机K歌,K歌,唱吧,唱歌,K歌超炫">
+    <meta name="description" content="天籁K歌集听歌、唱歌、视频、社交为一体的多屏K歌软件，作为多屏合一的音乐娱乐社交平台，天籁K歌让您的生活充满欢乐！">
+    	<script>
+var rooturl = "http://www.tlkg.com:80/";
+</script>
+	<link rel="shortcut icon" href="static/favicon.ico" /><link rel="stylesheet" type="text/css" href="static/top.css">
+	<link rel="stylesheet" type="text/css" href="static/mvinfo.css">
+    <link rel="stylesheet" type="text/css" href="static/mv.css">
+<!--     <script src="http://t5.tianlaikge.com/web/js/jquery.js"></script> -->
+    <script src="static/ApplicationFacade.js.下载" charset="UTF-8"></script><script language="javascript" src="static/jquery-1.7.1.min.js.下载"></script><script language="javascript" src="static/TopCommand.js.下载" charset="utf-8"></script><script language="javascript" src="static/TopMediator.js.下载" charset="utf-8"></script><script language="javascript" src="static/TopProxy.js.下载" charset="utf-8"></script><script language="javascript" src="static/URLLoader.js.下载"></script>
+	<script src="static/ApplicationFacade.js(1).下载" charset="UTF-8"></script><script language="javascript" src="static/jquery-1.7.1.min.js.下载"></script><script language="javascript" src="static/MvinfoCommand.js.下载" charset="utf-8"></script><script language="javascript" src="static/MvinfoMediator.js.下载" charset="utf-8"></script><script language="javascript" src="static/utils.js.下载"></script><script language="javascript" src="static/MvinfoProxy.js.下载" charset="utf-8"></script><script language="javascript" src="static/URLLoader.js.下载"></script><script language="javascript" src="static/MvinfoVO.js.下载"></script>
+	<link href="static/emo1.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" src="static/bds_s_v2.js.下载"></script>
+
+<!--[if IE 6]>
+		<script type="text/javascript" src="http://t5.tianlaikge.com/web/js/DD_belatedPNG.js" ></script>
+		<script type="text/javascript">   DD_belatedPNG.fix('.lbdown,.imgclass, .xing, .pic,.logo,.nav li a,.searchdivselect,.loginedpic,.column,.dytype,.playbtn img,.type,.xing,.musicnamed,.musicname,.user2albg,.user2albg,.user1albg,.bgtop,.bgmid,.bgbot,.loginbtn3 a,.topusersanjiao,.musicnameed,.sys a,.title1,.div1');   </script>
+	<![endif]-->
+	<script>
+	
+	var index_user_data_login={};
+		TopCommand.init();
+		var ologig_msg = 'null';
+	$(function(){   
+			 if(ologig_msg+""!=""&&ologig_msg!=null&&ologig_msg!='null'){
+                   ologig_msg=$.parseJSON(ologig_msg);
+                   if(ologig_msg.result==0){
+                     facade.sendNotification("loginthirderr",ologig_msg);
+                   }
+             }
+	});
+		
+		  window.onload=function()
+		  {
+		  var resstr={"userid":57433596,"nickname":"常觀世音","remarkname":"","headimage":"static/f8d9a35a-6ddb-4248-84bc-934ab8b0e455.jpg","sex":1,"constellations":0,"birthday":"60后","level":82,"attest":0,"attest_url":"","image":"static/f8d9a35a-6ddb-4248-84bc-934ab8b0e455.jpg","introduction":"","cover":"http://t6.tianlaikge.com/upload_files/images/20141026/c9a6a26d-550d-475c-a4e1-ce04a3c85850.jpg","picnum":0,"blacknum":0,"activitynum":22,"messagenum":0,"groupnum":0,"mv_num":48,"play_num":8235,"follow":16,"fans_num":2108,"private_num":1992,"chorusmv_num":0,"chorusres_num":0,"singlemv_num":48,"forward_num":0,"gift_num":310609,"flower_num":10071,"comment_num":626,"status":8,"source_userid":57433596,"source_mvid":7208425,"pageNum":21,"result":1};
+		//resstr=resstr.toString().replace(/\"/g,"\\\"");
+		
+		 index_user_data = resstr;
+		 
+		 MvinfoCommand.init();
+		 MvinfoVO.setUserDatas(index_user_data);
+		 MvinfoVO.status = index_user_data["status"];
+		 MvinfoVO.mvid = 7208425;
+		 MvinfoVO.resourceid = 0;
+		 MvinfoVO.plnum = 626;
+		 MvinfoVO.content_to_comment = 0;
+		 MvinfoVO.user.source_mvid = index_user_data["source_mvid"];
+		 facade.sendNotification("init_user_data");
+		 facade.sendNotification("load_init_data"); 
+			 facade.sendNotification("topunlogin_user_data");
+		  };
+		
+		function isSpecialChar(){ 
+				var iptData=document.getElementById("inputzhid"); 
+				if(iptData.value.match(/[^\x00-\xff]/ig)){ 
+				iptData.value=iptData.value.replace(/[^\x00-\xff]/ig,""); 
+				} 
+		}
+	    
+		
+		var iFlash = null;
+var iFlashLow=null;
+var version = null;
+var isIE = navigator.userAgent.toLowerCase().indexOf("msie") != -1;
+if(isIE){
+    if (window.ActiveXObject) {
+        var control = null;
+        try {
+            control = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+        } catch (e) {
+            iFlash = false;
+        }
+        if (control) {
+            iFlash = true;
+            version = control.GetVariable('$version');
+            if(iFlashLow!=true){
+          if (/(WIN 9|WIN 8)/i.test(version)) {
+             iFlashLow =false;
+          }else{
+             iFlashLow = true;
+          }
+          }else{
+             iFlashLow = true;
+          }
+        }
+    };
+}else{
+    if (navigator.plugins) {
+      for (var i=0; i < navigator.plugins.length; i++) {
+        if (navigator.plugins[i].name.toLowerCase().indexOf("shockwave flash") >= 0) {
+          iFlash = true;
+          version = navigator.plugins[i].description.substring(navigator.plugins[i].description.toLowerCase().lastIndexOf("Flash ") + 6, navigator.plugins[i].description.length);
+          if(iFlashLow!=true){
+          if (/(Flash 9|Flash 8)/i.test(version)) {
+             iFlashLow =false;
+          }else{
+             iFlashLow = true;
+          }
+          }else{
+             iFlashLow = true;
+          }
+        }
+      }
+    }
+}
+function getID(swfID) { 
+   if (navigator.appName.indexOf("Microsoft") > -1) { 
+      me = window[swfID]; 
+   } else { 
+      me = document[swfID]; 
+   } 
+} 
+$(function(){
+ 
+   getID("mplayer");
+      if(iFlash==true&&iFlashLow==true){
+           document.getElementById("player_html5").style.display="none";
+        }else if(iFlash==true&&iFlashLow==false){
+           document.getElementById("player_html5").style.display="block";
+           $("#flplayer").html("");
+           $("#flashmp3_div").hide();
+           $("#flash_nonetxt").hide();
+           $("#flash_lowtxt").show();
+        }else if(iFlash==false&&iFlashLow==true){
+           document.getElementById("player_html5").style.display="block";
+           $("#flplayer").html("");
+           $("#flashmp3_div").hide();
+           $("#flash_nonetxt").show();
+           $("#flash_lowtxt").hide();
+        }else{
+           document.getElementById("player_html5").style.display="block";
+           $("#flplayer").html("");
+           $("#flashmp3_div").hide();
+           $("#flash_nonetxt").show();
+           $("#flash_lowtxt").hide();
+        }
+           
+});
+	
+	</script>
+	<style>
+		.mv_name{width:700px;font-size:25px;height:32px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+		.mv_name .emo{margin-top:10px;}
+	</style>
+  <script src="static/logger.js.下载"></script><link href="static/bdsstyle.css" rel="stylesheet" type="text/css"></head>
+  <body><iframe frameborder="0" style="display: none;" src="static/saved_resource.html"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0" src="static/saved_resource(1).html"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.tlkg.com/#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.tlkg.com/#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.tlkg.com/#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.tlkg.com/#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.tlkg.com/#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.tlkg.com/#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.tlkg.com/#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.tlkg.com/#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.tlkg.com/#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.tlkg.com/#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.tlkg.com/#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.tlkg.com/#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.tlkg.com/#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.tlkg.com/#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.tlkg.com/#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.tlkg.com/#" class="bds_more">更多...</a></li></ul><p><a href="http://www.tlkg.com/#" class="goWebsite">百度分享</a></p></div></div></div>
+    
+
+
+      <div class="usertopline">
+          <div class="main_top">
+                <div class="logo">
+                     <div style="position: absolute;filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity: 0;opacity: 0;">天籁K歌</div>
+                     <a href="index.html" title="天籁K歌 ，开启我们的音乐之旅！"></a>
+                </div>
+                <div class="nav">
+                     <ul>
+                         <li class="nav_home">
+                             <a href="index.html">
+                                 <span></span>
+                             </a>
+                         </li>
+                         <li class="nav_rank">
+                         	 <a href="#">
+                                 <span></span>
+                             </a>
+                         </li>
+                         <li class="nav_activity">
+                         	 <a href="#">
+                                 <span></span>
+                             </a>
+                         </li>
+                         
+ 			
+                         
+                         <li class="nav_upload">
+                         	 <a id="goto_nav_upload" href="javascript:Void();">
+                                 <span></span>
+                             </a>
+                         </li>
+                         <li class="nav_shop">
+                         	 <a id="goto_nav_shop" href="javascript:Void();">
+                                 <span></span>
+                             </a>
+                         </li>
+                     </ul>
+                </div>
+                
+                <div class="search">
+                     <div class="searchdiv searchdivselect" id="search_id">
+                          <input id="searchinput" type="text">
+                          <a></a>
+                     </div>
+                </div>
+                <div id="toplogin" class="login" style="cursor: pointer;">
+                     <a></a>                                   
+                </div>
+                <div id="toplogined" style="position: absolute;left: 896px;top: 0px;color: white;display:none;">
+                     <ul style="padding:0;margin:0;width:101px;">
+                          <li class="mainlevel" style="float:left">
+                             <a style="width:40px;height:70px;display:block;position: relative;margin: 0 auto;text-align:center;" href="#?type=letter"><img style="width:23px;margin-top: 30px;" src="static/topletterpic.png"></a>
+                             <ul>
+                                 <li class="si"><a href="javascript:Void();"></a></li>
+                                 <li class="xi"><a href="javascript:Void();"></a></li>
+                                 <li class="xiao"><a href="javascript:Void();"></a></li>
+                             </ul>
+                          </li>
+                          <li class="mainlevel" style="float:right">
+                             <a style="width:40px;height:70px;display:block;position: relative;margin: 0 auto;" href="index.html"><img id="topuserpic" style="width:40px;margin-top: 22px;" src="index.html"><img class="topusersanjiao" style="position: absolute;bottom:0;left: 0;" src="static/tou3.png"></a>
+                             <ul>
+                                 <li class="ye"><a class="ye6" href="index.html"></a></li>
+                                 <li class="hu"><a class="hu6" href="#"></a></li>
+                                 <li class="tui"><a class="tui6" href="javascript:Void();"></a></li>
+                             </ul>
+                          </li>
+                     </ul>
+                     
+                </div>
+          </div>
+     </div>
+     
+<div id="loginalert" class="loginalert" style="display: none; left: 242px;">
+     <div class="bgtop"></div>
+     <div class="bgmid">
+          <div class="title">
+               <div class="h3">登录天籁K歌</div>
+               <div id="loginalertcha" class="cha"></div>
+          </div>
+          <div class="loginline"></div>
+          <div class="loginbody">
+	          <div class="part">
+	               <h4>天籁K歌客户端扫码登录</h4>
+	               <div id="erweima" style="text-align:center;"></div>
+	               <div id="login_xian"></div>
+	               <div class="loginbtn3" style="width:230px">
+	                    <a id="qqloginbtn" style="width:50px" class="qqlogin">
+	                      <img src="static/login_ten.png">
+	                                                            腾讯微博
+	                    </a>
+	                    <a id="qqwblogin" style="width:50px;margin-left:0px" class="qqwblogin">
+	                    <img src="static/login_qq.png">
+	                                                          腾讯QQ
+	                    </a>
+	                    <a id="sinaloginbtn" style="width:50px" class="sinalogin">
+	                    <img src="static/login_xin.png">
+	                                                          新浪微博
+	                    </a>
+	               </div>
+	          </div>
+	          <div class="partmid">
+	               <div></div>
+	          </div>
+	          <div class="part">
+	               <h4>使用天籁账号登录</h4> 
+	               <div class="logintl">
+	                    <table>
+	                          <tbody><tr>
+	                               <td>账号：</td>
+	                               <td>
+	                                   <div class="divinput">
+	                               			<input id="inputzhid" type="text" style="ime-mode:disabled" onkeyup="isSpecialChar()">
+	                               	   </div>
+	                               </td>
+	                          </tr>
+	                          <tr>
+	                               <td>密码：</td>
+	                               <td>
+	                                   <div class="divinput">
+	                                        <input id="inputpwdid1" type="password" style="ime-mode:disabled">
+	                                   </div>
+	                               </td>
+	                          </tr>
+	                          <tr>
+	                               <td>验证：</td>
+	                               <td>
+	                                    <div class="vindiv">
+	                               			<input id="verifycode" type="text">
+	                               		</div>
+	                               		<div id="vinpicdiv" class="vinpicdiv"><img id="verifyclick" src="static/loginCode.jsp"></div>
+	                                    <div id="vintxtdiv" class="vintxtdiv"><a>换一张?</a></div>
+	                               </td>
+	                          </tr>
+	                    </tbody></table>
+	                    <div id="errortxt" class="loginbtn"></div>
+	                    <div id="login" class="loginbtn"><img src="static/loginbtn.png"></div>
+	               </div>     
+	          </div>
+          </div>
+     </div>
+     <div class="bgbot"></div>
+</div>
+<div class="giftalert" id="shopgift" style="display: none; left: 469px;">
+         <div class="title">
+              <div class="titlename" id="send_gift_title">赠送礼物</div>
+              <div class="cha" id="shopclose"></div>
+         </div>
+         <div class="middle">
+              <div class="middlebody" id="shopgiftbigimg">
+                    <img alt="" src="index.html">
+                    <div class="txt">
+                         <div class="giftname" id="shopgiftname"></div>
+                         <div style="width:300px;">
+                              <div class="valuediv"><span class="value" id="shopprice"></span><span class="Kbi"></span></div>
+                              <a class="sendbtn" id="gift_send_btn"></a>
+                         </div>
+                    </div>
+              </div>
+         </div>
+         <div class="bottom"></div>
+</div>
+<div class="giftalert" id="receivegift" style="display: none; left: 469px;">
+         <div class="title">
+              <div class="titlename" id="receive_gift_title">收到的礼物</div>
+              <div class="cha" id="closereceivegift"></div>
+         </div>
+         <div class="middle">
+              <div class="middlebody" id="receivegiftbigimg">
+                    <img style="height:362px;" alt="" src="index.html">
+                    <div class="txt">
+                         <div class="giftname" id="receivegiftname">天籁K歌</div>
+                         <div style="width:300px;">
+                              <div class="nickname" id="receivegiftnickname">天籁 K歌</div>
+                              <a class="sendbackbtn" id="sendreceivegift"></a>
+                         </div>
+                    </div>
+              </div>
+         </div>
+         <div class="bottom"></div>
+</div>
+<div class="giftalert" id="currentalert" style="display: none; left: 469px;">
+         <div class="title">
+              <div class="titlename"></div>
+              <div class="cha" id="currentalert_close"></div>
+         </div>
+         <div class="middle">
+              <div style="width:100px;height:30px;"></div>
+              <div class="middlebody" id="currentmsg" style="text-align: center;">
+                    
+              </div>
+              <div style="width:100px;height:30px;"></div>
+
+              <div style="width: 200px;height: 50px;margin:0 auto;">
+                   <img id="alert_ok" style="width:200px;cursor:pointer;" src="static/submit.png">
+              </div>
+         </div>
+         <div class="bottom"></div>
+</div>
+<div class="giftalert" id="floweralert" style="display: none; left: 469px;">
+         <div class="title">
+              <div class="titlename">赠送鲜花</div>
+              <div class="cha" id="sendflower_close"></div>
+         </div>
+         <div class="middle">
+              
+              <div class="middlebody" id="currentmsg" style="height:150px;text-align: center;">
+                    <div class="sendflowercomment" style="margin:0 auto;float:left;width:304px;">
+                         <div class="hua_line"></div>
+                         <div style="width:304px;height:101px;margin:0 auto;">
+                              <textarea id="flowereare" name="text" style="overflow:auto;background:none;border:0;resize:none;font-size:13px;width:304px;height:99px;border:1px #ccc solid;" value="">来对TA说点什么吧</textarea>
+                         </div>
+                         <div class="hua_line"></div>
+                         <div style="width:304px;height:32px;margin:0 auto;margin-top: 10px;">
+                              <div style="float:left">
+                                   <input id="checkbox_flower" type="checkbox">悄悄赠送 
+                              </div>
+                              <div style="color: red;font-size: 12px;float: left;padding-left: 23px;padding-top: 6px;" id="flower_nonull">输入内容不能为空！</div>
+                         	  <div style="font-size: 12px;float: left;padding-left: 23px;padding-top: 6px;display: none;" id="flower_limit_txt">还可输入140个汉字</div>
+                              <div id="flowersend_btn" class="comment_btn" style="width: 73px;height: 32px;display: block;float: right;background-image: url(static/pic3.png);background-repeat: no-repeat;cursor: pointer;background-position: -3px -44px;">     
+                              </div>
+                         </div>
+                    </div>
+              </div>
+         </div>
+         <div class="bottom"></div>
+</div>
+<div class="giftalert" id="txtalert" style="display: none; left: 469px;">
+         <div class="title">
+              <div class="titlename" id="txt_alert_title">回复</div>
+              <div class="cha" id="txtalert_close"></div>
+         </div>
+         <div class="middle">
+              <div class="middlebody" id="currentmsg" style="height:150px;text-align: center;">
+                    <div class="sendflowercomment" style="margin:0 auto;float:left;width:304px;">
+                         <div class="hua_line"></div>
+                         <div style="width:304px;height:101px;margin:0 auto;">
+                              <textarea id="txteare" name="text" style="overflow:auto;background:none;border:0;resize:none;font-size:13px;width:304px;height:99px;border:1px #ccc solid;" value="">说点什么吧</textarea>
+                         </div>
+                         <div class="hua_line"></div>
+                         <div style="width:304px;height:32px;margin:0 auto;margin-top: 10px;">
+                         	  <div style="color: red;font-size: 12px;float: left;display: none;" id="nonull">输入内容不能为空！</div>
+                         	  <div style="font-size: 12px;float: left;" id="limit_txt">还可输入140个汉字</div>
+                              <div class="comment_btn" id="txt_alert_submit" style="width: 73px;height: 32px;display: block;float: right;background-image: url(static/pic3.png);background-repeat: no-repeat;cursor: pointer;background-position: -78px -44px;">     
+                              </div>
+                         </div>
+                    </div>
+              </div>
+         </div>
+         <div class="bottom"></div>
+</div>
+
+<div id="cover" class="cover" style="display:none"></div>
+<script>
+include("qrcode");
+</script><script language="javascript" src="static/jquery.qrcode.min.js.下载"></script>	
+
+    <div class="mv">
+         <div class="mv_left" style="width:700px;float:left;margin-top:100px;_margin-top:50px;position:relative;overflow:hidden;">
+              <div class="mv_name" style="">天龙诀</div>
+              
+              
+		<div id="flashmp3_div" style="width: 700px; height: 554px; display: none;">
+		
+						 <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="700px" height="554px" id="mplayer" align="middle">
+                                 <param name="allowScriptAccess" value="sameDomain">
+                                 <param name="movie" value="http://t6.tianlaikge.com/web/img/sns/mv/pc1219.swf?mvid=7208425&amp;pic=http://t5.tianlaikge.com/web/images/leibo/39.jpg||">
+                                 <param name="wmode" value="opaque"> 
+                                 <param name="quality" value="high">
+                                 <param name="bgcolor" value="#000000">
+                                 <param name="allowFullScreen" value="true">
+                                 <embed src="http://t6.tianlaikge.com/web/img/sns/mv/pc1219.swf?mvid=7208425&amp;pic=http://t5.tianlaikge.com/web/images/leibo/39.jpg||" quality="high" wmode="opaque" bgcolor="#000000" width="700px" height="554px" id="mplayer" name="mplayer" align="middle" allowscriptaccess="sameDomain" allowfullscreen="true" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+                         </object>
+                         
+				   </div>
+				   <div id="player_html" class="player_html5" style="width: 700px; height: 554px; left: 0px; display: block; background: rgb0, 0, 0;"><div class="picture" style="height:554px;"><div style="text-align:center"><div style="width:700px;height:20px;"></div><img width="720" height="480" src="static/39.jpg"><audio style="width:700px; max-height:60px; background:#ccc"  src="mp4/2adea4e0c5cb833f.mp4" controls="controls"></audio></div></div> </div><div class="send_div" id="send_div">
+                   <div class="hua_div">
+                        <div class="huabtn">
+                             <div class="hua_btnselect sys" id="huabtntab_0">
+                                  <a></a>
+                             </div>
+                             <div class="gift_btn sys" id="huabtntab_1">
+                                  <a></a>
+                             </div>
+                             <div class="recommend_btn sys" id="huabtntab_2">
+                                  <a></a>
+                             </div>
+                             <div class="share_btn" id="huabtntab_3">
+                                  <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare" data="{
+&#39;bdDes&#39;:&#39;天籁K歌&#39;, 
+&#39;text&#39;:&#39;我在@天籁K歌 发现作品《天龙诀》，很不错哦！大家也来捧捧场吧！&#39;, 
+&#39;title&#39;:&#39;天籁K歌&#39;, 
+&#39;pic&#39;:&#39;http://file10.audiocn.org:80/upload_files/images/20141026/f8d9a35a-6ddb-4248-84bc-934ab8b0e455.jpg&#39;,
+&#39;bdComment&#39;:&#39;天籁K歌&#39;,
+&#39;wbuid&#39;:&#39;天籁K歌&#39;,
+&#39;url&#39;:&#39;http://www.tlkg.com/maiba/share.action2?code=TVY7NzIwODQyNQ==&amp;t=1621653850081&#39;
+}" style="margin-top: 10px;margin-left: 20px;_margin-left:10px;"><!-- <span class="floatL">分享到：</span> -->
+				<a class="bds_qzone" title="分享到QQ空间" href="http://www.tlkg.com/#"></a>
+				<a class="bds_tsina" title="分享到新浪微博" href="http://www.tlkg.com/#"></a>
+				<a class="bds_tqq" title="分享到腾讯微博" href="http://www.tlkg.com/#"></a>
+				<span class="bds_more" style="color:#fff">更多</span>
+				<a class="shareCount" href="http://www.tlkg.com/#" title="累计分享0次">0</a>
+			</div>
+							 </div>
+                        </div>
+                        <div class="hua_class" id="send_xianhua">
+                             <div class="hua1" id="hua_0">
+                                 <a style="margin-left: 3px;_margin-left:2px;" class=""></a>
+                             </div>
+                             <div class="hua2" id="hua_1">
+                                 <a></a>
+                             </div>
+                             <div class="hua3" id="hua_2">
+                                 <a></a>
+                             </div>
+                             <div class="hua4" id="hua_3">
+                                 <a></a>
+                             </div>
+                             <div class="hua5" id="hua_4">
+                                 <a></a>
+                             </div>
+                             <div class="hua6" id="hua_5">
+                                 <a></a>
+                             </div>
+                        </div>
+                        
+                        <div class="gift_class" style="display:none" id="send_liwu">
+                             <ul class="divline" style="list-style-type:none;padding: 0;margin: 0;">
+                                  <li class="body" style="margin-left: 3px;" id="gift_body_0">
+                                       <div class="up">
+                                            <div class="imgdiv" id="gift_0_0"><img src="index.html"></div>
+                                            <div class="txtdiv">
+                                                 <div class="txt1" id="gift_0_1"></div>
+                                                 <div class="txt2"> </div>
+                                            </div>
+                                       </div>
+                                       <div class="bottom" id="gift_0_2"></div>
+                                  </li>
+                                  <li class="body" id="gift_body_1">
+                                       <div class="up">
+                                            <div class="imgdiv" id="gift_1_0"><img src="index.html"></div>
+                                            <div class="txtdiv">
+                                                 <div class="txt1" id="gift_1_1"></div>
+                                                 <div class="txt2"></div>
+                                            </div>
+                                       </div>
+                                       <div class="bottom" id="gift_1_2"></div>
+                                  </li>
+                                  <li class="body" id="gift_body_2">
+                                       <div class="up">
+                                            <div class="imgdiv" id="gift_2_0"><img src="index.html"></div>
+                                            <div class="txtdiv">
+                                                 <div class="txt1" id="gift_2_1"></div>
+                                                 <div class="txt2"></div>
+                                            </div>
+                                       </div>
+                                       <div class="bottom" id="gift_2_2"></div>
+                                  </li>
+                                  <li class="body" id="gift_body_3">
+                                       <div class="up">
+                                            <div class="imgdiv" id="gift_3_0"><img src="index.html"></div>
+                                            <div class="txtdiv">
+                                                 <div class="txt1" id="gift_3_1"></div>
+                                                 <div class="txt2"></div>
+                                            </div>
+                                       </div>
+                                       <div class="bottom" id="gift_3_2"></div>
+                                  </li>
+                                  <li class="body" id="gift_body_4">
+                                       <div class="up">
+                                            <div class="imgdiv" id="gift_4_0"><img src="index.html"></div>
+                                            <div class="txtdiv">
+                                                 <div class="txt1" id="gift_4_1"></div>
+                                                 <div class="txt2"></div>
+                                            </div>
+                                       </div>
+                                       <div class="bottom" id="gift_4_2"></div>
+                                  </li>
+                                  <li class="body" id="gift_body_5">
+                                       <div class="up">
+                                            <div class="imgdiv" id="gift_5_0"><img src="index.html"></div>
+                                            <div class="txtdiv">
+                                                 <div class="txt1" id="gift_5_1"></div>
+                                                 <div class="txt2"></div>
+                                            </div>
+                                       </div>
+                                       <div class="bottom" id="gift_5_2"></div>
+                                  </li>
+                             </ul>
+                             <div class="pagebtn">
+                                  <div class="prebtn" id="gift_pre"></div>
+                                  <div class="nextbtn" id="gift_next"></div>
+                             </div>
+                        </div>
+                   </div>
+                  
+                   <div class="comment_div" id="ping_lun_kuang">
+                        <div class="title">
+                             <div class="title1"></div>
+                             <div class="title2"></div>
+                        </div>
+                        <div class="commentarea">
+                             <textarea id="pl_textarea"></textarea>
+                        </div>
+                        <div class="commentbtndiv">
+                             <div class="commentbtn" id="submit_pl_btn"></div>
+                             <div class="commentnum">
+						         <span id="checklen">还可输入 <strong>140</strong> 个汉字&nbsp;&nbsp;&nbsp;</span>
+						         <span id="pl_nonull" style="color:red;display:none;">输入内容不能为空</span>
+						     </div>
+                        </div>
+                   </div>
+              </div>
+              
+              <div class="showcomment_div">
+                   <div class="title">
+                             <div class="div1"></div>
+                             <div class="div2" id="pinglunnum">(626)</div>
+                   </div>
+                   <div class="commentdiv" id="comment_div"><div class="commentone" id="commentone_0">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2021-05-19 15:18:48</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo551"></span><span class="emo emo551"></span><span class="emo emo551"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo226"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_0"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_0">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_1">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293473293">         	<img src="static/0fe552e6-9c10-491c-9caf-5b615b06164b.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293473293">				<span class="nickname">金色孔雀</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2021-05-13 23:20:50</span></div>          	<div class="name_time" style="word-break: break-all;">《天龙诀》歌词：风寒寻雪路，不知崎岖，苍松送稀客，衷心赞许。朝辞磨剑石，不加顾虑，轻提我宝剑，飞身再跨千里驹。到处惶恐争探问，问我是谁，看我傲然摘云彩，更感畏惧，天边有星，伸手要采，那怕极疲累。远近河岳请你记住，江山归我取。英雄流血汗，不轻溅泪，骄阳长相照，壮志凌锐。[陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][陶醉][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_1"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_1">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_2">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2021-04-11 17:19:35</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_2"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_2">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_3">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2021-02-23 16:25:19</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_3"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_3">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_4">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2021-02-14 23:09:13</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo61"></span><span class="emo emo551"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_4"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_4">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_5">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2021-01-10 09:25:06</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_5"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_5">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_6">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2020-12-26 10:44:42</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_6"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_6">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_7">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2020-12-22 16:28:17</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo1"></span><span class="emo emo0"></span><span class="emo emo1"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_7"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_7">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_8">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2020-12-19 19:31:28</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_8"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_8">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_9">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2020-10-31 16:22:57</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo13"></span><span class="emo emo13"></span><span class="emo emo13"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo551"></span><span class="emo emo551"></span><span class="emo emo551"></span><span class="emo emo158"></span><span class="emo emo158"></span><span class="emo emo158"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_9"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_9">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_10">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">         	<img src="static/cefc9703-b06b-41a3-8db9-18dd85b4bb66.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293511794">				<span class="nickname">金刚菩提心</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2020-10-22 11:05:46</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo53"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo52"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo50"></span><span class="emo emo13"></span><span class="emo emo13"></span><span class="emo emo13"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo65"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo66"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo158"></span><span class="emo emo158"></span><span class="emo emo158"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo49"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo56"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo61"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo236"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo226"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo1"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_10"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_10">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_11">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=296346445">         	<img src="static/b56610b3-6dea-4db8-9428-071c83ed54b8.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=296346445">				<span class="nickname">金_光_海</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2020-05-03 07:56:43</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo13"></span>《天龙诀》（天龙诀）<span class="emo emo13"></span>风寒寻雪路  不知崎岖&nbsp; 苍松送稀客  衷心赞许朝辞磨剑石  不加顾虑&nbsp; 轻提我宝剑  飞身再跨千里驹<span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>到处惶恐争探问  问我是谁&nbsp; 看我傲然摘云彩  更感畏惧<span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>天边有星　伸手要采&nbsp; 哪怕极疲累远近河岳　请你记住  江山归我取英雄流血汗  不轻溅泪&nbsp; 骄阳长相照  壮志凌锐              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_11"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_11">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_12">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">         	<img src="static/b0f1c05e-b130-4098-8ca6-ff49d3ba308f.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">				<span class="nickname">万里西方依然怀念</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2019-03-30 09:09:15</span></div>          	<div class="name_time" style="word-break: break-all;">[心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_12"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_12">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_13">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=59277219">         	<img src="static/25.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=59277219">				<span class="nickname">琉璃情缘</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2019-01-12 20:28:43</span></div>          	<div class="name_time" style="word-break: break-all;">分享了常觀世音的作品              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_13"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_13">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_14">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">         	<img src="static/09e7b1d9-6228-4848-a2c4-01cf777046ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">				<span class="nickname">鲜花满月楼</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-24 21:11:05</span></div>          	<div class="name_time" style="word-break: break-all;">真好听啊Master!!!!![心][心][心][心][心]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_14"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_14">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_15">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-16 12:01:14</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span><span class="emo emo64"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_15"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_15">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_16">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-14 16:42:28</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo67"></span><span class="emo emo67"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_16"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_16">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_17">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-14 16:42:24</span></div>          	<div class="name_time" style="word-break: break-all;">分享了你的作品              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_17"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_17">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_18">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-12 21:27:29</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_18"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_18">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_19">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-11 17:26:28</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span><span class="emo emo63"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_19"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_19">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_20">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-11 17:26:24</span></div>          	<div class="name_time" style="word-break: break-all;">分享了你的作品              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_20"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_20">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_21">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">         	<img src="static/ee73c5a6-9d59-416c-b69a-dfb0f58f96ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=294121297">				<span class="nickname">慈国</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-09-06 17:09:18</span></div>          	<div class="name_time" style="word-break: break-all;"><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span><span class="emo emo0"></span>              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_21"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_21">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_22">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">         	<img src="static/b0f1c05e-b130-4098-8ca6-ff49d3ba308f.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">				<span class="nickname">万里西方依然怀念</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-31 10:32:59</span></div>          	<div class="name_time" style="word-break: break-all;">[玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_22"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_22">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_23">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">         	<img src="static/09e7b1d9-6228-4848-a2c4-01cf777046ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">				<span class="nickname">鲜花满月楼</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-30 16:08:28</span></div>          	<div class="name_time" style="word-break: break-all;">[崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_23"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_23">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_24">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">         	<img src="static/09e7b1d9-6228-4848-a2c4-01cf777046ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">				<span class="nickname">鲜花满月楼</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-30 16:07:58</span></div>          	<div class="name_time" style="word-break: break-all;">[玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_24"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_24">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_25">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">         	<img src="static/09e7b1d9-6228-4848-a2c4-01cf777046ab.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=293893658">				<span class="nickname">鲜花满月楼</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-30 16:07:35</span></div>          	<div class="name_time" style="word-break: break-all;">[正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_25"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_25">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_26">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">         	<img src="static/b0f1c05e-b130-4098-8ca6-ff49d3ba308f.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">				<span class="nickname">万里西方依然怀念</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-15 15:33:33</span></div>          	<div class="name_time" style="word-break: break-all;">被震撼了[心][心][心][心][心][心][心]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_26"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_26">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_27">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">         	<img src="static/b0f1c05e-b130-4098-8ca6-ff49d3ba308f.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">				<span class="nickname">万里西方依然怀念</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-15 15:33:24</span></div>          	<div class="name_time" style="word-break: break-all;">简直了！太好听了！！！太有穿透力啦！！！！！！！！！[心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][心][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩][正喝彩]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_27"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_27">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_28">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">         	<img src="static/b0f1c05e-b130-4098-8ca6-ff49d3ba308f.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">				<span class="nickname">万里西方依然怀念</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-15 15:32:28</span></div>          	<div class="name_time" style="word-break: break-all;">哎呀妈呀！！！声音好年轻啊！好有力量啊！好好听啊！哎呀！循环播放中[崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][崇拜][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][露齿笑][露齿笑][露齿笑][听音乐][听音乐][听音乐][心][心][心][正喝彩][正喝彩][正喝彩][鼓掌][鼓掌][鼓掌]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_28"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_28">回复(0)</a>            </div>       </div>  </div><div class="commentone" id="commentone_29">	<div class="pinglun" style="width:100%;overflow: hidden;">    	<div class="commentimg"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">         	<img src="static/b0f1c05e-b130-4098-8ca6-ff49d3ba308f.jpg"></a>          </div>     	<div class="commenttxt">         	<div class="name_time"><a href="http://www.tlkg.com/homep/otherHome.kg?auserid=299042067">				<span class="nickname">万里西方依然怀念</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="time">2018-08-15 15:31:32</span></div>          	<div class="name_time" style="word-break: break-all;">[玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰][玫瑰]              </div>               <div style="height:13px;"></div>          	<div style="float:right;cursor:pointer;" id="zhankai_pl_29"></div>           </div>      	<div class="commentback">           	<a id="mvplhf_29">回复(0)</a>            </div>       </div>  </div></div>
+                   
+              </div>
+              <div class="pagetap" id="pagetap"></div>
+              <div style="width:100%;height:50px;"></div>
+         </div>
+         <div class="mv_right logined" style="width:300px;_width:290px;float:left;height:554px;background:#fff;margin-top:132px;_margin-top:82px;">
+              <div class="heigh"></div>
+                       <div class="user">
+                            <div class="img" id="head_myself"><img src="static/f8d9a35a-6ddb-4248-84bc-934ab8b0e455.jpg"></div>
+                            <div class="txt" id="user_name_myself"><p class="username">常觀世音</p><div class="userlv"><p>LV 82</p><span class="xing xing10"></span></div></div>
+                            <div class="friend_view">
+	                            <a class="message" id="send_sixin" style=""></a>
+	                            <a class="add" id="jia_guanzhu" style=""></a>
+	                            <a class="added" id="quxiao_guanzhu" style="display: none"></a>
+	                            
+	                        </div>
+                       </div>
+                       <div class="tablef">
+                            <table class="mvnum" cellspacing="0" width="100%">
+                                  <tbody><tr>
+                                       <td class="td1"><div class="loginedpic123 loginedpic1"></div></td>
+                                       <td class="td1"><div class="loginedpic123 loginedpic2"></div></td>
+                                       <td><div class="loginedpic123 loginedpic3"></div></td>
+                                  </tr>
+                                  <tr>
+                                       
+                                       <td class="td1">8235</td>
+                                       <td class="td1">10071</td>
+                                       <td>626</td>
+                                  </tr>
+                                  
+                            </tbody></table>
+                       </div>
+                       <div class="line"></div>
+                       <div class="tablef">
+                             <table class="snsnum" cellspacing="0" id="table_id">
+                                   <tbody><tr style="cursor: pointer;">
+                                       <td class="td1"><div class="loginedpic loginedpic4"></div></td>
+                                       <td class="td2">关注：</td>
+                                        <td class="td3" id="guan_zhu">16</td>
+                                  </tr>
+                                   <tr style="cursor: pointer;">
+                                       <td><div class="loginedpic loginedpic5"></div></td>
+                                       <td>粉丝：</td>
+                                      <td id="fen_si">2108</td>
+                                  </tr>
+                                  <tr style="cursor: pointer;">
+                                       <td><div class="loginedpic loginedpic6"></div></td>
+                                       <td>礼物：</td>
+                                       <td id="li_wu">310609</td>
+                                  </tr>
+                                  <tr style="cursor: pointer;">
+                                       <td><div class="loginedpic loginedpic7"></div></td>
+                                       <td>作品：</td>
+                                       <td id="zuo_pin">48</td>
+                                  </tr>
+                                  
+                            </tbody></table>
+                       </div>
+         </div>
+    </div>     
+    
+
+
+
+
+  
+    <!--<base href="http://www.tlkg.com:80/">--><base href=".">
+    
+    <title>天籁K歌，开启我们的快乐之旅！</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta name="keywords" content="天籁K歌,天籁K歌下载,K歌软件下载,KTV,手机K歌,K歌,唱吧,唱歌,K歌超炫">
+    <meta name="description" content="天籁K歌集听歌、唱歌、视频、社交为一体的多屏K歌软件，作为多屏合一的音乐娱乐社交平台，天籁K歌让您的生活充满欢乐！">
+    <style>
+            .footerdiv a{color:#707070;text-decoration: none;}
+            .footerdiv a:hover{color:#2DB2EA;}
+    </style>
+  
+  
+  
+    <p class="footerdiv" style="width:100%;float:left;margin:0 auto;border-top:1px #ccc solid;text-align:center;color:#707070;font-size: 15px;line-height: 25px;"><br>
+    <a href="index.html">天籁K歌</a> | <a href="http://www.tlkg.com/downp/about.kg?type=service">服务使用条款</a> | <a href="http://www.tlkg.com/downp/about.kg?type=secret">用户隐私政策</a> | <a href="http://www.tlkg.com/downp/about.kg?type=about">关于我们</a><br>
+北京天籁传音数字技术有限公司版权所有 <br>
+
+	<a href="https://beian.miit.gov.cn/">京ICP备07039975号-10</a>
+
+<br>
+
+<img src="static/ghs.png">	 
+
+	<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502031410">
+		京公网安备 11010502031410号
+	</a>
+
+
+
+<br>京网文[2016]2637-329号
+
+<br>Copyright (C) 2007-2010 All rights reserved. 
+<br><br>
+</p>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F422ba0de315b8a1aa8fcc86117369718' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="static/h.js.下载" type="text/javascript"></script>
+  
+
+
+    <script type="text/javascript">
+var bds_config={"snsKey":{'tsina':'1235848197','tqq':'','t163':'','tsohu':''}}
+	document.getElementById("bdshell_js").src ="http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+    
+  
+  
+
+
+</body></html>

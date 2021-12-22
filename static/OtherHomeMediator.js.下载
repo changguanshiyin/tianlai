@@ -1,0 +1,892 @@
+include("utils");
+OtherHomeMediator.init = function()
+{
+	
+};
+OtherHomeMediator.tabpage;
+OtherHomeMediator.execute = function(notify,obj)
+{
+	switch(notify)
+	{
+		case "init_user_data":
+			this.initUser();
+			break;
+		case "init_data_ok":
+			$("#pagetap").show();
+			OtherHomeVO.jsonobj = obj["information"];
+			this.layoutinit(obj["information"]);
+			break;
+		case "load_user_mv_data":
+			$("#pagetap").show();
+			OtherHomeVO.mvjson = obj;
+			OtherHomeVO.jsonobj = obj["information"];
+			this.layoutinit(obj["information"]);
+			break;
+		case "load_user_hydt_data":
+			$("#pagetap").show();
+			OtherHomeVO.jsonobj = obj["list"];
+			this.layoutinit(obj["list"]);
+			break;
+		case "load_fans_data":
+			$("#pagetap").show();
+			OtherHomeVO.jsonobj = obj["information"];
+			this.layoutinit(obj["information"]);
+			break;
+		case "load_guanzhu_data":
+			$("#pagetap").show();
+			OtherHomeVO.jsonobj = obj["information"];
+			this.layoutinit(obj["information"]);
+			break;
+		case "load_gift_data":
+			$("#pagetap").show();
+			OtherHomeVO.jsonobj = obj["list"];
+			this.layoutinit(obj["list"]);
+			break;
+		case "load_shopgift_data":
+			$("#pagetap").show();
+			OtherHomeVO.jsonobj = obj["properties"];
+			this.layoutinit(obj["properties"]);
+			break;
+		case "alert_txt":
+			this.alertTxt(obj,notify);
+			break;
+		case "loginsuccess":
+			this.logined(obj);
+			break;
+		case "user_logout":
+			this.log_out(obj);
+			break;
+		case "is_guanzhu":
+			this.isguanzhuAfterLogin(obj);
+			break;
+			
+	}
+};
+
+OtherHomeMediator.isguanzhuAfterLogin = function(obj)
+{
+	
+	OtherHomeVO.user.status = obj["statue"];
+	
+	if(OtherHomeVO.user.status==2 || OtherHomeVO.user.status==6)
+	{
+		$("#jia_guanzhu").hide();
+		$("#quxiao_guanzhu").show();
+	}else
+	{
+		$("#jia_guanzhu").show();
+		$("#quxiao_guanzhu").hide();
+	}
+	
+};
+
+
+OtherHomeMediator.log_out = function(obj)
+{
+	OtherHomeVO.user.status = 0;
+	OtherHomeVO.user.userid=null;
+	$("#quxiao_guanzhu").hide();
+	$("#jia_guanzhu").show();
+	
+};
+
+OtherHomeMediator.logined = function(obj)
+{
+	
+	OtherHomeVO.user.userid = obj.userid;
+	
+	facade.sendNotification("is_guanzhu_touser", {"userid":OtherHomeVO.user.frienduserid});
+	if(OtherHomeVO.step == 0)
+	{
+//		TopMediator.setCover($("#txtalert"));
+//		$("#txt_alert_title").html("发私信");
+//		$("#txteare").val(OtherHomeVO.TXT1);
+//		TopMediator.initTxtalert();
+//		$("#txtalert").show();
+	}
+};
+
+OtherHomeMediator.initUser = function()
+{
+	this.tabpage = new utils(1, "tabpage_","OtherHomeMediator.tabpage");
+	$("#head_myself img").attr("src",OtherHomeVO.user.headpic);
+	var userhtml="";
+	userhtml+='<div class="nickname" style="">'+OtherHomeVO.user.nickname+'</div>';
+	userhtml+='<div class="lvdiv"><a style="">LV '+OtherHomeVO.user.level+'</a><span class="xing xing'+OtherHomeVO.user.sex+OtherHomeVO.user.constellations+'"></span></div>';
+	userhtml+='<div style="height:70px;"></div>';
+	userhtml+='<div class="tph">';
+	userhtml+='     <div>';
+	userhtml+='         <a class="ting" style=""></a>';
+	userhtml+='         <span style="">'+OtherHomeVO.user.play_num+'</span>';
+	userhtml+='    </div>';
+	userhtml+='    <div>';
+	userhtml+='         <a class="hua" style=""></a>';
+	userhtml+='         <span style="">'+OtherHomeVO.user.flower_num+'</span>';
+	userhtml+='    </div>';
+	userhtml+='    <div>';
+	userhtml+='        <a class="ping" style=""></a>';
+	userhtml+='         <span style="">'+OtherHomeVO.user.comment_num+'</span>';
+	userhtml+='    </div>';
+	userhtml+=' </div>';
+	$("#user_name_myself").html(userhtml);
+	$("#gexing_qianming").html(OtherHomeVO.user.intro);
+	
+	
+	OtherHomeVO.pagenum = 1;
+	OtherHomeVO.page_bool = 1;
+	
+	if(OtherHomeVO.currentNav==0)
+		;
+//		OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.mvnum/30);
+	else if(OtherHomeVO.currentNav==1)
+		OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.fan/30);
+	else if(OtherHomeVO.currentNav==2)
+		OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.attention/30);
+	else if(OtherHomeVO.currentNav==3)
+		OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.gift/30);
+	else if(OtherHomeVO.currentNav==4)
+		OtherHomeVO.allpage=1;
+		
+	var myhomenav = [];
+	
+    myhomenav.push("作品("+OtherHomeVO.user.mvnum+")");
+    myhomenav.push("粉丝("+OtherHomeVO.user.fan+")");
+    myhomenav.push("关注("+OtherHomeVO.user.attention+")");
+    //myhomenav.push("Ta收到的礼物("+OtherHomeVO.user.gift+")");
+    myhomenav.push("Ta收到的礼物");
+	myhomenav.push("送Ta礼物");
+	
+	$("#sendreceivegift").hide();
+	
+	$("#myletterinfo").hide();
+	for(var i= 0 ;i<5;i++){
+		$("#topbtn_"+i).html(myhomenav[i]);
+		var strclass = $("#topbtn_"+i).attr("class");
+		if(OtherHomeVO.currentNav==i)
+		{
+			$("#body_"+i).show();
+			if(strclass && strclass.indexOf("btnsel")<0)
+			{
+				$("#topbtn_"+OtherHomeVO.currentNav).removeClass("btn");
+				$("#topbtn_"+OtherHomeVO.currentNav).addClass("btnsel");
+			}
+		}else
+		{
+			$("#body_"+i).hide();
+
+		}
+			
+		$("#topbtn_"+i).click(function(){
+			$("#topbtn_"+OtherHomeVO.currentNav).removeClass("btnsel");
+			$("#topbtn_"+OtherHomeVO.currentNav).addClass("btn");
+			$("#body_"+OtherHomeVO.currentNav).hide();
+			var idflag = $(this).attr("id");
+			idflag = idflag.split("_")[1];
+			OtherHomeVO.currentNav = idflag;
+			
+			$(this).removeClass("btn");
+			$(this).addClass("btnsel");
+			$("#body_"+OtherHomeVO.currentNav).show();
+			OtherHomeVO.pagenum = 1;
+			OtherHomeVO.page_bool = 1;
+			
+			$("#pagetap").hide();
+			if(idflag==0)
+				;
+//				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.mvnum/30);
+			else if(idflag==1)
+				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.fan/30);
+			else if(idflag==2)
+				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.attention/30);
+			else if(idflag==3)
+				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.gift/30);
+			else if(idflag==4)
+				OtherHomeVO.allpage=1;
+//				OtherHomeVO.allpage = Math.ceil(HomeVO.user.gift/30);
+			facade.sendNotification("top_change");
+		});
+	}
+	var mvarrs = [];
+	mvarrs.push("全部("+OtherHomeVO.user.mvnum+")");
+	mvarrs.push("独唱("+OtherHomeVO.user.singlemvnums+")");
+	mvarrs.push("合唱("+OtherHomeVO.user.pubmvnums+")");
+	mvarrs.push("发起合唱("+OtherHomeVO.user.chorusresnums+")");
+	mvarrs.push("转发("+OtherHomeVO.user.forwordtimes+")");
+	for(i=0;i<5;i++)
+	{
+		$("#mywork_"+i).html(mvarrs[i]);
+		$("#mywork_"+i).click(function(){
+			$("#mywork_"+OtherHomeVO.mvNav).removeClass("btnsel");
+			$("#mywork_"+OtherHomeVO.mvNav).addClass("btn");
+			var idflag = $(this).attr("id");
+			idflag = idflag.split("_")[1];
+			OtherHomeVO.mvNav = idflag;
+			OtherHomeVO.pagenum = 1;
+			OtherHomeVO.page_bool = 1;
+			$("#pagetap").hide();
+//			if(idflag==0)
+//				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.mvnum/30);
+//			else if(idflag==1)
+//				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.singlemvnums/30);
+//			else if(idflag==2)
+//				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.pubmvnums/30);
+//			else if(idflag==3)
+//				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.chorusresnums/30);
+//			else if(idflag==4)
+//				OtherHomeVO.allpage = Math.ceil(OtherHomeVO.user.forwordtimes/30);
+			
+			
+			$(this).removeClass("btn");
+			$(this).addClass("btnsel");
+			facade.sendNotification("tab_work_mv");
+		});
+		
+	}
+	for(i = 0;i<2;i++)
+	{
+		$("#giftbtn_"+i).click(function(){
+			$("#giftbtn_"+OtherHomeVO.orderType).removeClass("btnsel");
+			$("#giftbtn_"+OtherHomeVO.orderType).addClass("btn");
+			var idflag = $(this).attr("id");
+			idflag = idflag.split("_")[1];
+			OtherHomeVO.orderType = idflag;
+			OtherHomeVO.pagenum = 1;
+			OtherHomeVO.page_bool =1;
+			$(this).removeClass("btn");
+			$(this).addClass("btnsel");
+			facade.sendNotification("tab_work_gift");
+		});
+	}
+	
+	$("#gift_send_btn").click(function(){
+		facade.sendNotification("send_gift_touser", {"text":OtherHomeVO.jsonobj[OtherHomeVO.giftid]["name"],"giftid":OtherHomeVO.jsonobj[OtherHomeVO.giftid]["id"]});
+		$("#shopgift").hide();
+	});
+	$("#currentalert_close").click(function(){
+		$("#currentalert").hide();
+		$("#cover").hide();
+		if(OtherHomeVO.step == 0 || OtherHomeVO.step == 1)
+		{
+			TopMediator.gotologin();
+		}
+	});
+	if(OtherHomeVO.status==2 || OtherHomeVO.status==6)
+	{
+		$("#jia_guanzhu").hide();
+		$("#quxiao_guanzhu").show();
+	}else
+	{
+		$("#jia_guanzhu").show();
+		$("#quxiao_guanzhu").hide();
+	}
+	
+	$("#jia_guanzhu").click(function(){
+		//加关注
+//		alert(OtherHomeVO.user.status)
+		if(!OtherHomeVO.user.userid)
+		{
+			TopMediator.gotologin();
+			return;
+		}
+		if(OtherHomeVO.user.status!=2 || OtherHomeVO.user.status!=6)
+		{
+			//如果不是游客
+			facade.sendNotification("send_guanzhu_touser", {"userid":OtherHomeVO.user.frienduserid});
+		}else
+		{
+			//如果是游客提示登录
+//			TopMediator.setCover($("#currentalert"));
+//			$("#currentalert").show();
+//			$("#currentmsg").html(OtherHomeVO.TXT0);
+//			OtherHomeVO.step = 1;//发私信弹框
+//			TopMediator.gotologin();
+		}
+	});
+	$("#quxiao_guanzhu").click(function(){
+		
+		if(!OtherHomeVO.user.userid)
+		{
+			TopMediator.gotologin();
+			return;
+		}
+		//取消关注
+		if(OtherHomeVO.user.status==2 || OtherHomeVO.user.status==6)
+		{
+			//如果不是游客
+			facade.sendNotification("cancle_guanzhu_touser", {"userid":OtherHomeVO.user.frienduserid});
+		}else
+		{
+			//如果是游客提示登录
+			TopMediator.setCover($("#currentalert"));
+			$("#currentalert").show();
+			$("#currentmsg").html(OtherHomeVO.TXT0);
+			OtherHomeVO.step = 1;//发私信弹框
+		}
+	});
+	$("#send_sixin").click(function(){
+		//发私信；
+		if( OtherHomeVO.user.userid)
+		{
+			//用户登录了
+			TopMediator.setCover($("#txtalert"));
+			$("#txt_alert_title").html("发私信");
+			$("#txteare").val(OtherHomeVO.TXT1);
+			TopMediator.limitTxtNum = 300;
+			TopMediator.initTxtalert();
+			$("#txtalert").show();
+		}else
+		{
+			//用户没有登录
+//			TopMediator.setCover($("#currentalert"));
+//			$("#currentalert").show();
+//			$("#currentmsg").html(OtherHomeVO.TXT0);
+			OtherHomeVO.step = 0;//发私信弹框
+			TopMediator.gotologin();
+		}
+	});
+	$("#txtalert_close").click(function(){
+		$("#cover").hide();
+		$("#txtalert").hide();
+	});
+	$("#txt_alert_submit").click(function(){
+		//发私信请求接口
+		if($("#txteare").val()=="说点什么吧")
+		{
+			$("#txteare").val("");
+		}
+		if($.trim($("#txteare").val())=="")
+		{
+			$("#limit_txt").hide();
+			$("#nonull").show();
+			return;
+		}else
+		{
+			$("#limit_txt").show();
+			$("#nonull").hide();
+		}
+		$("#txtalert").hide();
+//		$("#cover").hide();
+		facade.sendNotification("send_private_touser", {"userid":OtherHomeVO.user.frienduserid,"content":$("#txteare").val()});
+	});
+};
+
+OtherHomeMediator.layoutinit = function(obj)
+{
+	if(OtherHomeVO.currentNav==0)
+	{
+		OtherHomeVO.allpage = OtherHomeVO.mvjson["pageNum"];
+	}
+	this["display_"+OtherHomeVO.currentNav](obj);
+	
+	
+	if(OtherHomeVO.page_bool==1)
+	{
+//		var len = Math.ceil(HomeVO.user.dynamicNum/30);
+//		this.tabpage.setPages(HomeVO.jsonobj["pageNum"]);
+		this.tabpage.setPages(OtherHomeVO.allpage);
+		this.tabpage.setCurrentPage(OtherHomeVO.pagenum);
+		$("#pagetap").html(this.tabpage.pagetab());
+		OtherHomeVO.page_bool = 0;
+	}
+	
+};
+//作品
+OtherHomeMediator.display_0 = function(obj)
+{
+	var htmlstr = this.layoutmv(obj);
+	//$("#mywork_content_0").html(htmlstr);
+	document.getElementById("mywork_content_0").innerHTML="";
+	document.getElementById("mywork_content_0").innerHTML=htmlstr;
+	
+	for(var i=0;i<obj.length;i++)
+	{
+		$("#mvcontentover_"+i).hide();
+		$("#mvcontentmouseEvent_"+i).click(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			facade.gotoURL(urlconfig.ugcpage, {"enid":OtherHomeVO.jsonobj[id]["enid"]}, "GET");
+		});
+		$("#mvcontentmouseEvent_"+i).hover(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			$("#mvcontentover_"+id).show();
+			$("#mvcontentout_"+id).hide();
+		},function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			$("#mvcontentover_"+id).hide();
+			$("#mvcontentout_"+id).show();
+		});
+	}
+	
+};
+
+OtherHomeMediator.display_1 = function(obj)
+{
+	
+	var htmlstr = this.layoutfans(obj);
+	$("#mywork_content_1").html(htmlstr);
+	
+	for(var i=0;i<obj.length;i++)
+	{
+		$("#fanscontentover_"+i).hide();
+		$("#fansmouseevent_"+i).click(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			if(OtherHomeVO.user.userid==OtherHomeVO.jsonobj[id]["userid"])
+			{
+				facade.gotoURL(urlconfig.myselfpage, {}, "POST");
+			}else
+			{
+				facade.gotoURL(urlconfig.friendpage, {"auserid":OtherHomeVO.jsonobj[id]["userid"]}, "POST");
+			}
+		});
+		$("#fansmouseevent_"+i).hover(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			$("#fanscontentover_"+id).show();
+			$("#fanscontentout_"+id).hide();
+		},function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			$("#fanscontentover_"+id).hide();
+			$("#fanscontentout_"+id).show();
+		});
+	}
+	
+};
+OtherHomeMediator.display_2 = function(obj)
+{
+	var htmlstr = this.layoutguanzhu(obj);
+	$("#mywork_content_2").html(htmlstr);
+	
+	for(var i=0;i<obj.length;i++)
+	{
+		$("#guanzhucontentover_"+i).hide();
+		$("#guanzhumouseevent_"+i).click(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			if(OtherHomeVO.user.userid==OtherHomeVO.jsonobj[id]["userid"])
+			{
+				facade.gotoURL(urlconfig.myselfpage, {}, "POST");
+			}else
+			{
+				facade.gotoURL(urlconfig.friendpage, {"auserid":OtherHomeVO.jsonobj[id]["userid"]}, "POST");
+			}
+		});
+		$("#guanzhumouseevent_"+i).hover(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			$("#guanzhucontentover_"+id).show();
+			$("#guanzhucontentout_"+id).hide();
+		},function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			$("#guanzhucontentover_"+id).hide();
+			$("#guanzhucontentout_"+id).show();
+		});
+	}
+	
+};
+OtherHomeMediator.display_3 = function(obj)
+{
+	var htmlstr = this.layoutgift(obj);
+	$("#mywork_content_3").html(htmlstr);
+	
+	for(var i=0;i<obj.length;i++)
+	{
+		$("#giftcontentclick_"+i).click(function(){
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			TopMediator.setCover($("#receivegift"));
+			$("#receive_gift_title").html(OtherHomeVO.TXT2);
+			
+			$("#receivegiftbigimg img").attr("src",OtherHomeVO.jsonobj[id]["gift_url"]);
+			$("#receivegiftbigimg img").attr("alt",OtherHomeVO.jsonobj[id]["gift_name"]);
+			$("#receivegiftbigimg img").attr("title",OtherHomeVO.jsonobj[id]["gift_name"]);
+			$("#receivegiftname").html(OtherHomeVO.jsonobj[id]["gift_name"]);
+			$("#receivegiftnickname").html(OtherHomeVO.jsonobj[id]["sender_nick_name"]);
+			$("#receivegift").show();
+		});
+	}
+	//收到的礼物弹出框关闭按钮
+	$("#closereceivegift").click(function(){
+		$("#receivegiftbigimg img").attr("src","");
+		$("#cover").hide();
+		$("#receivegift").hide();
+	});
+	//回赠礼物
+	$("#sendreceivegift").click(function(){
+//		window.location=rooturl+'homep/index.kg';
+	});
+};
+
+OtherHomeMediator.display_4 = function(obj)
+{
+	var htmlstr = this.layoutshopgift(obj);
+	$("#mywork_content_4").html(htmlstr);
+	for(var i=0;i<obj.length;i++)
+	{
+		$("#shopgiftcontentclick_"+i).click(function(){
+			
+			idname = $(this).attr("id");
+			id = idname.split("_")[1];
+			
+			OtherHomeVO.giftid = id;
+			TopMediator.setCover($("#shopgift"));
+			$("#send_gift_title").html(OtherHomeVO.TXT3);
+			
+			$("#shopgiftbigimg img").attr("src",OtherHomeVO.jsonobj[id]["url"]);
+			$("#shopgiftbigimg img").attr("alt",OtherHomeVO.jsonobj[id]["name"]);
+			$("#shopgiftbigimg img").attr("title",OtherHomeVO.jsonobj[id]["name"]);
+			$("#shopgiftname").html(OtherHomeVO.jsonobj[id]["desc"]);
+			$("#shopprice").html(OtherHomeVO.jsonobj[id]["price"]);
+			$("#shopgift").show();
+		});
+	}
+	//收到的礼物弹出框关闭按钮
+	$("#shopclose").click(function(){
+		$("#shopgiftbigimg img").attr("src","");
+		$("#cover").hide();
+		$("#shopgift").hide();
+	});
+	//回赠礼物
+//	$("#sendreceivegift").click(function(){
+//		window.location=rooturl+'homep/index.kg';
+//	});
+	
+	
+};
+
+
+
+//作品
+OtherHomeMediator.layoutmv = function(obj)
+{
+	
+	var htmlstr = "";
+	if(obj && (obj.length==0))
+	{
+		if(OtherHomeVO.currentNav==0 && OtherHomeVO.mvNav==0)
+		{
+			htmlstr = '<div class="homeresulttxt">'+PromptTxt.oAllWorks+'</div>';
+		}else
+		{
+			htmlstr = '<div class="homeresulttxt">'+PromptTxt.oOtherWorks+'</div>';
+		}
+		
+		return htmlstr;
+	}
+	
+	htmlstr+=' <div class="column titlehotmusic"></div>';
+	htmlstr+=' <div class="body">';
+	for(var i=0;i<obj.length;i++)
+	{
+		if(i%5 == 0 )
+			htmlstr+='		<div class="musiceach musiceach0">';
+		else
+			htmlstr+='		<div class="musiceach" >';
+		
+		htmlstr+='				<div class="eachimg" id=mvcontentmouseEvent_'+i+'>';
+		if(obj[i]["img_url"] == undefined)
+			htmlstr+='					<div><img class="musicheadimg"  src="" /></div>';
+		else
+			htmlstr+='					<div><img class="musicheadimg"  src="'+obj[i]["img_url"]+'" /></div>';
+		htmlstr+='					<div class="musicname"  id="mvcontentout_'+i+'">';
+		htmlstr+='						<div class="mvname" >'+obj[i]["mvname"]+'</div>';
+		htmlstr+='						<div class="username" >'+obj[i]["nickname"]+'</div>';
+		htmlstr+='						<div class="type mvtype'+obj[i]["img_type"]+'"></div>';
+		htmlstr+='					</div>';
+		htmlstr+='					<div class="musicnamed" id="mvcontentover_'+i+'">';
+		htmlstr+='						<div class="playbtn"><img src="http://t6.tianlaikge.com/web/img/sns/mv/play.png"/></div>';
+		htmlstr+='						<div class="mvname" >'+obj[i]["mvname"]+'</div>';
+		htmlstr+='						<div class="username" >'+obj[i]["nickname"]+'</div>';
+		htmlstr+='						<div class="type mvtype'+obj[i]["img_type"]+'"></div>';
+		htmlstr+='						<div class="eachnum" >';
+		htmlstr+='							<div class="eachnumone" >';
+		htmlstr+='								<div class="pic pic1" ></div>';
+		htmlstr+='								<div class="txt">'+obj[i]["play_num"]+'</div>';
+		htmlstr+='		 					</div>';
+		htmlstr+='							<div class="eachnumone">';
+		htmlstr+='								<div class="pic pic2"></div>';
+		htmlstr+='								<div class="txt">'+obj[i]["flower_num"]+'</div>';
+		htmlstr+='							</div>';
+		htmlstr+='							<div class="eachnumone">';
+		htmlstr+='								<div class="pic pic3"></div>';
+		htmlstr+='								<div class="txt">'+obj[i]["comment_num"]+'</div>';
+		htmlstr+='							</div>';
+		htmlstr+='						</div>';
+		htmlstr+='					</div>';
+		htmlstr+='				</div>';
+		htmlstr+='			</div>';
+	}
+	htmlstr+=' 		</div>';
+	htmlstr+=' </div>';
+	return htmlstr;
+};
+//好友动态
+OtherHomeMediator.layoutHydt = function(obj)
+{
+	var htmlstr = "";
+	
+	for(var i=0;i<obj.length;i++) 
+	{
+		if(i%5 == 0 )
+		{
+			htmlstr+='		<div class="musiceach dynamiceach musiceach0" >';
+		}else
+		{
+			htmlstr+='		<div class="musiceach dynamiceach" >';
+		}
+		htmlstr+='				<div class="eachimg" id=hydtmouseEvent_'+i+'>';
+		htmlstr+='					<div><img class="musicheadimg"  src="'+obj[i]["image_url"]+'" /></div>';
+		htmlstr+='					<div class="musicname" id="hydtout_'+i+'">';
+		htmlstr+='						<div class="mvname" >';
+		htmlstr+='							<div class="name" style="">'+obj[i]["title"]+'</div>';
+		htmlstr+='							<div class="dytype dytype'+obj[i]["dt_type"]+'" style=""></div> ';
+		htmlstr+='						</div> ';
+		htmlstr+='						<div class="useraction" >'+obj[i]["content"]+'</div> ';
+		htmlstr+='					</div> ';
+		htmlstr+='					<div class="musicnamed" id="hydtover_'+i+'">';
+		htmlstr+='						<div class="playbtn"></div>';
+		htmlstr+='						<div class="mvname" >';
+		htmlstr+='							<div class="name" style="">'+obj[i]["title"]+'</div>';
+		htmlstr+='							<div class="dytype dytype'+obj[i]["dt_type"]+'"  style=""></div> ';
+		htmlstr+='						</div> ';
+		htmlstr+='						<div class="useraction" >'+obj[i]["content"]+'</div>';
+		htmlstr+='						<div class="useraction" >'+obj[i]["time"]+'</div>';
+		htmlstr+='					</div>';
+		htmlstr+='				</div>';
+		htmlstr+='			</div>';
+	}
+	
+	return htmlstr;
+};
+
+//好友
+OtherHomeMediator.layoutfans = function(obj)
+{
+	var htmlstr = "";
+
+	if(obj && (obj.length==0))
+	{
+		htmlstr = '<div class="homeresulttxt">'+PromptTxt.ofans+'</div>';
+		return htmlstr;
+	}
+	for(var i=0;i<obj.length;i++) 
+	{
+		if(i%5 == 0 )
+		{
+			htmlstr+='		<div class="usereach usereach2 musiceach0" >';
+		}else
+		{
+			htmlstr+='		<div class="usereach usereach2" >';
+		}
+		htmlstr+=			'<div class="usereach usereach2" id="fansmouseevent_'+i+'">';
+		htmlstr+=           '<div><img class="user2wi user2he" src="'+obj[i]["image"]+'"/></div>';
+		htmlstr+=           '<div class="user2albg" id="fanscontentout_'+i+'">';
+		htmlstr+=                '<div class="username user2wi">'+obj[i]["nickname"]+'</div>';
+		htmlstr+=                '<div class="eachnum">';
+		htmlstr+=                     '<div class="eachnumone" style="width:62px;height:25px;float:left;" >';
+		htmlstr+=                      '<div class="txt">LV '+obj[i]["level"]+'</div>';
+		htmlstr+=                     '</div>';
+		htmlstr+=                      '<div class="eachnumone">';
+		htmlstr+=                           '<div class="txt">'+obj[i]["birthday"]+'</div>';
+		htmlstr+=                      '</div>';
+		htmlstr+=                      '<div class="eachnumone">';
+		htmlstr+=                          '<div class="txt txtxing"><span class="xing xing'+obj[i]["sex"]+obj[i]["constellations"]+'"></span></div>';
+		htmlstr+=                     '</div>';
+		htmlstr+=                '</div>';
+		htmlstr+=            '</div>';
+		htmlstr+=            '<div class="musicnamed" id="fanscontentover_'+i+'">';
+		htmlstr+=                       '<div class="playbtn"></div>';
+		htmlstr+=                       '<div class="username user2wi">'+obj[i]["nickname"]+'</div>';
+		htmlstr+=                       '<div class="eachnum">';
+		htmlstr+=                              '<div class="eachnumone" style="width:62px;height:25px;float:left;" >';
+		htmlstr+=                               '<div class="txt">LV '+obj[i]["level"]+'</div>';
+		htmlstr+=                              '</div>';
+		htmlstr+=                             '<div class="eachnumone">';
+		htmlstr+=                                 '<div class="txt">'+obj[i]["birthday"]+'</div>';
+		htmlstr+=                            '</div>';
+		htmlstr+=                            '<div class="eachnumone">';
+		htmlstr+=                                   '<div class="txt txtxing"><span class="xing xing'+obj[i]["sex"]+obj[i]["constellations"]+'"></span></div>';
+		htmlstr+=                              '</div>';
+		htmlstr+=                       '</div>';
+		htmlstr+=	                       '<div class="eachnum" >';
+		htmlstr+=	                              '<div class="eachnumone" >';
+		htmlstr+=	                                   '<div class="pic pic1" ></div>';
+		htmlstr+=	                                   '<div class="txt">'+obj[i]["play_num"]+'</div>';
+		htmlstr+=	                              '</div>';
+		htmlstr+=	                              '<div class="eachnumone">';
+		htmlstr+=	                                   '<div class="pic pic2"></div>';
+		htmlstr+=	                                   '<div class="txt">'+obj[i]["flower_num"]+'</div>';
+		htmlstr+=	                              '</div>';
+		htmlstr+=	                              '<div class="eachnumone">';
+		htmlstr+=	                                   '<div class="pic pic3"></div>';
+		htmlstr+=	                                   '<div class="txt">'+obj[i]["comment_num"]+'</div>';
+		htmlstr+=	                              '</div>';
+		htmlstr+=	                       '</div>';
+		htmlstr+=		              '</div>';
+		htmlstr+=	       	  '</div>';
+		htmlstr+=	      '</div>';
+	}
+	
+	return htmlstr;
+};
+OtherHomeMediator.layoutguanzhu = function(obj)
+{
+	var htmlstr = "";
+	
+	if(obj && (obj.length==0))
+	{
+		htmlstr = '<div class="homeresulttxt">'+PromptTxt.oAttention+'</div>';
+		return htmlstr;
+	}
+	for(var i=0;i<obj.length;i++) 
+	{
+		if(i%5 == 0 )
+		{
+			htmlstr+='		<div class="usereach usereach2 musiceach0" >';
+		}else
+		{
+			htmlstr+='		<div class="usereach usereach2" >';
+		}
+		htmlstr+=			'<div class="usereach usereach2" id="guanzhumouseevent_'+i+'">';
+		htmlstr+=           '<div><img class="user2wi user2he" src="'+obj[i]["image"]+'"/></div>';
+		htmlstr+=           '<div class="user2albg" id="guanzhucontentout_'+i+'">';
+		htmlstr+=                '<div class="username user2wi">'+obj[i]["nickname"]+'</div>';
+		htmlstr+=                '<div class="eachnum">';
+		htmlstr+=                     '<div class="eachnumone" style="width:62px;height:25px;float:left;" >';
+		htmlstr+=                      '<div class="txt">LV '+obj[i]["level"]+'</div>';
+		htmlstr+=                     '</div>';
+		htmlstr+=                      '<div class="eachnumone">';
+		htmlstr+=                           '<div class="txt">'+obj[i]["birthday"]+'</div>';
+		htmlstr+=                      '</div>';
+		htmlstr+=                      '<div class="eachnumone">';
+		htmlstr+=                          '<div class="txt txtxing"><span class="xing xing'+obj[i]["sex"]+obj[i]["constellations"]+'"></span></div>';
+		htmlstr+=                     '</div>';
+		htmlstr+=                '</div>';
+		htmlstr+=            '</div>';
+		htmlstr+=            '<div class="musicnamed" id="guanzhucontentover_'+i+'">';
+		htmlstr+=                       '<div class="playbtn"></div>';
+		htmlstr+=                       '<div class="username user2wi">'+obj[i]["nickname"]+'</div>';
+		htmlstr+=                       '<div class="eachnum">';
+		htmlstr+=                              '<div class="eachnumone" style="width:62px;height:25px;float:left;" >';
+		htmlstr+=                               '<div class="txt">LV '+obj[i]["level"]+'</div>';
+		htmlstr+=                              '</div>';
+		htmlstr+=                             '<div class="eachnumone">';
+		htmlstr+=                                 '<div class="txt">'+obj[i]["birthday"]+'</div>';
+		htmlstr+=                            '</div>';
+		htmlstr+=                            '<div class="eachnumone">';
+		htmlstr+=                                   '<div class="txt txtxing"><span class="xing xing'+obj[i]["sex"]+obj[i]["constellations"]+'"></span></div>';
+		htmlstr+=                              '</div>';
+		htmlstr+=                       '</div>';
+		htmlstr+=	                       '<div class="eachnum" >';
+		htmlstr+=	                              '<div class="eachnumone" >';
+		htmlstr+=	                                   '<div class="pic pic1" ></div>';
+		htmlstr+=	                                   '<div class="txt">'+obj[i]["play_num"]+'</div>';
+		htmlstr+=	                              '</div>';
+		htmlstr+=	                              '<div class="eachnumone">';
+		htmlstr+=	                                   '<div class="pic pic2"></div>';
+		htmlstr+=	                                   '<div class="txt">'+obj[i]["flower_num"]+'</div>';
+		htmlstr+=	                              '</div>';
+		htmlstr+=	                              '<div class="eachnumone">';
+		htmlstr+=	                                   '<div class="pic pic3"></div>';
+		htmlstr+=	                                   '<div class="txt">'+obj[i]["comment_num"]+'</div>';
+		htmlstr+=	                              '</div>';
+		htmlstr+=	                       '</div>';
+		htmlstr+=		              '</div>';
+		htmlstr+=	       	  '</div>';
+		htmlstr+=	      '</div>';
+	}
+	
+	return htmlstr;
+};
+OtherHomeMediator.layoutgift = function(obj)
+{
+	var htmlstr = "";
+	
+	if(obj && (obj.length==0))
+	{
+		htmlstr = '<div class="homeresulttxt">'+PromptTxt.ogifts+'</div>';
+		return htmlstr;
+	}
+	for(var i=0;i<obj.length;i++) 
+	{
+		if(i%5 == 0 )
+		{
+			htmlstr+='		<div class="musiceach gifticeach musiceach0" id="giftcontentclick_'+i+'">';
+		}else
+		{
+			htmlstr+='		<div class="musiceach gifticeach " id="giftcontentclick_'+i+'">';
+		}
+		htmlstr+=				'<div class="eachimg" >';
+		htmlstr+=			        	'<div><img class="giftsmallimg" style="width:186px;height:186px;"  src="'+obj[i]["img_url"]+'" /></div>';
+		htmlstr+=		        	'<div class="musicname" >';
+		htmlstr+=			            	'<div class="mvname" >';
+		htmlstr+=			                  '<div class="name mygiftname" >'+obj[i]["sender_nick_name"]+'</div>';
+		htmlstr+=					    '</div>';
+		htmlstr+=					    '<div class="useraction" >';
+		htmlstr+=		                  '<div style="width: 75px;float:left">'+obj[i]["content"]+'</div>';
+		htmlstr+=		                  '<div style="width:100px;float:right;text-align:center;">'+obj[i]["time"]+'</div>';
+		htmlstr+=		                '</div>';
+		htmlstr+=		            '</div>';
+		htmlstr+=		         '</div>';
+		htmlstr+=		       '</div>';
+	}
+	return htmlstr;
+};
+
+OtherHomeMediator.layoutshopgift = function(obj)
+{
+	var htmlstr = "";
+	
+	for(var i=0;i<obj.length;i++) 
+	{
+		if(i%5 == 0 )
+		{
+			htmlstr+='		<div class="musiceach gifticeach musiceach0" id="shopgiftcontentclick_'+i+'">';
+		}else
+		{
+			htmlstr+='		<div class="musiceach gifticeach " id="shopgiftcontentclick_'+i+'">';
+		}
+		htmlstr+=				'<div class="eachimg" >';
+		htmlstr+=			        	'<div><img class="giftsmallimg" style="width:186px;height:186px;"  src="'+obj[i]["img"]+'" /></div>';
+		htmlstr+=		        	'<div class="musicname" >';
+		htmlstr+=			            	'<div class="mvname" >';
+		htmlstr+=			                  '<div class="name mygiftname" >'+obj[i]["desc"]+'</div>';
+		htmlstr+=					    '</div>';
+		htmlstr+=					    '<div class="useraction" >';
+		htmlstr+=		                  '<div style="width: 75px;float:left"></div>';
+		htmlstr+=		                  '<div style="width:100px;float:right;text-align:center;">';//+obj[i]["time"]
+		htmlstr+=		                       '<div class="giftkbi"></div><div style="float: right;">'+obj[i]["price"]+'</div>';
+		htmlstr+=		                  '</div>';
+		htmlstr+=		                '</div>';
+		htmlstr+=		            '</div>';
+		htmlstr+=		         '</div>';
+		htmlstr+=		       '</div>';
+	}
+	return htmlstr;
+};
+
+OtherHomeMediator.alertTxt = function(obj,notify)
+{
+	TopMediator.setCover($("#currentalert"));
+	$("#currentmsg").html(obj["text"]);
+	$("#currentalert").show();
+	OtherHomeVO.step=-1; 
+	if(obj["result"]==1)
+	{
+		if(OtherHomeVO.isguanzhu == 1)
+		{
+			$("#jia_guanzhu").hide();
+			$("#quxiao_guanzhu").show();
+			
+			
+		}else if(OtherHomeVO.isguanzhu == 0)
+		{
+			$("#jia_guanzhu").show();
+			$("#quxiao_guanzhu").hide();
+		}
+	}
+};

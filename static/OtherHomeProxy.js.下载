@@ -1,0 +1,182 @@
+headfile.OtherHomeVO = root+"model/vo/OtherHomeVO.js";
+include("URLLoader");
+include("OtherHomeVO");
+OtherHomeProxy.urlloader;
+
+OtherHomeProxy.lburl = "homep/getMvList.kg";
+OtherHomeProxy.hydturl = "homep/myDynamic.kg";
+OtherHomeProxy.fansturl = "attentionp/fansList.kg";
+OtherHomeProxy.ganzhuurl = "attentionp/AttentionList.kg";
+OtherHomeProxy.gifturl = "giftp/receivelist.kg";
+OtherHomeProxy.shopgifturl = "giftp/getProperties.kg";
+
+
+OtherHomeProxy.sendgift = "giftp/send.kg";
+//发私信
+OtherHomeProxy.privateurl = "letter/addLeaveWord.kg";
+//加关注
+OtherHomeProxy.sendguanzhuurl = "userp/addattention.kg";
+//取消关注
+OtherHomeProxy.cancleguanzhuurl = "attentionp/deleteattention.kg";
+
+
+OtherHomeProxy.relationurl = "homep/relation.kg";
+
+OtherHomeProxy.loadinitdata = function()
+{
+	this.load_list();
+};
+OtherHomeProxy.load_list = function()
+{
+	this.urlloader = new URLLoader();
+	this.loaddata();
+	
+};
+OtherHomeProxy.loadOK = function(event)
+{
+	if(!event.data && event.data["list"].length<=0) return;
+	facade.sendNotification("init_data_ok", event.data);
+};
+
+OtherHomeProxy.loaddata = function()
+{
+	
+	$("#mywork_content_"+OtherHomeVO.currentNav).html('<div class="homeloading"><img src="http://t6.tianlaikge.com/web/img/sns/rank/loading.gif" /></div>');
+	if(OtherHomeVO.currentNav==0)
+	{
+		this.urlloader.addEventListener(this.loadmvdataok);
+		this.urlloader.variable = "type="+OtherHomeVO.mvNav+"&page="+OtherHomeVO.pagenum+"&auserid="+OtherHomeVO.user.frienduserid;
+		this.urlloader.load(rooturl+this.lburl,"post");
+	}else if(OtherHomeVO.currentNav==1)
+	{
+		
+		this.urlloader.addEventListener(this.loadfansdataok);
+		this.urlloader.variable = "userid="+OtherHomeVO.user.frienduserid+"&page="+OtherHomeVO.pagenum+"&sort=0";
+		this.urlloader.load(rooturl+this.fansturl,"post");
+	}else if(OtherHomeVO.currentNav==2)
+	{
+		this.urlloader.addEventListener(this.loadguanzhudataok);
+		this.urlloader.variable = "sort="+0+"&sortid="+0+"&is_sort="+0+"&page="+OtherHomeVO.pagenum+"&type="+0+"&userid="+OtherHomeVO.user.frienduserid;
+		this.urlloader.load(rooturl+this.ganzhuurl,"post");
+	}else if(OtherHomeVO.currentNav==3)
+	{
+		this.urlloader.addEventListener(this.loadhydtdataok);
+		this.urlloader.variable = "orderType="+OtherHomeVO.orderType+"&page="+OtherHomeVO.pagenum+"&auserid="+OtherHomeVO.user.frienduserid;
+		this.urlloader.load(rooturl+this.gifturl,"post");
+	}else if(OtherHomeVO.currentNav==4)
+	{
+		this.urlloader.addEventListener(this.loadshopdataok);
+		this.urlloader.variable = "type=1";
+		this.urlloader.load(rooturl+this.shopgifturl,"post");
+	}
+
+};
+OtherHomeProxy.loadhydtdataok = function(event)
+{
+	facade.sendNotification("load_user_hydt_data", event.data);
+};
+OtherHomeProxy.loadmvdataok = function(event)
+{
+	if(event.data["result"]==1)
+	{
+		OtherHomeVO.allpage = event.data["pageNum"];
+		facade.sendNotification("load_user_mv_data", event.data);
+	}
+	
+};
+OtherHomeProxy.loadfansdataok = function(event)
+{
+	
+	facade.sendNotification("load_fans_data", event.data);
+};
+OtherHomeProxy.loadguanzhudataok = function(event)
+{
+	facade.sendNotification("load_guanzhu_data", event.data);
+};
+//获取礼物列表
+OtherHomeProxy.loadgiftdataok = function(event)
+{
+	facade.sendNotification("load_gift_data", event.data);
+};
+OtherHomeProxy.loadshopdataok = function(event)
+{
+	facade.sendNotification("load_shopgift_data", event.data);
+};
+
+
+
+//赠送礼物
+OtherHomeProxy.sendGiftToUser = function(obj)
+{
+	this.urlloader.addEventListener(this.sendgiftToUserOk);
+	this.urlloader.variable = "toid="+OtherHomeVO.user.frienduserid+"&num=1"+"&text="+obj.text+"&in_pub=1"+"&giftid="+obj.giftid;
+	this.urlloader.load(rooturl+this.sendgift,"post");
+};
+
+OtherHomeProxy.sendgiftToUserOk = function(event)
+{
+	facade.sendNotification("alert_txt", event.data);
+};
+
+//发送私信礼物
+OtherHomeProxy.sendPrivate = function(obj)
+{
+	this.urlloader.addEventListener(this.sendPrivateOk);
+	this.urlloader.variable = "isPrivate=1"+"&receiverId="+obj.userid+"&content="+obj.content;
+	this.urlloader.load(rooturl+this.privateurl,"post");
+};
+
+OtherHomeProxy.sendPrivateOk = function(event)
+{
+	facade.sendNotification("alert_txt", event.data);
+};
+
+//加关注
+OtherHomeProxy.sendgunzhu = function(obj)
+{
+	this.urlloader.addEventListener(this.sendgunzhuok);
+	this.urlloader.variable = "auid="+obj.userid;
+	this.urlloader.load(rooturl+this.sendguanzhuurl,"post");
+};
+
+OtherHomeProxy.sendgunzhuok = function(event)
+{
+	if(event.data["result"]==1)
+	{
+		OtherHomeVO.isguanzhu = 1;
+		OtherHomeVO.user.status = 2;
+	}
+	facade.sendNotification("alert_txt", event.data);
+};
+//取消关注
+OtherHomeProxy.canclegunzhu = function(obj)
+{
+	this.urlloader.addEventListener(this.canclegunzhuok);
+	this.urlloader.variable = "auid="+obj.userid;
+	this.urlloader.load(rooturl+this.cancleguanzhuurl,"post");
+};
+
+OtherHomeProxy.canclegunzhuok = function(event)
+{
+	if(event.data["result"]==1)
+	{
+		OtherHomeVO.isguanzhu = 0;
+		OtherHomeVO.user.status = 0;
+	}
+	facade.sendNotification("alert_txt", event.data);
+};
+
+
+//判断是是否存在关注关系。2 关注 非2没有关注
+
+OtherHomeProxy.isguanzhu = function(obj)
+{
+	this.urlloader.addEventListener(this.isguanzhuok);
+	this.urlloader.variable = "auserid="+obj.userid;
+	this.urlloader.load(rooturl+this.relationurl,"post");
+};
+
+OtherHomeProxy.isguanzhuok = function(event)
+{
+	facade.sendNotification("is_guanzhu", event.data);
+};

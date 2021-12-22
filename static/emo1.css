@@ -1,0 +1,589 @@
+.emo{background:url(http://file6.audiocn.org/web/js/iphone_emoji.png) top left no-repeat; width: 20px; height: 20px; display: -moz-inline-stack; display: inline-block; vertical-align: top; zoom: 0.8 ; *display: inline;}
+ .emo1{background-position: 0px 0px;}
+ .emo2{background-position: 0px -20px;}
+ .emo3{background-position: 0px -40px;}
+ .emo4{background-position: 0px -60px;}
+ .emo5{background-position: 0px -80px;}
+ .emo6{background-position: 0px -100px;}
+ .emo7{background-position: 0px -120px;}
+ .emo8{background-position: 0px -140px;}
+ .emo9{background-position: 0px -160px;}
+ .emo10{background-position: 0px -180px;}
+ .emo11{background-position: 0px -200px;}
+ .emo12{background-position: 0px -220px;}
+ .emo13{background-position: 0px -240px;}
+ .emo14{background-position: 0px -260px;}
+ .emo15{background-position: 0px -280px;}
+ .emo16{background-position: 0px -300px;}
+ .emo17{background-position: 0px -32px;}
+ .emo18{background-position: 0px -340px;}
+ .emo19{background-position: 0px -360px;}
+ .emo20{background-position: 0px -380px;}
+ .emo21{background-position: 0px -400px;}
+ .emo22{background-position: 0px -420px;}
+ .emo23{background-position: 0px -440px;}
+ .emo24{background-position: 0px -460px;}
+ .emo25{background-position: 0px -480px;}
+ .emo26{background-position: 0px -500px;}
+ .emo27{background-position: 0px -520px;}
+ .emo18{background-position: 0px -540px;}
+ .emo29{background-position: 0px -560px;}
+ .emo30{background-position: 0px -580px;}
+ .emo31{background-position: 0px -600px;}
+ .emo32{background-position: 0px -620px;}
+ .emo33{background-position: 0px -640px;}
+ .emo34{background-position: 0px -660px;}
+ .emo35{background-position: 0px -680px;}
+ .emo36{background-position: 0px -700px;}
+ .emo37{background-position: 0px -720px;}
+ .emo38{background-position: 0px -740px;}
+ .emo39{background-position: 0px -760px;}
+ .emo40{background-position: 0px -780px;}
+ .emo41{background-position: 0px -800px;}
+ .emo42{background-position: 0px -820px;}
+ .emo43{background-position: 0px -840px;}
+ .emo44{background-position: 0px -860px;}
+ .emo45{background-position: 0px -880px;}
+ .emo46{background-position: 0px -900px;}
+ .emo47{background-position: 0px -920px;}
+ .emo48{background-position: 0px -940px;}
+ .emo49{background-position: 0px -960px;}
+ .emo50{background-position: 0px -980px;}
+ .emo51{background-position: 0px -1000px;}
+ .emo52{background-position: 0px -1020px;}
+ .emo53{background-position: 0px -1040px;}
+ .emo54{background-position: 0px -1060px;}
+ .emo55{background-position: 0px -1080px;}
+ .emo56{background-position: 0px -1100px;}
+ .emo57{background-position: 0px -1120px;}
+ .emo58{background-position: 0px -1140px;}
+ .emo59{background-position: 0px -1160px;}
+ .emo60{background-position: 0px -1180px;}
+ .emo61{background-position: 0px -1200px;}
+ .emo62{background-position: 0px -1220px;}
+ .emo63{background-position: 0px -1240px;}
+ .emo64{background-position: 0px -1260px;}
+ .emo65{background-position: 0px -1280px;}
+ .emo66{background-position: 0px -1300px;}
+ .emo67{background-position: 0px -1320px;}
+ .emo68{background-position: 0px -1340px;}
+ .emo69{background-position: 0px -1360px;}
+ .emo70{background-position: 0px -1380px;}
+ .emo71{background-position: 0px -1400px;}
+ .emo72{background-position: 0px -1420px;}
+ .emo73{background-position: 0px -1440px;}
+ .emo74{background-position: 0px -1460px;}
+ .emo75{background-position: 0px -1480px;}
+ .emo76{background-position: 0px -1500px;}
+ .emo77{background-position: 0px -1520px;}
+ .emo78{background-position: 0px -1540px;}
+ .emo79{background-position: 0px -1560px;}
+ .emo80{background-position: 0px -1580px;}
+ .emo81{background-position: 0px -1600px;}
+ .emo82{background-position: 0px -1620px;}
+ .emo83{background-position: 0px -1640px;}
+ .emo84{background-position: 0px -1660px;}
+ .emo85{background-position: 0px -1680px;}
+ .emo86{background-position: 0px -1700px;}
+ .emo87{background-position: 0px -1720px;}
+ .emo88{background-position: 0px -1740px;}
+ .emo89{background-position: 0px -1760px;}
+ .emo90{background-position: 0px -1780px;}
+ .emo91{background-position: 0px -1800px;}
+ .emo92{background-position: 0px -1820px;}
+ .emo93{background-position: 0px -1840px;}
+ .emo94{background-position: 0px -1860px;}
+ .emo95{background-position: 0px -1880px;}
+ .emo96{background-position: 0px -1900px;}
+ .emo97{background-position: 0px -1920px;}
+ .emo98{background-position: 0px -1940px;}
+ .emo99{background-position: 0px -1960px;}
+ .emo100{background-position: 0px -1980px;}
+ .emo101{background-position: 0px -2000px;}
+ .emo102{background-position: 0px -2020px;}
+ .emo103{background-position: 0px -2040px;}
+ .emo104{background-position: 0px -2060px;}
+ .emo105{background-position: 0px -2080px;}
+ .emo106{background-position: 0px -2100px;}
+ .emo107{background-position: 0px -2120px;}
+ .emo108{background-position: 0px -2140px;}
+ .emo109{background-position: 0px -2160px;}
+ .emo110{background-position: 0px -2180px;}
+ .emo111{background-position: 0px -2200px;}
+ .emo112{background-position: 0px -2220px;}
+ .emo113{background-position: 0px -2240px;}
+ .emo114{background-position: 0px -2260px;}
+ .emo115{background-position: 0px -2280px;}
+ .emo116{background-position: 0px -2300px;}
+ .emo117{background-position: 0px -2320px;}
+ .emo118{background-position: 0px -2340px;}
+ .emo119{background-position: 0px -2360px;}
+ .emo120{background-position: 0px -2380px;}
+ .emo121{background-position: 0px -2400px;}
+ .emo122{background-position: 0px -2420px;}
+ .emo123{background-position: 0px -2440px;}
+ .emo124{background-position: 0px -2460px;}
+ .emo125{background-position: 0px -2480px;}
+ .emo126{background-position: 0px -2500px;}
+ .emo127{background-position: 0px -2520px;}
+ .emo128{background-position: 0px -2540px;}
+ .emo129{background-position: 0px -2560px;}
+ .emo130{background-position: 0px -2580px;}
+ .emo131{background-position: 0px -2600px;}
+ .emo132{background-position: 0px -2620px;}
+ .emo133{background-position: 0px -2640px;}
+ .emo134{background-position: 0px -2660px;}
+ .emo135{background-position: 0px -2680px;}
+ .emo136{background-position: 0px -2700px;}
+ .emo137{background-position: 0px -2720px;}
+ .emo138{background-position: 0px -2740px;}
+ .emo139{background-position: 0px -2760px;}
+ .emo140{background-position: 0px -2780px;}
+ .emo141{background-position: 0px -2800px;}
+ .emo142{background-position: 0px -2820px;}
+ .emo143{background-position: 0px -2840px;}
+ .emo144{background-position: 0px -2860px;}
+ .emo145{background-position: 0px -2880px;}
+ .emo146{background-position: 0px -2900px;}
+ .emo147{background-position: 0px -2920px;}
+ .emo148{background-position: 0px -2940px;}
+ .emo149{background-position: 0px -2960px;}
+ .emo150{background-position: 0px -2980px;}
+ .emo151{background-position: 0px -3000px;}
+ .emo152{background-position: 0px -3020px;}
+ .emo153{background-position: 0px -3040px;}
+ .emo154{background-position: 0px -3060px;}
+ .emo155{background-position: 0px -3080px;}
+ .emo156{background-position: 0px -3100px;}
+ .emo157{background-position: 0px -3120px;}
+ .emo158{background-position: 0px -3140px;}
+ .emo159{background-position: 0px -3160px;}
+ .emo160{background-position: 0px -3180px;}
+ .emo161{background-position: 0px -3200px;}
+ .emo162{background-position: 0px -3220px;}
+ .emo163{background-position: 0px -3240px;}
+ .emo164{background-position: 0px -3260px;}
+ .emo165{background-position: 0px -3280px;}
+ .emo166{background-position: 0px -3300px;}
+ .emo167{background-position: 0px -3320px;}
+ .emo168{background-position: 0px -3340px;}
+ .emo169{background-position: 0px -3360px;}
+ .emo170{background-position: 0px -3380px;}
+ .emo171{background-position: 0px -3400px;}
+ .emo172{background-position: 0px -3420px;}
+ .emo173{background-position: 0px -3440px;}
+ .emo174{background-position: 0px -3460px;}
+ .emo175{background-position: 0px -3480px;}
+ .emo176{background-position: 0px -3500px;}
+ .emo177{background-position: 0px -3520px;}
+ .emo178{background-position: 0px -3540px;}
+ .emo179{background-position: 0px -3560px;}
+ .emo180{background-position: 0px -3580px;}
+ .emo181{background-position: 0px -3600px;}
+ .emo182{background-position: 0px -3620px;}
+ .emo183{background-position: 0px -3640px;}
+ .emo184{background-position: 0px -3660px;}
+ .emo185{background-position: 0px -3680px;}
+ .emo186{background-position: 0px -3700px;}
+ .emo187{background-position: 0px -3720px;}
+ .emo188{background-position: 0px -3740px;}
+ .emo189{background-position: 0px -3760px;}
+ .emo190{background-position: 0px -3780px;}
+ .emo191{background-position: 0px -3800px;}
+ .emo192{background-position: 0px -3820px;}
+ .emo193{background-position: 0px -3840px;}
+ .emo194{background-position: 0px -3860px;}
+ .emo195{background-position: 0px -3880px;}
+ .emo196{background-position: 0px -3900px;}
+ .emo197{background-position: 0px -3920px;}
+ .emo198{background-position: 0px -3940px;}
+ .emo199{background-position: 0px -3960px;}
+ .emo200{background-position: 0px -3980px;}
+ .emo201{background-position: 0px -4000px;} 
+ .emo202{background-position: 0px -4020px;} 
+ .emo203{background-position: 0px -4040px;} 
+ .emo204{background-position: 0px -4060px;} 
+ .emo205{background-position: 0px -4080px;} 
+ .emo206{background-position: 0px -4100px;} 
+ .emo207{background-position: 0px -4120px;} 
+ .emo208{background-position: 0px -4140px;} 
+ .emo209{background-position: 0px -4160px;} 
+ .emo210{background-position: 0px -4180px;} 
+ .emo211{background-position: 0px -4200px;} 
+ .emo212{background-position: 0px -4220px;} 
+ .emo213{background-position: 0px -4240px;} 
+ .emo214{background-position: 0px -4260px;} 
+ .emo215{background-position: 0px -4280px;} 
+ .emo216{background-position: 0px -4300px;} 
+ .emo217{background-position: 0px -4320px;} 
+ .emo218{background-position: 0px -4340px;} 
+ .emo219{background-position: 0px -4360px;} 
+ .emo220{background-position: 0px -4380px;} 
+ .emo221{background-position: 0px -4400px;} 
+ .emo222{background-position: 0px -4420px;} 
+ 
+ .emo223{background-position: 0px -4440px;} 
+ .emo224{background-position: 0px -4460px;} 
+ .emo225{background-position: 0px -4480px;} 
+ .emo226{background-position: 0px -4500px;} 
+ .emo227{background-position: 0px -4520px;} 
+ .emo228{background-position: 0px -4540px;} 
+ .emo229{background-position: 0px -4560px;} 
+ .emo230{background-position: 0px -4580px;} 
+ 
+ .emo231{background-position: 0px -4600px;} 
+ .emo232{background-position: 0px -4620px;} 
+ .emo233{background-position: 0px -4640px;} 
+ .emo234{background-position: 0px -4660px;} 
+ .emo235{background-position: 0px -4680px;} 
+ .emo236{background-position: 0px -4700px;} 
+ .emo237{background-position: 0px -4720px;} 
+ .emo238{background-position: 0px -4740px;} 
+ .emo239{background-position: 0px -4760px;} 
+ .emo240{background-position: 0px -4780px;} 
+ .emo241{background-position: 0px -4800px;} 
+ .emo242{background-position: 0px -4820px;} 
+ .emo243{background-position: 0px -4840px;} 
+ .emo244{background-position: 0px -4860px;} 
+ .emo245{background-position: 0px -4880px;} 
+ .emo246{background-position: 0px -4900px;} 
+ .emo247{background-position: 0px -4920px;} 
+ .emo248{background-position: 0px -4940px;} 
+ .emo249{background-position: 0px -4960px;} 
+ .emo250{background-position: 0px -4980px;} 
+ .emo251{background-position: 0px -5000px;} 
+ .emo252{background-position: 0px -5020px;} 
+ .emo253{background-position: 0px -5040px;} 
+ .emo254{background-position: 0px -5060px;} 
+ .emo255{background-position: 0px -5080px;} 
+ .emo256{background-position: 0px -5100px;} 
+ .emo257{background-position: 0px -5120px;} 
+ .emo258{background-position: 0px -5140px;} 
+ .emo259{background-position: 0px -5160px;} 
+ .emo260{background-position: 0px -5180px;} 
+ .emo261{background-position: 0px -5200px;} 
+ .emo262{background-position: 0px -5220px;} 
+ .emo263{background-position: 0px -5240px;} 
+ .emo264{background-position: 0px -5260px;} 
+ .emo265{background-position: 0px -5280px;} 
+ .emo266{background-position: 0px -5300px;} 
+ .emo267{background-position: 0px -5320px;} 
+ .emo268{background-position: 0px -5340px;} 
+ .emo269{background-position: 0px -5360px;} 
+ .emo270{background-position: 0px -5380px;} 
+ .emo271{background-position: 0px -5400px;} 
+ .emo272{background-position: 0px -5420px;} 
+ .emo273{background-position: 0px -5440px;} 
+ .emo274{background-position: 0px -5460px;} 
+ .emo275{background-position: 0px -5480px;} 
+ .emo276{background-position: 0px -5500px;} 
+ .emo277{background-position: 0px -5520px;} 
+ .emo278{background-position: 0px -5540px;} 
+ .emo279{background-position: 0px -5560px;} 
+ .emo280{background-position: 0px -5580px;} 
+ .emo281{background-position: 0px -5600px;} 
+ .emo282{background-position: 0px -5620px;} 
+ .emo283{background-position: 0px -5640px;} 
+ .emo284{background-position: 0px -5660px;} 
+ .emo285{background-position: 0px -5680px;} 
+ .emo286{background-position: 0px -5700px;} 
+ .emo287{background-position: 0px -5720px;} 
+ .emo288{background-position: 0px -5740px;} 
+ .emo289{background-position: 0px -5760px;} 
+ .emo290{background-position: 0px -5780px;} 
+ .emo291{background-position: 0px -5800px;} 
+ .emo292{background-position: 0px -5820px;} 
+ .emo293{background-position: 0px -5840px;} 
+ .emo294{background-position: 0px -5860px;} 
+ .emo295{background-position: 0px -5880px;} 
+ .emo296{background-position: 0px -5900px;} 
+ .emo297{background-position: 0px -5920px;} 
+ .emo298{background-position: 0px -5940px;} 
+ .emo299{background-position: 0px -5960px;} 
+ .emo300{background-position: 0px -5980px;} 
+ .emo301{background-position: 0px -6000px;} 
+ .emo302{background-position: 0px -6020px;} 
+ .emo303{background-position: 0px -6040px;} 
+ .emo304{background-position: 0px -6060px;} 
+ .emo305{background-position: 0px -6080px;} 
+ .emo306{background-position: 0px -6100px;} 
+ .emo307{background-position: 0px -6120px;} 
+ .emo308{background-position: 0px -6140px;} 
+ .emo309{background-position: 0px -6160px;} 
+ .emo310{background-position: 0px -6180px;} 
+ .emo311{background-position: 0px -6200px;} 
+ .emo312{background-position: 0px -6220px;} 
+ .emo313{background-position: 0px -6240px;} 
+ .emo314{background-position: 0px -6260px;} 
+ .emo315{background-position: 0px -6280px;} 
+ .emo316{background-position: 0px -6300px;} 
+ 
+ .emo317{background-position: 0px -6320px;} 
+ .emo318{background-position: 0px -6340px;} 
+ .emo319{background-position: 0px -6360px;} 
+ .emo320{background-position: 0px -6380px;} 
+ .emo321{background-position: 0px -6400px;} 
+ .emo322{background-position: 0px -6420px;} 
+ .emo323{background-position: 0px -6440px;} 
+ .emo324{background-position: 0px -6460px;} 
+ .emo325{background-position: 0px -6480px;} 
+ .emo326{background-position: 0px -6500px;} 
+ .emo327{background-position: 0px -6520px;} 
+ 
+ .emo328{background-position: 0px -6540px;} 
+ .emo329{background-position: 0px -6560px;} 
+ .emo330{background-position: 0px -6580px;} 
+ .emo331{background-position: 0px -6600px;} 
+ .emo332{background-position: 0px -6620px;} 
+
+.emo333{background-position: 0px -6640px;} 
+.emo334{background-position: 0px -6660px;} 
+.emo335{background-position: 0px -6680px;} 
+.emo336{background-position: 0px -6700px;} 
+.emo337{background-position: 0px -6720px;} 
+.emo338{background-position: 0px -6740px;} 
+.emo339{background-position: 0px -6760px;} 
+.emo340{background-position: 0px -6780px;} 
+.emo341{background-position: 0px -6800px;} 
+.emo342{background-position: 0px -6820px;} 
+.emo343{background-position: 0px -6840px;} 
+.emo344{background-position: 0px -6860px;} 
+.emo345{background-position: 0px -6880px;} 
+.emo346{background-position: 0px -6900px;} 
+.emo347{background-position: 0px -6920px;}
+.emo348{background-position: 0px -6940px;} 
+.emo349{background-position: 0px -6960px;} 
+.emo350{background-position: 0px -6980px;} 
+.emo351{background-position: 0px -7000px;} 
+.emo352{background-position: 0px -7020px;} 
+.emo353{background-position: 0px -7040px;} 
+.emo354{background-position: 0px -7060px;} 
+.emo355{background-position: 0px -7080px;} 
+.emo356{background-position: 0px -7100px;} 
+.emo357{background-position: 0px -7120px;} 
+.emo358{background-position: 0px -7140px;} 
+.emo359{background-position: 0px -7160px;} 
+.emo360{background-position: 0px -7180px;} 
+.emo361{background-position: 0px -7200px;} 
+.emo362{background-position: 0px -7220px;} 
+.emo363{background-position: 0px -7240px;} 
+.emo364{background-position: 0px -7260px;} 
+.emo365{background-position: 0px -7280px;} 
+.emo366{background-position: 0px -7300px;} 
+.emo367{background-position: 0px -7320px;} 
+.emo368{background-position: 0px -7340px;} 
+.emo369{background-position: 0px -7360px;} 
+.emo370{background-position: 0px -7380px;} 
+.emo371{background-position: 0px -7400px;} 
+.emo372{background-position: 0px -7420px;} 
+.emo373{background-position: 0px -7440px;} 
+.emo374{background-position: 0px -7460px;} 
+
+.emo375{background-position: 0px -7480px;} 
+.emo376{background-position: 0px -7500px;} 
+.emo377{background-position: 0px -7520px;} 
+.emo378{background-position: 0px -7540px;} 
+
+.emo379{background-position: 0px -7560px;} 
+.emo380{background-position: 0px -7580px;}
+ .emo381{background-position: 0px -7600px;}
+  .emo382{background-position: 0px -7620px;}
+   .emo383{background-position: 0px -7640px;}
+    .emo384{background-position: 0px -7660px;} 
+    .emo385{background-position: 0px -7680px;} 
+    .emo386{background-position: 0px -7700px;} 
+    .emo387{background-position: 0px -7720px;} 
+    .emo388{background-position: 0px -7740px;} 
+    .emo389{background-position: 0px -7760px;} 
+    .emo390{background-position: 0px -7780px;} 
+    .emo391{background-position: 0px -7800px;} 
+    .emo392{background-position: 0px -7820px;} 
+    .emo393{background-position: 0px -7840px;} 
+    .emo394{background-position: 0px -7860px;} 
+    .emo395{background-position: 0px -7880px;} 
+    .emo396{background-position: 0px -7900px;} 
+    .emo397{background-position: 0px -7920px;} 
+    
+    .emo398{background-position: 0px -7940px;} 
+    .emo399{background-position: 0px -7960px;} 
+    .emo400{background-position: 0px -7980px;} 
+    .emo401{background-position: 0px -8000px;} 
+    .emo402{background-position: 0px -8020px;} 
+    .emo403{background-position: 0px -8040px;} 
+    .emo404{background-position: 0px -8060px;} 
+    .emo405{background-position: 0px -8080px;} 
+    .emo406{background-position: 0px -8100px;} 
+    .emo407{background-position: 0px -8120px;} 
+    .emo408{background-position: 0px -8140px;} 
+    .emo409{background-position: 0px -8160px;} 
+    .emo410{background-position: 0px -8180px;} 
+    .emo411{background-position: 0px -8200px;} 
+    .emo412{background-position: 0px -8220px;} 
+    .emo413{background-position: 0px -8240px;} 
+    .emo414{background-position: 0px -8260px;} 
+    .emo415{background-position: 0px -8280px;} 
+    .emo416{background-position: 0px -8300px;} 
+    .emo417{background-position: 0px -8320px;} 
+    .emo418{background-position: 0px -8340px;} 
+    .emo419{background-position: 0px -8360px;} 
+    .emo420{background-position: 0px -8380px;} 
+    .emo421{background-position: 0px -8400px;} 
+    .emo422{background-position: 0px -8420px;} 
+    .emo423{background-position: 0px -8440px;} 
+    .emo424{background-position: 0px -8460px;} 
+    .emo425{background-position: 0px -8480px;} 
+    .emo426{background-position: 0px -8500px;} 
+    .emo427{background-position: 0px -8520px;} 
+    .emo428{background-position: 0px -8540px;} 
+    .emo429{background-position: 0px -8560px;} 
+    .emo430{background-position: 0px -8580px;} 
+    .emo431{background-position: 0px -8600px;} 
+    .emo432{background-position: 0px -8620px;} 
+    .emo433{background-position: 0px -8640px;} 
+    .emo434{background-position: 0px -8660px;} 
+    .emo435{background-position: 0px -8680px;} 
+    
+    .emo436{background-position: 0px -8700px;} 
+    .emo437{background-position: 0px -8720px;} 
+    .emo438{background-position: 0px -8740px;} 
+    .emo439{background-position: 0px -8760px;} 
+    .emo440{background-position: 0px -8780px;} 
+    .emo441{background-position: 0px -8800px;} 
+    .emo442{background-position: 0px -8820px;} 
+    .emo443{background-position: 0px -8840px;} 
+    .emo444{background-position: 0px -8860px;} 
+    .emo445{background-position: 0px -8880px;} 
+    .emo446{background-position: 0px -8900px;} 
+    .emo447{background-position: 0px -8920px;} 
+    .emo448{background-position: 0px -8940px;} 
+    .emo449{background-position: 0px -8960px;} 
+    .emo450{background-position: 0px -8980px;} 
+    .emo451{background-position: 0px -9000px;} 
+    .emo452{background-position: 0px -9020px;} 
+    .emo453{background-position: 0px -9040px;} 
+    .emo454{background-position: 0px -9060px;} 
+    .emo455{background-position: 0px -9080px;} 
+    .emo456{background-position: 0px -9100px;} 
+    .emo457{background-position: 0px -9120px;} 
+    .emo458{background-position: 0px -9140px;} 
+    .emo459{background-position: 0px -9160px;} 
+    .emo460{background-position: 0px -9180px;} 
+    .emo461{background-position: 0px -9200px;} 
+    .emo462{background-position: 0px -9220px;} 
+    .emo463{background-position: 0px -9240px;} 
+    .emo464{background-position: 0px -9260px;} 
+    .emo465{background-position: 0px -9280px;} 
+    .emo466{background-position: 0px -9300px;} 
+    .emo467{background-position: 0px -9320px;} 
+    .emo468{background-position: 0px -9340px;} 
+    .emo469{background-position: 0px -9360px;} 
+    .emo470{background-position: 0px -9380px;} 
+    .emo471{background-position: 0px -9400px;} 
+    .emo472{background-position: 0px -9420px;} 
+    .emo473{background-position: 0px -9440px;} 
+    .emo474{background-position: 0px -9460px;} 
+    .emo475{background-position: 0px -9480px;} 
+    .emo476{background-position: 0px -9500px;} 
+    .emo477{background-position: 0px -9520px;} 
+    .emo478{background-position: 0px -9540px;} 
+    .emo479{background-position: 0px -9560px;} 
+    .emo480{background-position: 0px -9580px;} 
+    .emo481{background-position: 0px -9600px;} 
+    .emo482{background-position: 0px -9620px;} 
+    .emo483{background-position: 0px -9640px;} 
+    .emo484{background-position: 0px -9660px;} 
+    .emo485{background-position: 0px -9680px;} 
+    .emo486{background-position: 0px -9700px;} 
+    .emo487{background-position: 0px -9720px;} 
+    .emo488{background-position: 0px -9740px;} 
+    .emo489{background-position: 0px -9760px;} 
+    .emo490{background-position: 0px -9780px;} 
+    .emo491{background-position: 0px -9800px;} 
+    .emo492{background-position: 0px -9820px;} 
+    .emo493{background-position: 0px -9840px;} 
+    .emo494{background-position: 0px -9860px;} 
+    .emo495{background-position: 0px -9880px;} 
+    .emo496{background-position: 0px -9900px;} 
+    
+    .emo497{background-position: 0px -9920px;} 
+    .emo498{background-position: 0px -9940px;} 
+    .emo499{background-position: 0px -9960px;} 
+    .emo500{background-position: 0px -9980px;} 
+    .emo501{background-position: 0px -10000px;}
+     .emo502{background-position: 0px -10020px;} 
+     .emo503{background-position: 0px -10040px;} 
+     .emo504{background-position: 0px -10060px;} 
+     .emo505{background-position: 0px -10080px;} 
+     .emo506{background-position: 0px -10100px;} 
+     .emo507{background-position: 0px -10120px;} 
+     .emo508{background-position: 0px -10140px;} 
+     .emo509{background-position: 0px -10160px;} 
+     .emo510{background-position: 0px -10180px;} 
+     .emo511{background-position: 0px -10200px;} 
+     .emo512{background-position: 0px -10220px;} 
+     .emo513{background-position: 0px -10240px;} 
+     .emo514{background-position: 0px -10260px;} 
+     .emo515{background-position: 0px -10280px;} 
+     .emo516{background-position: 0px -10300px;} 
+     .emo517{background-position: 0px -10320px;} 
+     .emo518{background-position: 0px -10340px;} 
+     .emo519{background-position: 0px -10360px;} 
+     .emo520{background-position: 0px -10380px;} 
+     .emo521{background-position: 0px -10400px;} 
+     .emo522{background-position: 0px -10420px;} 
+     .emo523{background-position: 0px -10440px;} 
+     .emo524{background-position: 0px -10460px;} 
+     .emo525{background-position: 0px -10480px;} 
+     .emo526{background-position: 0px -10500px;} 
+     .emo527{background-position: 0px -10520px;} 
+     .emo528{background-position: 0px -10540px;} 
+     .emo529{background-position: 0px -10560px;} 
+     .emo530{background-position: 0px -10580px;} 
+     .emo531{background-position: 0px -10600px;} 
+     .emo532{background-position: 0px -10620px;} 
+     .emo533{background-position: 0px -10640px;} 
+     .emo534{background-position: 0px -10660px;} 
+     .emo535{background-position: 0px -10680px;} 
+     .emo536{background-position: 0px -10700px;} 
+     .emo537{background-position: 0px -10720px;} 
+     .emo538{background-position: 0px -10740px;} 
+     .emo539{background-position: 0px -10760px;} 
+     .emo540{background-position: 0px -10780px;} 
+     .emo541{background-position: 0px -10800px;} 
+     .emo542{background-position: 0px -10820px;} 
+     .emo543{background-position: 0px -10840px;} 
+     .emo544{background-position: 0px -10860px;} 
+     .emo545{background-position: 0px -10880px;} 
+     .emo546{background-position: 0px -10900px;} 
+     .emo547{background-position: 0px -10920px;} 
+     .emo548{background-position: 0px -10940px;} 
+     .emo549{background-position: 0px -10960px;} 
+     .emo550{background-position: 0px -10980px;} 
+     .emo551{background-position: 0px -11000px;} 
+     .emo552{background-position: 0px -11020px;} 
+     .emo553{background-position: 0px -11040px;} 
+     .emo554{background-position: 0px -11060px;} 
+     .emo555{background-position: 0px -11080px;} 
+     .emo556{background-position: 0px -11100px;} 
+     .emo557{background-position: 0px -11120px;} 
+     .emo558{background-position: 0px -11140px;} 
+     .emo559{background-position: 0px -11160px;} 
+     .emo560{background-position: 0px -11180px;} 
+     .emo561{background-position: 0px -11200px;} 
+     .emo562{background-position: 0px -11220px;} 
+     .emo563{background-position: 0px -11240px;} 
+     .emo564{background-position: 0px -11260px;} 
+     .emo565{background-position: 0px -11280px;} 
+     
+     .emo566{background-position: 0px -11300px;} 
+     .emo567{background-position: 0px -11320px;} 
+     .emo568{background-position: 0px -11340px;} 
+     .emo569{background-position: 0px -11360px;} 
+     .emo570{background-position: 0px -11380px;} 
+     .emo571{background-position: 0px -11400px;} 
+     .emo572{background-position: 0px -11420px;} 
+     .emo573{background-position: 0px -11440px;} 
+     .emo574{background-position: 0px -11460px;} 
+     
+     .emo575{background-position: 0px -11480px;} 
+     .emo576{background-position: 0px -11500px;}

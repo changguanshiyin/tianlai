@@ -1,0 +1,81 @@
+var MvinfoVO = {};
+MvinfoVO.user = {};
+MvinfoVO.user.myself_userid=null;
+MvinfoVO.currentNav = 0;
+MvinfoVO.mvNav = 0;
+MvinfoVO.pagenum = 1;
+
+MvinfoVO.orderType = 1;//0按价格排序 1按时间排序 用户礼物列表
+MvinfoVO.jsonobj=null;
+
+MvinfoVO.huabtntabid = 0;//tab 送花还是送礼物切换id
+//MvinfoVO.tab_down_id = 0;
+MvinfoVO.giftjson = null;
+MvinfoVO.giftpage = 1;
+MvinfoVO.pinglunjson = null;
+MvinfoVO.mvid = 0;
+//usermv.getResource_id();
+//usermv.getContent_to_comment_id();
+MvinfoVO.resourceid = null;
+MvinfoVO.content_to_comment = null;
+
+MvinfoVO.zhankaiid = null;
+
+MvinfoVO.flowerid = 0;
+
+MvinfoVO.giftid = 0;
+
+MvinfoVO.huifupagenum = 1;
+
+MvinfoVO.hfObj;
+MvinfoVO.plnum;
+
+MvinfoVO.intHfOpen=0;//是否初始化过回复分页
+MvinfoVO.intPLOpen=1;//是否初始化过评论分页
+MvinfoVO.type = 0;//评论级别 1对mv 2 为对评论 3 为对回复
+MvinfoVO.sourceId = 0;
+MvinfoVO.content = "";
+MvinfoVO.contentType = 0; //MvinfoVO  0为普通 2为图片，3为语音，5为表情' 上传评论
+//MvinfoVO.allPLpage
+
+MvinfoVO.TXT0="来对TA说点什么吧";
+MvinfoVO.TXT1 = "说点什么吧";
+MvinfoVO.TXT2 = "回复";
+
+MvinfoVO.TXT3 = "您还没有登录，请登录";
+MvinfoVO.TXT4 = "说点什么吧";
+
+
+MvinfoVO.isPrivate=0;
+MvinfoVO.isguanzhu = -1;
+MvinfoVO.setUserDatas = function(obj)
+{
+	this.user.userid = obj.userid;
+	this.user.nickname = obj.nickname;
+	this.user.headpic = obj.headimage;
+	this.user.level = obj.level;
+	this.user.constellations = obj.constellations;
+	this.user.sex = obj.sex;
+	this.user.attention =obj.follow;
+	this.user.fan = obj.fans_num;
+	this.user.gift = obj.gift_num;
+	this.user.mvnum = obj.mv_num;
+	this.user.play_num =  obj.play_num;
+	this.user.flower_num =  obj.flower_num;
+	this.user.comment_num =  obj.comment_num;
+	this.user.intro = obj.intro;
+	
+	this.user.privatenums = obj.privatenums;
+	this.user.messnum = obj.messnum;
+	this.user.dynamicNum = obj.dynamicNum;
+	this.user.mvnums =  obj.mvnums;
+	this.user.singlemvnums =  obj.singlemvnums;
+	this.user.pubmvnums =  obj.pubmvnums;
+	this.user.chorusresnums = obj.chorusresnums;
+	this.user.forwordtimes = obj.forwordtimes;
+	this.user.source_userid = obj.source_userid;
+	
+	this.user.pageNum = obj.pageNum;
+	
+	
+};
